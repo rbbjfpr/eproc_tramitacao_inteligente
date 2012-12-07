@@ -65,19 +65,31 @@
 
   <body>
 
-    <div class="container-narrow">
-
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="muted">Projeto eJus</h3>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Tela de preenchimento de laudo</a>
+          <ul class="nav pull-right">
+            <li><a href="#"> </a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">Navegação <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/">Tela de apresentação</a></li>
+                <li class="divider"></li>
+                <li><a href="analise_inicial.html">1. Análise de Inicial</a></li>
+                <li><a href="requisicao_perito_simples.html">2. Requisição do Perito</a></li>
+                <li><a href="resposta_perito.html">3. Resposta do Perito</a></li>
+                <li><a href="editor.html">4. Editor de Minuta Inteligente</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
 
-      <hr>
-
+    <div class="container-narrow">
       <div class="jumbotron">
         <h1>Preenchimento de laudo</h1>
       </div>
@@ -193,7 +205,7 @@
 
           <legend>23) Qual a data de início de sua incapacidade ?</legend>
           <div class="control-group">
-            <div class="alert alert-block">
+            <div class="alert alert-block alert-error">
               <button data-dismiss="alert" class="close" type="button">×</button>
               <h4>Atenção</h4>
               No quesito 19 você informou que a parte autora encontra-se capaz, portanto, caso for preencher este quesito, deve prestar esclarecimentos adicionais para evitar laudo contraditório.

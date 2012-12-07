@@ -166,8 +166,8 @@
               <li><a href="#dispositivo"><i class="icon-chevron-right"></i> Dispositivo</a></li>
             </ul>
             <div class="" style="margin: 9px 0 5px;">
-              <p><a class="btn btn-block" href="#ver_pericia" role="button" data-toggle="modal">Ver petição inicial</a></p>
-              <p><a class="btn btn-block" href="#ver_pericia" role="button" data-toggle="modal">Ver contestação</a></p>
+              <p><a class="btn btn-block" href="#a_desenvolver" role="button" data-toggle="modal">Ver petição inicial</a></p>
+              <p><a class="btn btn-block" href="#a_desenvolver" role="button" data-toggle="modal">Ver contestação</a></p>
               <p><a class="btn btn-block" href="#ver_pericia" role="button" data-toggle="modal">Ver perícia</a></p>
             </div>
           </div>
@@ -194,9 +194,9 @@
           </table>
 
           <div style="margin: 0 auto 10px; text-align:center" class="well">
-            <a href="#confirmacao" role="button" data-toggle="modal" class="btn" type="button">Abrir petição inicial</a>
-            <button class="btn" type="button">Abrir laudo</button>
-            <button class="btn" type="button">Abrir contestação</button>
+            <a href="#a_desenvolver" role="button" data-toggle="modal" class="btn" type="button">Abrir petição inicial</a>
+            <button class="btn" type="button" href="#ver_pericia" role="button" data-toggle="modal">Abrir perícia</button>
+            <button href="#a_desenvolver" role="button" data-toggle="modal" class="btn" type="button">Abrir contestação</button>
           </div>
            
         
@@ -516,6 +516,20 @@
         <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
         <button class="btn btn-danger"><i class="icon-question-sign"></i> Solicitar complementação</button>
+      </div>
+    </div>
+
+    <!-- MODAL desenvovlimento -->
+    <div id="a_desenvolver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">A desenvolver</h3>
+      </div>
+      <div class="modal-body">
+        Esta funcionalidade não foi desenvolvida no protótipo.
+      </div>  
+        <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
 
