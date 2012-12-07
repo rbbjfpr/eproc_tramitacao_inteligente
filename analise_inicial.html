@@ -158,14 +158,13 @@
       <div class="row-fluid">
         <div class="span7">
           <div class="well" style="position: fixed; width: 53%; height: 530px">
-            <select>
-              <option>Ev 1 - INIC1</option>
-              <option>Ev 1 - INIC1  </option>
+            <select id="documento">
+              <option value="0" selected="selected">Ev 1 - INIC1</option>
               <option>Ev 1 - CALC2  </option>
               <option>Ev 1 - PROC3  </option>
-              <option>Ev 1 - CPF4  </option>
+              <option value="1">Ev 1 - CPF4  </option>
               <option>Ev 1 - RG5</option>
-              <option>Ev 1 - CNIS5  </option>
+              <option value="2">Ev 1 - CNIS5  </option>
               <option>Ev 1 - CTPS6  </option>
               <option>Ev 1 - CTPS7  </option>
               <option>Ev 1 - CTPS8  </option>
@@ -189,8 +188,9 @@
            <div id="myCarousel" class="carousel slide" >
            <!-- Carousel items -->
            <div class="carousel-inner" style="height: 500px">
-           <div class="active item"><img src="PDF.png"></div>
-           <div class="item"> <img src="CPF.png"></div>
+           <div class="active item"><img src="PDF.png" id="INIC1"></div>
+           <div class="item"><img src="CPF.png" id="CPF4"></div>
+           <div class="item">Documento não encontrado.</div>
            </div>
            <!-- Carousel nav -->
            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
@@ -1826,8 +1826,35 @@
           $('[rel=chosen]').chosen({search_contains:"true"});
           $('#data_pericia').editable();
           $('.carousel').carousel({
-          interval: 2000000000000000000000000
+          interval: 0
           });
+          
+$('#documento').on('change', function(e)
+{
+  var val = e.target.value;
+  if (/^\d+$/.test(val)) {
+    val = Number(val);
+  } else {
+    val = 2;
+  }
+  $('.carousel').carousel(val);
+});
+$('.carousel').on('slid', analisaDocumentoSelecionado);
+function analisaDocumentoSelecionado(e)
+{
+  var currentImg = $('.carousel .active img');
+  if (currentImg.length == 1) {
+    currentImg = currentImg[0];
+    for (var options = $('#documento option'), i = 0, option; option = options[i]; i++) {
+      if (new RegExp(currentImg.id).test(option.textContent)) {
+        $('#documento')[0].value = option.value;
+      }
+    }
+  } else {
+    $('#documento')[0].value = 2;
+  }
+}
+analisaDocumentoSelecionado();
         </script>
     <!-- Final editor textos  -->
 
