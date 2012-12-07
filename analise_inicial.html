@@ -166,35 +166,37 @@
       <div class="row-fluid">
         <div class="span7">
           <div class="well" style="position: fixed; width: 53%; height: 530px">
-            <select id="documento">
-              <option value="0" selected="selected">Ev 1 - INIC1</option>
-              <option>Ev 1 - CALC2  </option>
-              <option>Ev 1 - PROC3  </option>
-              <option value="1">Ev 1 - CPF4  </option>
-              <option>Ev 1 - RG5</option>
-              <option value="2">Ev 1 - CNIS5  </option>
-              <option>Ev 1 - CTPS6  </option>
-              <option>Ev 1 - CTPS7  </option>
-              <option>Ev 1 - CTPS8  </option>
-              <option>Ev 1 - CTPS9  </option>
-              <option>Ev 1 - CTPS10  </option>
-              <option>Ev 1 - CTPS11  </option>
-              <option>Ev 1 - PROCADM12  </option>
-              <option>Ev 1 - PROCADM13  </option>
-              <option>Ev 1 - PROCADM14  </option>
-              <option>Ev 1 - PROCADM15  </option>
-              <option>Ev 1 - ATESTMED16  </option>
-              <option>Ev 1 - ATESTMED17  </option>
-              <option>Ev 1 - ATESTMED18  </option>
-              <option>Ev 1 - ATESTMED19  </option>
-              <option>Ev 1 - ATESTMED20  </option>
-              <option>Ev 1 - ATESTMED21  </option>
-              <option>Ev 1 - ATESTMED22  </option>
-              <option>Ev 1 - ATESTMED23  </option>
-              <option>Ev 1 - ATESTMED24  </option>
-            </select>
-            <label><input type="checkbox" id="atalhosTeclado" name="atalhosTeclado" checked="checked"/> Ativar atalhos de teclado</label>
-           <div id="myCarousel" class="carousel slide" >
+            <form class="form-inline" style="margin-bottom: 9px">
+              <select id="documento">
+                <option value="0" selected="selected">Ev 1 - INIC1</option>
+                <option>Ev 1 - CALC2  </option>
+                <option>Ev 1 - PROC3  </option>
+                <option value="1">Ev 1 - CPF4  </option>
+                <option>Ev 1 - RG5</option>
+                <option value="2">Ev 1 - CNIS5  </option>
+                <option>Ev 1 - CTPS6  </option>
+                <option>Ev 1 - CTPS7  </option>
+                <option>Ev 1 - CTPS8  </option>
+                <option>Ev 1 - CTPS9  </option>
+                <option>Ev 1 - CTPS10  </option>
+                <option>Ev 1 - CTPS11  </option>
+                <option>Ev 1 - PROCADM12  </option>
+                <option>Ev 1 - PROCADM13  </option>
+                <option>Ev 1 - PROCADM14  </option>
+                <option>Ev 1 - PROCADM15  </option>
+                <option>Ev 1 - ATESTMED16  </option>
+                <option>Ev 1 - ATESTMED17  </option>
+                <option>Ev 1 - ATESTMED18  </option>
+                <option>Ev 1 - ATESTMED19  </option>
+                <option>Ev 1 - ATESTMED20  </option>
+                <option>Ev 1 - ATESTMED21  </option>
+                <option>Ev 1 - ATESTMED22  </option>
+                <option>Ev 1 - ATESTMED23  </option>
+                <option>Ev 1 - ATESTMED24  </option>
+              </select>
+              <input type="text" placeholder="Digite aqui o memo deste documento" rel="tooltip" data-original-title="Digite aqui o Memo deste documento" class="input-xlarge">
+            </form>
+           <div id="myCarousel" class="carousel slide">
            <!-- Carousel items -->
            <div class="carousel-inner" style="height: 500px">
            <div class="active item"><img src="PDF.png" id="INIC1"></div>
@@ -205,6 +207,7 @@
            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
            </div>
+           <label><input type="checkbox" id="atalhosTeclado" name="atalhosTeclado" checked="checked"/> Ativar atalhos de teclado</label>
           </div>
         </div>
         <div class="span5">
