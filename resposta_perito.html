@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Preenchimento de Laudo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- editor de textos -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">Projeto eJus</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Preenchimento de laudo</h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <table class="table table-bordered">
+            <tr class="success">
+              <td>Perito logado:</td>
+              <td>Fulano de Tal - CRM 54.325</td>
+            </tr>
+            <tr>
+              <td>Número dos autos:</td>
+              <td>50092183820124047003</td>
+            </tr>
+            <tr>
+              <td>Parte autora:</td>
+              <td><strong>FABIANE CRISTINA MACHADO</strong></td>
+            </tr>
+            <tr>
+              <td>Idade:</td>
+              <td>28 anos</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="alert alert-info"><strong>Mensagem: </strong>Sr. Perito, neste processo há quesitos especiais. Favor prestar especial atenção para o quesito 28. </div>
+      <div class="row-fluid">
+        <form class="form-horizontal">
+          <legend>1) Dados iniciais</legend>
+          <div class="control-group">
+            <label for="inputEmail" class="control-label">Nome da parte autora</label>
+            <div class="controls">
+              <input type="text" placeholder="Nome" id="inputEmail">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Sexo</label>
+            <div class="controls">
+              <select>
+                <option></option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Escolaridade</label>
+            <div class="controls">
+              <input type="text" class="input-xxlarge" rel="tooltip" data-original-title="Ex: segundo grau" data-placement="left"></input>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Profissão atual</label>
+            <div class="controls">
+              <input type="text" class=""></input>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Histórico profissional</label>
+            <div class="controls">
+              <textarea rows="3" class="input-xxlarge" rel="tooltip" data-trigger="focus" placeholder="Favor descrever minuciosamente as funções já exercidas pela parte autora. Será importante para avaliação do Juízo quanto a possibilidade de reabilitação profissional, sendo o caso" data-original-title="Favor descrever minuciosamente as funções já exercidas pela parte autora. Será importante para avaliação do Juízo quanto a possibilidade de reabilitação profissional, sendo o caso."></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Outros dados</label>
+            <div class="controls">
+              <textarea rows="3" class="input-xxlarge" placeholder="Anamnese"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="inputEmail" class="control-label">Data da perícia</label>
+            <div class="controls">
+              <input type="text" placeholder="dd/mm/aa" id="inputEmail">
+            </div>
+          </div>
+          <legend>2) Quais são as queixas da parte autora ?</legend>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="3" class="input-xxlarge"></textarea>
+            </div>
+          </div>
+
+          <legend>3) Quais os exames apresentados ?</legend>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="3" class="input-xxlarge" placeholder="Indicar a data de realização e a síntese do resultado de cada um."></textarea>
+            </div>
+          </div>
+
+          <legend>4) O que foi apurado no exame físico/clínico ?</legend>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="3" class="input-xxlarge" placeholder=""></textarea>
+            </div>
+          </div>
+
+          <legend>5) Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia ?</legend>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="3" class="input-xxlarge" placeholder="Em caso afirmativo, quais ?"></textarea>
+            </div>
+          </div>
+
+          <legend>19) De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</legend>
+          <div class="control-group">
+            <div class="controls">
+              <label class="radio"><input type="radio" value="option1" id="option1" name="capacidade"> <span class=""><span class="label label-success">Capaz</span> para o exercício de qualquer trabalho</span>;</label>
+              <label class="radio"><input type="radio" value="option2" id="option2" name="capacidade"> <span class=""><span class="label label-success">Capaz</span> para o exercício de seu trabalho, apesar de <span class="label label-important">incapaz</span> para certas atividades</span>.</label>
+              <label class="radio"><input type="radio" value="option3" id="option3" name="capacidade"> <span class=""><span class="label label-important">Incapaz</span> para o exercício de certos tipos de trabalho, inclusive o seu</span>.</label>
+              <label class="radio"><input type="radio" value="option4" id="option4" name="capacidade"> <span class=""><span class="label label-important">Incapaz</span> para o exercício de qualquer trabalho</span>.</label>
+            </div>
+          </div>
+
+          <legend>23) Qual a data de início de sua incapacidade ?</legend>
+          <div class="control-group">
+            <div class="alert alert-block">
+              <button data-dismiss="alert" class="close" type="button">×</button>
+              <h4>Atenção</h4>
+              No quesito 19 você informou que a parte autora encontra-se capaz, portanto, caso for preencher este quesito, deve prestar esclarecimentos adicionais para evitar laudo contraditório.
+            </div>
+            <div class="controls">
+              <textarea rows="4" class="input-xxlarge" placeholder="Fundamente sua resposta."></textarea>
+            </div>
+          </div>
+
+
+          <legend>25) Comentários e esclarecimentos adicionais</legend>
+          <div class="control-group">
+            <div class="controls">
+              <textarea rows="6" class="input-xxlarge" placeholder=""></textarea>
+            </div>
+          </div>
+
+          <hr>
+
+          <div style="margin: 0 auto 10px; text-align:center" class="well">
+            <a href="#confirmacao" role="button" data-toggle="modal" class="btn btn-success" type="button" rel="tooltip" data-original-title="Publica o laudo no e-Proc imediatamente"><i class="icon-share-alt"></i> Entregar laudo no e-Proc</a>
+            <button class="btn" type="button"><i class="icon-save"></i> Salvar e continuar depois</button>
+            <button class="btn" type="button"><i class="icon-remove"></i> Sair descartando alterações</button>
+          </div>
+
+        </form>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p> Projeto de Tramitação Inteligente</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- MODAL -->
+
+    <!-- Modal -->
+    <div id="confirmacao" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Digite sua senha</h3>
+      </div>
+      <div class="modal-body">
+        <p>Digite sua senha abaixo para confirmar o envio deste laudo</p>
+        <input type="password">
+        </div>
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Cancelar</button>
+        <button class="btn btn-success"><i class="icon-share-alt"></i> Enviar laudo</button>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/application.js"></script>
+    <!-- Editor de textos -->
+    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
+    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
+    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
+    <script type="text/javascript">
+        $('#some-textarea').wysihtml5({locale: "pt-BR"});
+      </script>
+    <!-- Final editor textos  -->
+
+  </body>
+</html>

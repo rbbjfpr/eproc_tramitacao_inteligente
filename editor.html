@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Editor de minuta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
+    <!-- editor de textos -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
+    <style type="text/css">
+      body {
+        padding-top: 70px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+      /* Sidenav for Docs
+      -------------------------------------------------- */
+
+      .bs-docs-sidenav {
+        margin: 30px 0 0;
+        padding: 0;
+        background-color: #fff;
+        -webkit-border-radius: 6px;
+           -moz-border-radius: 6px;
+                border-radius: 6px;
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+           -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+                box-shadow: 0 1px 4px rgba(0,0,0,.065);
+      }
+      .bs-docs-sidenav > li > a {
+        display: block;
+        width: 190px \9;
+        margin: 0 0 -1px;
+        padding: 8px 14px;
+        border: 1px solid #e5e5e5;
+      }
+      .bs-docs-sidenav > li:first-child > a {
+        -webkit-border-radius: 6px 6px 0 0;
+           -moz-border-radius: 6px 6px 0 0;
+                border-radius: 6px 6px 0 0;
+      }
+      .bs-docs-sidenav > li:last-child > a {
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+      }
+      .bs-docs-sidenav > .active > a {
+        position: relative;
+        z-index: 2;
+        padding: 9px 15px;
+        border: 0;
+        text-shadow: 0 1px 0 rgba(0,0,0,.15);
+        -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+           -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+                box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+      }
+      /* Chevrons */
+      .bs-docs-sidenav .icon-chevron-right {
+        float: right;
+        margin-top: 2px;
+        margin-right: -6px;
+        opacity: .25;
+      }
+      .bs-docs-sidenav > li > a:hover {
+        background-color: #f5f5f5;
+      }
+      .bs-docs-sidenav a:hover .icon-chevron-right {
+        opacity: .5;
+      }
+      .bs-docs-sidenav .active .icon-chevron-right,
+      .bs-docs-sidenav .active a:hover .icon-chevron-right {
+        background-image: url(../img/glyphicons-halflings-white.png);
+        opacity: 1;
+      }
+      .bs-docs-sidenav.affix {
+        top: 40px;
+        margin-top: 30px !important;
+      }
+      .bs-docs-sidenav.affix-bottom {
+        position: absolute;
+        top: auto;
+        bottom: 270px;
+      }
+      /* Fim do sidenav */
+
+      .nav-tabs input {margin-top: -4px}
+
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="100">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Editor de minuta inteligente</a>
+          <!-- <ul class="nav">
+            <li class="active"><a href="#">Início</a></li>
+            <li><a href="#">Relatório</a></li>
+            <li><a href="#">Fundamentação</a></li>
+            <li><a href="#">Dispositivo</a></li>
+            <li><a href="#">Gerar minuta</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span3 bs-docs-sidebar">
+          <div style="height: 500px; width: 220px" data-spy="affix" data-offset-top="50"> <!-- to fix affix -->
+            <ul class="nav nav-list bs-docs-sidenav" style="margin: 0">
+              <li><a href="#tipo_minuta"><i class="icon-chevron-right"></i> Tipo de minuta</a></li>
+              <li><a href="#relatorio"><i class="icon-chevron-right"></i> Relatório</a></li>
+              <li><a href="#fundamentacao_inicial"><i class="icon-chevron-right"></i> Fundamentação inicial</a></li>
+              <li><a href="#fundamentacao_quesitos"><i class="icon-chevron-right"></i> Quesitos</a></li>
+              <li><a href="#fundamentacao_final"><i class="icon-chevron-right"></i> Fundamentação final</a></li>
+              <li><a href="#dispositivo"><i class="icon-chevron-right"></i> Dispositivo</a></li>
+            </ul>
+            <div class="" style="margin: 9px 0 5px;">
+              <p><a class="btn btn-block" href="#ver_pericia" role="button" data-toggle="modal">Ver petição inicial</a></p>
+              <p><a class="btn btn-block" href="#ver_pericia" role="button" data-toggle="modal">Ver contestação</a></p>
+              <p><a class="btn btn-block" href="#ver_pericia" role="button" data-toggle="modal">Ver perícia</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="span9">
+
+          <table class="table table-bordered table-condensed">
+            <tr>
+              <td>Número dos autos:</td>
+              <td>50092183820124047003</td>
+            </tr>
+            <tr>
+              <td>Assunto:</td>
+              <td>Auxílio-doença</td>
+            </tr>
+            <tr>
+              <td>Parte autora:</td>
+              <td><strong>FABIANE CRISTINA MACHADO</strong></td>
+            </tr>
+            <tr>
+              <td>Idade:</td>
+              <td>28 anos</td>
+            </tr>
+          </table>
+
+          <div style="margin: 0 auto 10px; text-align:center" class="well">
+            <a href="#confirmacao" role="button" data-toggle="modal" class="btn" type="button">Abrir petição inicial</a>
+            <button class="btn" type="button">Abrir laudo</button>
+            <button class="btn" type="button">Abrir contestação</button>
+          </div>
+           
+        
+          <div class="well" id="tipo_minuta">
+            <form class="form-inline" style="margin: 0">
+              <h3>1. Escolha o tipo de minuta</h3>
+              <div class="alert alert-info fade in">
+                <button data-dismiss="alert" class="close" type="button">×</button>
+                Considerando a informação do laudo de que a parte autora encontra-se <span class="label label-success">capaz</span>, sugerimos a minuta totalmente improcedente
+              </div>
+              <select tabindex="1" style="width:500px;" rel="chosen">
+                <optgroup label="Auxílio-doença">
+                  <option>Auxílio-doença totalmente improcedente - parte capaz</option>
+                  <option>Auxílio-doença totalmente improcedente - falta de qualidade de segurado</option>
+                  <option>Auxílio-doença totalmente procedente</option>
+                  <option>Auxílio-doença parcialmente procedente</option>
+                </optgroup>
+                <optgroup label="LOAS">
+                  <option>LOAS procedente</option>
+                  <option>LOAS improcedente</option>
+                  <option>LOAS parcialmente procedente</option>
+                </optgroup>
+              </select>
+            </form>
+          </div>
+            
+          <div class="well" id="relatorio">
+            <form class="" style="margin: 0">
+              <h3>2. Relatório</h3>
+              <legend>
+                O que o autor pede ?
+                <div class="pull-right">
+                  <a class="btn btn-mini">Abrir inicial</a> 
+                </div>
+              </legend>
+              <label class="radio">
+                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">
+                Concessão de benefício
+              </label>
+              <label class="radio">
+                <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">
+                Restabelecimento de benefício
+              </label>
+              <label>DER / DCB:</label>
+              <input type="date" class="input-mini" placeholder="dd/mm/aa">
+
+              <legend>
+                O que o INSS alegou em contestação ?
+                <div class="pull-right">
+                  <a class="btn btn-mini">Abrir contestação</a> 
+                </div>
+              </legend>
+              <div style="margin-bottom: 20px">
+                <label class="checkbox"><input type="checkbox" value="">Falta de qualidade de segurado</label>
+                <label class="checkbox"><input type="checkbox" value="">Falta de incapacidade para o trabalho</label>
+                <label class="checkbox"><input type="checkbox" value="">Falta de carência</label>
+              </div>
+              <!-- <select tabindex="1" style="width:350px;" rel="chosen" data-placeholder="Parágrafos">
+                <optgroup label="Auxílio-doença">
+                  <option></option>
+                  <option>Auxílio-doença totalmente procedente</option>
+                  <option>Auxílio-doença parcialmente procedente</option>
+                </optgroup>
+                <optgroup label="LOAS">
+                  <option>LOAS procedente</option>
+                  <option>LOAS improcedente</option>
+                  <option>LOAS parcialmente procedente</option>
+                </optgroup>
+              </select> -->
+              <textarea id="texto_relatorio" placeholder="Enter text ..." rows="10" class="btn-block">
+                A parte autora, profissão, atualmente com X anos de idade, postula a concessão de benefício por incapacidade a partir de XXX.<br><br>
+                O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: XX, XX, XX. (selecionar dentre as opções: incapacidade para o trabalho, carência e qualidade de segurado na data do início da incapacidade).
+              </textarea>
+            </form>
+          </div>
+
+          <div class="well" id="fundamentacao_inicial">
+            <form class="" style="">
+              <h3>3. Fundamentação</h3>
+              <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Preliminares e prejudiciais de mérito">
+                <optgroup label="Preliminares">
+                  <option></option>
+                  <option>Inépcia da inicial</option>
+                  <option>Falta de interesse de agir - não pediu prorrogação</option>
+                  <option>Falta de interesse de agir - benefício ativo</option>
+                </optgroup>
+                <optgroup label="Prejudiciais de mérito">
+                  <option>Decadência</option>
+                  <option>Prescrição quinquenal</option>
+                </optgroup>
+              </select>
+              <textarea id="texto_fundamentacao" placeholder="Enter text ..." rows="8" class="btn-block">
+                <b>Decide-se</b><br><br>
+                A qualidade de segurado e a carência são requisitos que devem estar presentes no momento do fato gerador do benefício almejado, ou seja, na data de início da incapacidade (DII). Nesse passo, entende-se prejudicada a manifestação do Juízo acerca de tais premissas, vez que o caso em apreço se resolve pela inexistência de incapacidade.
+                <br><br>
+                É que, conforme se verifica pela perícia realizada, apesar das queixas da parte autora, não foi clinicamente constatada a incapacidade para a atividade que habitualmente exerce. Pela pertinência, transcrevem-se alguns trechos do exame técnico: <br>
+              </textarea>
+            </form>
+            <form id="fundamentacao_quesitos">
+              <div style="height: 500px; overflow: auto">
+                <legend>Quesitos a serem transcritos
+                  <div class="pull-right">
+                    <a class="btn btn-mini">Marcar todos</a> 
+                    <a class="btn btn-mini">Desmarcar todos</a>
+                  </div>
+                </legend>
+                <label class="checkbox"><input type="checkbox" value="">2. Quais são as queixas da parte autora?</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">3. Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </label>
+                <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">4. O que foi apurado no exame físico/clínico?</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">5. Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">6. Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar? </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">7. A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">8. Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">9. Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">10. A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante? </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">11. A parte autora está seguindo o tratamento que lhe é indicado? </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">12. Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">13. Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">14. Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">15. A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e indicar se apresentou atestado.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">16. A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">17. Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">18. A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">19. De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">20. Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">21. Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">22. Qual a data do início da doença a que está acometida a parte autora? Fundamente.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">23. Qual a data do início de sua incapacidade? Fundamente.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">24. Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+                <label class="checkbox"><input type="checkbox" value="">25. Prestar outros esclarecimentos sobre o que foi constatado.</label>
+                  <blockquote>
+                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+              </div>
+            </form>
+
+            <form>
+              <legend id="fundamentacao_final">Parte final</legend>
+              <textarea id="texto_fundamentacao_final" rows="20" class="btn-block">
+                Registre-se que se deve prestigiar e dar relevância aos apontamentos do examinador designado, uma vez que, ao contrário dos médicos particulares da postulante, o perito judicial está dotado de imparcialidade, a qual é indispensável a que se tenha um processo hígido e livre de qualquer interferência viciada ou tendenciosa.<br><br>
+                Ademais, destaque-se que não há nos autos elementos que tenham o condão de afastar as conclusões devidamente fundamentadas de um profissional especializado, da confiança do juízo.<br><br>
+                Pelo exposto, concluindo o perito judicial, que a parte autora está apta para realizar qualquer atividade ou sua atividade habitual, impende reconhecer que sua pretensão não merece prosperar, pois inexiste a incapacidade laborativa exigida pelos arts. 42 ou 59 da Lei nº 8.213/91. 
+              </textarea>
+            </form>
+          </div>
+
+          <div class="well" id="dispositivo">
+            <h3>4. Dispositivo</h3>
+            <form>
+              <textarea id="texto_dispositivo" rows="8" class="btn-block">
+                Diante do exposto, <b>JULGA-SE IMPROCEDENTE</b> o pedido formulado na exordial, resolvendo o mérito nos termos do art. 269, I, do Código de Processo Civil.<br><br>
+
+                Sem custas e sem honorários advocatícios.<br><br>
+
+                Sentença registrada e publicada eletronicamente. Intimem-se.<br>
+              </textarea>
+              <select tabindex="1" style="width:350px;" rel="chosen">
+                  <option>Adriano José Pinheiro</option>
+                  <option>Vitor Marques Lento</option>
+                </optgroup>
+              </select>
+            </form>
+          </div>
+          <div style="max-width: 400px; margin: 0 auto 10px;" class="well">
+            <button class="btn btn-large btn-block btn-success" type="button"><i class="icon-legal"></i> Gerar minuta - pronto para assinar &rarr;</button>
+            <button class="btn btn-large btn-block btn-info" type="button"><i class="icon-pencil"></i> Gerar minuta e abrir no Gedpro &rarr;</button>
+            <button class="btn btn-large btn-block" type="button"><i class="icon-save"></i> Salvar</button>
+          </div>
+
+
+
+        </div>
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Company 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- MODAL -->
+
+    <!-- Modal -->
+    <div id="ver_pericia" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Perícia de João Fernandes de Almeida</h3>
+      </div>
+      <div class="modal-body">
+        <p>1. Dados da parte autora:</p>
+        <ul>
+        <li>- Idade:</li>
+        <li>- Sexo:</li>
+        <li>- Escolaridade:</li>
+        <li>- Histórico Profissional (com indicação da função específica exercida):</li>
+        <li>- Outros dados relevantes (anamnese):</li>
+        </ul>
+
+        <p>2. Quais são as queixas da parte autora?</p>
+
+        <p>3. Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </p>
+
+        <p>4. O que foi apurado no exame físico/clínico?</p>
+
+        <p>5. Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</p>
+
+        <p>6. Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar?  </p>
+
+        <p>7. A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </p>
+
+        <p>8. Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</p>
+
+        <p>9. Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </p>
+
+        <p>10. A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante?  </p>
+
+        <p>11. A parte autora está seguindo o tratamento que lhe é indicado? </p>
+
+        <p>12. Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </p>
+
+        <p>13. Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </p>
+
+        <p>14. Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </p>
+
+        <p>15. A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e </p><p>indicar se apresentou atestado.</p>
+
+        <p>16. A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</p>
+
+        <p>17. Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</p>
+
+        <p>18. A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.)?</p>
+
+        <p>19. De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</p>
+        <p>(  ) a) Capaz para o exercício de qualquer trabalho;</p>
+
+        <p>20. Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</p>
+
+        <p>21. Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</p>
+
+        <p>22. Qual a data do início da doença a que está acometida a parte autora? Fundamente.</p>
+
+        <p>23. Qual a data do início de sua incapacidade? Fundamente.</p>
+
+        <p>24. Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</p>
+
+        <p>25. Prestar outros esclarecimentos sobre o que foi constatado.</p>
+      </div>  
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
+        <button class="btn btn-danger"><i class="icon-question-sign"></i> Solicitar complementação</button>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/chosen.jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/application.js"></script>
+    <!-- Editor de textos -->
+    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
+    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
+    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
+        <script type="text/javascript">
+          $('#texto_fundamentacao').wysihtml5({locale: "pt-BR"});
+          $('#texto_relatorio').wysihtml5({locale: "pt-BR"});
+          $('#texto_fundamentacao_final').wysihtml5({locale: "pt-BR"});
+          $('#texto_dispositivo').wysihtml5({locale: "pt-BR"});
+          $('[rel=chosen]').chosen();
+        </script>
+    <!-- Final editor textos  -->
+
+  </body>
+</html>

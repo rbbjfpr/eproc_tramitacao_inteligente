@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Requisição de Perito</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap-editable/css/bootstrap-editable.css">
+    <!-- editor de textos -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
+    <style type="text/css">
+      body {
+        padding-top: 70px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+      /* Sidenav for Docs
+      -------------------------------------------------- */
+
+      .bs-docs-sidenav {
+        margin: 30px 0 0;
+        padding: 0;
+        background-color: #fff;
+        -webkit-border-radius: 6px;
+           -moz-border-radius: 6px;
+                border-radius: 6px;
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+           -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+                box-shadow: 0 1px 4px rgba(0,0,0,.065);
+      }
+      .bs-docs-sidenav > li > a {
+        display: block;
+        width: 190px \9;
+        margin: 0 0 -1px;
+        padding: 8px 14px;
+        border: 1px solid #e5e5e5;
+      }
+      .bs-docs-sidenav > li:first-child > a {
+        -webkit-border-radius: 6px 6px 0 0;
+           -moz-border-radius: 6px 6px 0 0;
+                border-radius: 6px 6px 0 0;
+      }
+      .bs-docs-sidenav > li:last-child > a {
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+      }
+      .bs-docs-sidenav > .active > a {
+        position: relative;
+        z-index: 2;
+        padding: 9px 15px;
+        border: 0;
+        text-shadow: 0 1px 0 rgba(0,0,0,.15);
+        -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+           -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+                box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+      }
+      /* Chevrons */
+      .bs-docs-sidenav .icon-chevron-right {
+        float: right;
+        margin-top: 2px;
+        margin-right: -6px;
+        opacity: .25;
+      }
+      .bs-docs-sidenav > li > a:hover {
+        background-color: #f5f5f5;
+      }
+      .bs-docs-sidenav a:hover .icon-chevron-right {
+        opacity: .5;
+      }
+      .bs-docs-sidenav .active .icon-chevron-right,
+      .bs-docs-sidenav .active a:hover .icon-chevron-right {
+        background-image: url(../img/glyphicons-halflings-white.png);
+        opacity: 1;
+      }
+      .bs-docs-sidenav.affix {
+        top: 40px;
+        margin-top: 30px !important;
+      }
+      .bs-docs-sidenav.affix-bottom {
+        position: absolute;
+        top: auto;
+        bottom: 270px;
+      }
+      /* Fim do sidenav */
+
+      .nav-tabs input {margin-top: -4px}
+
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="100">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Requisição de Perito</a>
+          <!-- <ul class="nav">
+            <li class="active"><a href="#">Início</a></li>
+            <li><a href="#">Relatório</a></li>
+            <li><a href="#">Fundamentação</a></li>
+            <li><a href="#">Dispositivo</a></li>
+            <li><a href="#">Gerar minuta</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+
+          <table class="table table-bordered table-condensed">
+            <tr>
+              <td>Número dos autos:</td>
+              <td>50092183820124047003</td>
+            </tr>
+            <tr>
+              <td>Assunto:</td>
+              <td>Auxílio-doença</td>
+            </tr>
+            <tr>
+              <td>Parte autora:</td>
+              <td><strong>FABIANE CRISTINA MACHADO</strong></td>
+            </tr>
+            <tr>
+              <td>Idade:</td>
+              <td>28 anos</td>
+            </tr>
+          </table>
+           
+        
+          <div class="well" id="">
+            <form class="form-inline" style="margin: 0">
+              <h3>1. Escolha o perito, data e hora</h3>
+              <div>
+                <select tabindex="1" style="width:200px;" rel="chosen" data-placeholder="Mês">
+                  <option>Dez/2012</option>
+                  <option>Jan/2012</option>
+                  <option>Fev/2013</option>
+                  <option>Mar/2013</option>
+                  <option>Abr/2013</option>
+                  <option>Jun/2013</option>
+                </select>
+                <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Filtrar por perito ou especialidade">
+                  <option></option>
+                  <optgroup label="Ortopedista">
+                    <option>JOÃO SOUZA FILHO - ORTOPEDISTA</option>
+                    <option>RICARDO ISSAO OTANI - ORTOPEDISTA</option>
+                    <option>AMÉLIO DA SILVA GOMES NETO - ORTOPEDISTA</option>
+                    <option>BENJAMIM DO REGO MONTEIRO - ORTOPEDISTA</option>
+                  </optgroup>
+                  <optgroup label="Pediatria">
+                    <option>JANE GERALDO VERTUAN - PEDIATRA</option>
+                  </optgroup>
+                  <optgroup label="Pneumologista">
+                    <option>GIANCARLO SANCHES - PNEUMOLOGISTA</option>
+                  </optgroup>
+                  <optgroup label="Reumatologista">
+                    <option>MARCUS VINÍCIUS PETRUCO - REUMATOLOGISTA</option>
+                    <option>JOSÉ FRANCISCO DA SILVEIRA - REUMATOLOGISTA</option>
+                    <option>ENIO RICARDO MORESCO VENTURA - REUMATOLOGISTA</option>
+                  </optgroup>
+                  <optgroup label="Psiquiatria">
+                    <option>DARLEY DE OLIVEIRA MACHADO - PSIQUIATRIA</option>
+                    <option>ROGERIO MARCÍLIO DE OLIVEIRA - PSIQUIATRIA</option>
+                    <option>ENATO GALVÃO GONÇALVES VILELA - PSIQUIATRIA</option>
+                    <option>CLÁUDIO VINÍCIUS FRITZEN - PSIQUIATRIA</option>
+                  </optgroup>
+                </select>
+                <a href="#" class="btn pull-right"><i class="icon-external-link"></i> Editar pauta</a>
+              </div>
+            </form>
+                <div style="background: white; height: 500px; overflow: auto">
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <th><i class="icon-arrow-down"></i> Data </th>
+                        <th>Perito</th>
+                        <th>Horário</th>
+                      </tr>
+                    </thead>
+                    <form style="margin: 0">
+                    <tbody>
+                      <tr>
+                        <td>07/12/2012</td>
+                        <td>
+                          <p>Dr. Fábio Lira</p>
+                          <p class="muted">Ortopedista<br>Cardiologista<br>Clínico Geral<br>(44)8801-1372<br><i>Muito bom perito</i></p>
+                        </td>
+                        <td>
+                            <label class="radio" rel="tooltip" data-original-title="Já marcado autos 50060944720124047003" data-placement="left">
+                              <input type="radio" checked="" value="option1" id="" name="horario_pericia" disabled>
+                              <span style="text-decoration: line-through">09:30</span>
+                            </label>
+                            <label class="radio" rel="tooltip" data-original-title="Já marcado autos 50060944720124047003" data-placement="left">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia" disabled>
+                              <span style="text-decoration: line-through">10:00</span>
+                            </label>
+                            <label class="radio"  rel="tooltip" data-original-title="Já marcado autos 50060944720124047003" data-placement="left">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia" disabled>
+                              <span style="text-decoration: line-through">10:30</span>
+                            </label>
+                            <label class="radio" rel="tooltip" data-original-title="Já marcado autos 50060944720124047003" data-placement="left">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia" disabled>
+                              <span style="text-decoration: line-through">11:00</span>
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              11:30
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              12:00
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              12:30
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              13:00
+                            </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>08/12/2012</td>
+                        <td>
+                          <p>Dr. João Souza Filho</p>
+                          <p class="muted">Ortopedista<br>Cardiologista<br><br>(44)3031-2543<br><br><i>Evitar de marcar casos complexos</i></p>
+                        </td>
+                        <td>
+                            <label class="radio">
+                              <input type="radio" checked="" value="option1" id="" name="horario_pericia">
+                              09:30
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              10:00
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              10:30
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              11:00
+                            </label>
+                            <label class="radio" rel="tooltip" data-original-title="Já marcado autos 50060944720124047003" data-placement="left">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia" disabled>
+                              <span style="text-decoration: line-through">11:30</span>
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              12:00
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              12:30
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              13:00
+                            </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>09/12/2012</td>
+                        <td>
+                          <p>Dr. Benjamim Monteiro</p>
+                          <p class="muted">Ortopedista<br>Cardiologista<br>Clínico Geral<br>(44)3030-3030<br><i>Excelente perito</i></p>
+                        </td>
+                        <td>
+                            <label class="radio">
+                              <input type="radio" checked="" value="option1" id="" name="horario_pericia">
+                              13:30
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              14:00
+                            </label>
+                            <label class="radio">
+                              <input type="radio" value="option2" id="optionsRadios2" name="horario_pericia">
+                              14:30
+                            </label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </form>
+                  </table>
+                </div>
+
+          </div>
+          <div class="well" id="">
+            <form class="form-inline" style="margin: 0">
+              <h3>2. Modelo de quesitos</h3>
+              <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha">
+                <optgroup label="Auxílio-doença / Aposentadoria por Invalidez">
+                  <option>Benefício por incapacidade - normal</option>
+                  <option>Benefício por incapacidade - perícia indireta</option>
+                </optgroup>
+                <optgroup label="LOAS">
+                  <option>LOAS - normal</option>
+                  <option>LOAS - criança</option>
+                </optgroup>
+              </select>
+              <a href="#" class="btn pull-right"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
+            </form>
+          </div>
+          <div class="well" id="">
+            <form class="form-inline" style="margin: 0">
+              <h3>3. Modelos de quesitos adicionais</h3>
+              <select tabindex="1" style="width:500px;" multiple="" rel="chosen" data-placeholder="Escolha">
+                  <option></option>
+                  <option>Teve processo anterior</option>
+                  <option>Auxílio-acidente</option>
+                  <option>Adicional de 25%</option>
+              </select>
+              <a href="#" class="btn pull-right"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
+            </form>
+          </div>
+          <div class="well" id="">
+            <h3><input type="checkbox" checked> 4. Requisição para APS</h3>
+            <form class="form-horizontal" style="margin: 0">
+              <button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao">Personalizar requisição</button>
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Número do benefício:</label>
+                <div class="controls">
+                 <input type="text">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Prazo de requisição:</label>
+                <div class="controls">
+                 <input type="text" value="20" style="width: auto" size="2"> dias
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="btn-toolbar">
+          
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#personalizar">
+            Personalizar quesitos <i class="icon-arrow-down"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
+            Anexar mensagem para o perito <i class="icon-arrow-down"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#">
+            Anexar arquivos para o perito <i class="icon-arrow-down"></i>
+            </button>
+
+          </div>
+           
+          <div id="personalizar" class="collapse">
+            <div class="" id="relatorio">
+              <form id="fundamentacao_quesitos">
+                <div style=""> <!-- Para fazer a caixa não ficar muito extensa, usar height: 500px; overflow: auto -->
+                  <legend>Personalizar quesitos
+                    <div class="pull-right">
+                      <a class="btn btn-mini">Marcar todos</a> 
+                      <a class="btn btn-mini">Desmarcar todos</a>
+                    </div>
+                  </legend>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 2  </label>  <textarea rows="1" class="input-block-level">Quais são as queixas da parte autora?</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 3  </label>  <textarea rows="1" class="input-block-level">Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 4  </label>  <textarea rows="1" class="input-block-level">O que foi apurado no exame físico/clínico?</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 5  </label>  <textarea rows="1" class="input-block-level">Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 6  </label>  <textarea rows="1" class="input-block-level">Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar? </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 7  </label>  <textarea rows="1" class="input-block-level">A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 8  </label>  <textarea rows="1" class="input-block-level">Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 9  </label>  <textarea rows="1" class="input-block-level">Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 10 </label> <textarea rows="1" class="input-block-level">A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante? </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 11 </label> <textarea rows="1" class="input-block-level">A parte autora está seguindo o tratamento que lhe é indicado? </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 12 </label> <textarea rows="1" class="input-block-level">Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 13 </label> <textarea rows="1" class="input-block-level">Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 14 </label> <textarea rows="1" class="input-block-level">Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 15 </label> <textarea rows="1" class="input-block-level">A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e indicar se apresentou atestado.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 16 </label> <textarea rows="1" class="input-block-level">A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 17 </label> <textarea rows="1" class="input-block-level">Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 18 </label> <textarea rows="1" class="input-block-level">A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 19 </label> <textarea rows="1" class="input-block-level">De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 20 </label> <textarea rows="1" class="input-block-level">Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 21 </label> <textarea rows="1" class="input-block-level">Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 22 </label> <textarea rows="1" class="input-block-level">Qual a data do início da doença a que está acometida a parte autora? Fundamente.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 23 </label> <textarea rows="1" class="input-block-level">Qual a data do início de sua incapacidade? Fundamente.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 24 </label> <textarea rows="1" class="input-block-level">Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</textarea>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 25 </label> <textarea rows="1" class="input-block-level">Prestar outros esclarecimentos sobre o que foi constatado.</textarea>
+                  <button class="btn">Adicionar quesito</button>
+                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 26 </label> <textarea rows="1" class="input-block-level" placeholder="Digite aqui o quesito 26"></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <div id="demo" class="collapse">
+            <legend id="fundamentacao_final">Mensagem para o perito (aparecerá apenas para o perito)</legend>
+            <textarea id="texto_fundamentacao_final" rows="10" class="btn-block">
+            </textarea>
+          </div>
+
+          
+          <div style="max-width: 400px; margin-top: 40px;" class="well">
+            <button class="btn btn-large btn-block btn-success" type="button">Requisitar perito <i class="icon-arrow-right"></i> </button>
+          </div>
+
+
+
+        </div>
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Company 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- MODAL -->
+
+    <!-- Modal -->
+    <div id="personalizar_requisicao" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Personalizar requisição</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <textarea id="texto_requisicao" rows="10" class="btn-block">
+            Encaminho os autos para requisição da APS de Maringá a fim de que, no prazo de 20 (vinte) dias, proceda à juntada do PA do benefício nº 123.456.789-8.
+          </textarea>
+        </form>
+      </div>  
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Cancelar</button>
+        <button class="btn btn-primary"><i class="icon-save"></i> Salvar</button>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/chosen.jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="assets/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+    <!-- Editor de textos -->
+    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
+    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
+    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
+        <script type="text/javascript">
+          $('#texto_requisicao').wysihtml5({locale: "pt-BR"});
+          $('[rel=chosen]').chosen({search_contains:"true"});
+          $('#data_pericia').editable();
+        </script>
+    <!-- Final editor textos  -->
+
+  </body>
+</html>
