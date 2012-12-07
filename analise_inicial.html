@@ -1676,42 +1676,40 @@
             </form>
           </div>
           <div class="well" id="">
-            <form class="" style="margin: 0">
+            <form class="form-inline" style="margin: 0" id="requisitos">
               <h3>3. Requisitos da inicial (marque aqueles que estão presentes)</h3>
-              <label class="checkbox">
-                <input type="checkbox">
-                Instrumento procuratório <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox">
-                <input type="checkbox">
-                RG e CPF <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox">
-                <input type="checkbox">
-                Comprovante de residência atualizado <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox" rel="tooltip" data-original-title="Deve conter menção às 12 vincendas" data-placement="left">
-                <input type="checkbox">
-                Termo de renúncia <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox">
-                <input type="checkbox">
-                Cópia integral da CTPS <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox">
-                <input type="checkbox">
-                Cópia do indeferimento administrativo <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox">
-                <input type="checkbox">
-                Documentos médicos <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              <label class="checkbox">
-                <input type="checkbox">
-                Planilha de cálculos <button data-toggle="button" class="btn btn-mini active" type="button" style="margin-top: -5px; padding: 0 6px;">Ilegível</button>
-              </label>
-              
-              
+              <p>
+                <label class="checkbox"><input type="checkbox"> Instrumento procuratório </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox"><input type="checkbox"> RG e CPF </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox"><input type="checkbox"> Comprovante de residência atualizado </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" rel="tooltip" data-original-title="Deve conter menção às 12 vincendas" data-placement="left"><input type="checkbox"> Termo de renúncia </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox"><input type="checkbox"> Cópia integral da CTPS </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox"><input type="checkbox"> Cópia do indeferimento administrativo </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox"><input type="checkbox"> Documentos médicos </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox"><input type="checkbox"> Planilha de cálculos </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
             </form>
           </div>
 
@@ -1875,13 +1873,26 @@ function verificaAlteracaoJusticaGratuita(e)
   CKEDITOR.instances.texto_ajg.setData(valor);
   sessionStorage.setItem('justicaGratuita', valor);
 }
-//verificaAlteracaoJusticaGratuita();
 key('ctrl+left', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('prev'); });
 key('ctrl+right', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('next'); });
 $(window).on('beforeunload', function(e)
 {
   sessionStorage.setItem('justicaGratuita', CKEDITOR.instances.texto_ajg.getData());
 });
+$('#requisitos input[type=checkbox]').each(verificaRequisitos);
+$('#requisitos input[type=checkbox]').on('change', verificaRequisitos);
+function verificaRequisitos(e, chk)
+{
+  if (typeof chk == 'undefined') {
+    chk = e.target;
+  }
+  var botao = $(chk).parent().parent().find('button')[0];
+  if (chk.checked) {
+    botao.disabled = false;
+  } else {
+    botao.disabled = true;
+  }
+}
 </script>
   </body>
 </html>
