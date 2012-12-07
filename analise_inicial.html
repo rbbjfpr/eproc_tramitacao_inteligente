@@ -193,6 +193,7 @@
               <option>Ev 1 - ATESTMED23  </option>
               <option>Ev 1 - ATESTMED24  </option>
             </select>
+            <label><input type="checkbox" id="atalhosTeclado" name="atalhosTeclado" checked="checked"/> Ativar atalhos de teclado</label>
            <div id="myCarousel" class="carousel slide" >
            <!-- Carousel items -->
            <div class="carousel-inner" style="height: 500px">
@@ -1657,23 +1658,21 @@
             </form>
           </div>
           <div class="well" id="">
-            <form class="" style="margin: 0">
+            <form id="justicaGratuita" class="" style="margin: 0">
               <h3>2. Justiça Gratuita</h3>
               <label class="radio">
-                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">
+                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios" data-texto="Com fulcro no art. 7º da Portaria já referida, ficam deferidos, por ora, independentemente de despacho e intimação, os benefícios da Justiça Gratuita, ante o preenchimento dos requisitos legais.">
                 Foi requerida, certificar deferimento
               </label>
               <label class="radio">
-                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">
+                <input type="radio" checked="" value="option2" id="optionsRadios1" name="optionsRadios" data-texto="Registro que retifiquei na autuação o status da Justiça Gratuita para não requerida, ante a inexistência de pedido nesse sentido na exordial.">
                 Não foi requerida, retificar a autuação, certificar.
               </label>
               <label class="radio">
-                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">
+                <input type="radio" checked="" value="option3" id="optionsRadios1" name="optionsRadios" data-texto="" checked="checked">
                 Não certificar nada
               </label>
-              <textarea id="texto_ajg" rows="3" class="btn-block">
-                Com fulcro no art. 7º da Portaria já referida, ficam deferidos, por ora, independentemente de despacho e intimação, os benefícios da Justiça Gratuita, ante o preenchimento dos requisitos legais.
-              </textarea>
+              <textarea id="texto_ajg" rows="3" class="btn-block ckeditor"></textarea>
             </form>
           </div>
           <div class="well" id="">
@@ -1825,18 +1824,16 @@
     <script src="assets/js/bootstrap-affix.js"></script>
     <script src="assets/js/application.js"></script>
     <script src="assets/bootstrap-editable/js/bootstrap-editable.min.js"></script>
-    <!-- Editor de textos -->
-    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
         <script type="text/javascript">
-          $('#texto_ajg').wysihtml5({locale: "pt-BR"});
           $('[rel=chosen]').chosen({search_contains:"true"});
           $('#data_pericia').editable();
           $('.carousel').carousel({
           interval: 0
           });
-          
+        </script>
+    <script src="assets/ckeditor/ckeditor.js"></script>
+    <script src="assets/js/keymaster.min.js"></script>
+    <script>          
 $('#documento').on('change', function(e)
 {
   var val = e.target.value;
@@ -1853,18 +1850,38 @@ function analisaDocumentoSelecionado(e)
   var currentImg = $('.carousel .active img');
   if (currentImg.length == 1) {
     currentImg = currentImg[0];
-    for (var options = $('#documento option'), i = 0, option; option = options[i]; i++) {
+    $('#documento option').each(function(o, option) {
       if (new RegExp(currentImg.id).test(option.textContent)) {
         $('#documento')[0].value = option.value;
       }
-    }
+    });
   } else {
     $('#documento')[0].value = 2;
   }
 }
 analisaDocumentoSelecionado();
-        </script>
-    <!-- Final editor textos  -->
 
+$('#texto_ajg').html(sessionStorage.getItem('justicaGratuita'));
+$('#justicaGratuita input[name=optionsRadios]').on('change', verificaAlteracaoJusticaGratuita);
+function verificaAlteracaoJusticaGratuita(e)
+{
+  var valor = false;
+  $('#justicaGratuita input[name=optionsRadios]').each(function(i, input)
+  {
+    if (input.checked) {
+      valor = $(input).attr('data-texto');
+    }
+  });
+  CKEDITOR.instances.texto_ajg.setData(valor);
+  sessionStorage.setItem('justicaGratuita', valor);
+}
+//verificaAlteracaoJusticaGratuita();
+key('ctrl+left', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('prev'); });
+key('ctrl+right', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('next'); });
+$(window).on('beforeunload', function(e)
+{
+  sessionStorage.setItem('justicaGratuita', CKEDITOR.instances.texto_ajg.getData());
+});
+</script>
   </body>
 </html>
