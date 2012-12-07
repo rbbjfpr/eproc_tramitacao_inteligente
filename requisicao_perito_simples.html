@@ -280,7 +280,23 @@
               <div class="control-group">
                 <label class="control-label" for="inputEmail">Prazo de requisição:</label>
                 <div class="controls">
-                 <input type="text" value="20" style="width: auto" size="2"> dias
+                 <input type="text" size="2" style="width: 22px" value="20"> dias
+                </div>
+              </div>
+            </form>
+            <hr>
+            <h3><input type="checkbox" checked> 5. Intimação das partes</h3>
+            <form class="form-horizontal" style="margin: 0">
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Prazo autor</label>
+                <div class="controls">
+                 <input type="text" size="2" style="width: 22px" value="10"> dias
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Prazo réu</label>
+                <div class="controls">
+                 <input type="text" size="2" style="width: 22px" value="10"> dias
                 </div>
               </div>
             </form>
@@ -354,12 +370,12 @@
             <button class="btn btn-large btn-block btn-success" type="button">Movimentar processo (6 eventos) <i class="icon-arrow-right"></i> </button>
             <br>
             <ul>
-              <li>Gerar ato de secretaria</li>
+              <li>Gerar ato de secretaria (<a href="#" data-toggle="modal" data-target="#personalizar_requisicao_perito">ver</a>)</li>
               <li>Vincular perito aos autos</li>
               <li>Intimar perito</li>
               <li>Intimar autor</li>
               <li>Intimar réu</li>
-              <li>Requisitar APS</li>
+              <li>Requisitar APS (<a href="#" data-toggle="modal" data-target="#personalizar_requisicao_perito">ver</a>)</li>
             </ul>
 
           </div>
