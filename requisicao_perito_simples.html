@@ -220,6 +220,12 @@
                 </div>
               </div>
               <div class="control-group">
+                <label class="control-label" for="inputEmail"><i class="icon-warning-sign"></i> Prazo p/ entrega</label>
+                <div class="controls">
+                 <input type="text" size="2" style="width: 22px" value="10"> dias
+                </div>
+              </div>
+              <div class="control-group">
                 <label class="control-label" for="inputEmail"><i class="icon-calendar"></i> Data</label>
                 <div class="controls">
                  <input type="text" class="input-small">
@@ -246,7 +252,7 @@
                   <option>LOAS - criança</option>
                 </optgroup>
               </select>
-              <a href="#" class="btn pull-right"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
+              <a href="#" class="btn pull-right" data-toggle="modal" data-target="#a_desenvolver"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
             </form>
           </div>
           <div class="well" id="">
@@ -258,7 +264,7 @@
                   <option>Auxílio-acidente</option>
                   <option>Adicional de 25%</option>
               </select>
-              <a href="#" class="btn pull-right"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
+              <a href="#" class="btn pull-right" data-toggle="modal" data-target="#a_desenvolver"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
             </form>
           </div>
           <div class="well" id="">
@@ -274,13 +280,29 @@
               <div class="control-group">
                 <label class="control-label" for="inputEmail">Prazo de requisição:</label>
                 <div class="controls">
-                 <input type="text" value="20" style="width: auto" size="2"> dias
+                 <input type="text" size="2" style="width: 22px" value="20"> dias
+                </div>
+              </div>
+            </form>
+            <hr>
+            <h3><input type="checkbox" checked> 5. Intimação das partes</h3>
+            <form class="form-horizontal" style="margin: 0">
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Prazo autor</label>
+                <div class="controls">
+                 <input type="text" size="2" style="width: 22px" value="10"> dias
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Prazo réu</label>
+                <div class="controls">
+                 <input type="text" size="2" style="width: 22px" value="10"> dias
                 </div>
               </div>
             </form>
           </div>
 
-          <div class="btn-toolbar">
+          <div class="btn-toolbar well">
           
             <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#personalizar">
             Personalizar quesitos <i class="icon-arrow-down"></i>
@@ -344,8 +366,18 @@
           </div>
 
           
-          <div style="max-width: 400px; margin-top: 40px;" class="well">
-            <button class="btn btn-large btn-block btn-success" type="button">Requisitar perito <i class="icon-arrow-right"></i> </button>
+          <div style="max-width: 400px; margin: 0px auto 0" class="well">
+            <button class="btn btn-large btn-block btn-success" type="button">Movimentar processo (6 eventos) <i class="icon-arrow-right"></i> </button>
+            <br>
+            <ul>
+              <li>Gerar ato de secretaria (<a href="#" data-toggle="modal" data-target="#personalizar_requisicao_perito">ver</a>)</li>
+              <li>Vincular perito aos autos</li>
+              <li>Intimar perito</li>
+              <li>Intimar autor</li>
+              <li>Intimar réu</li>
+              <li>Requisitar APS (<a href="#" data-toggle="modal" data-target="#personalizar_requisicao_perito">ver</a>)</li>
+            </ul>
+
           </div>
 
 
@@ -353,13 +385,23 @@
         </div>
       <hr>
 
-      <div class="footer">
-        <p>&copy; Company 2012</p>
-      </div>
+      
 
     </div> <!-- /container -->
 
-    <!-- MODAL -->
+    <!-- MODAL desenvovlimento -->
+    <div id="a_desenvolver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">A desenvolver</h3>
+      </div>
+      <div class="modal-body">
+        Esta funcionalidade não foi desenvolvida no protótipo.
+      </div>  
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
+      </div>
+    </div>
 
     <!-- Modal  da APS -->
     <div id="personalizar_requisicao_APS" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -370,7 +412,7 @@
       <div class="modal-body">
         <form>
           <textarea id="texto_requisicao" rows="10" class="btn-block">
-            Encaminho os autos para requisição da APS de Maringá a fim de que, no prazo de 20 (vinte) dias, proceda à juntada do PA do benefício nº 123.456.789-8.
+            Encaminho os autos para requisição da APS de Maringá a fim de que, no <b>prazo de 20 (vinte) dias</b>, proceda à juntada do PA do benefício nº 123.456.789-8.
           </textarea>
         </form>
       </div>  
