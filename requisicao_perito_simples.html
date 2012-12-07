@@ -179,7 +179,7 @@
            
         
           <div class="well" id="">
-            <h3>1. Perito, data e hora<button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao">Personalizar requisição</button></h3>
+            <h3>1. Perito, data e hora<button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_perito">Personalizar requisição do perito</button></h3>
             <form class="form-horizontal" style="margin: 0">
               
               <div class="control-group">
@@ -211,6 +211,12 @@
                      <option>CLÁUDIO VINÍCIUS FRITZEN - PSIQUIATRIA</option>
                    </optgroup>
                  </select>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputEmail"><i class="icon-map-marker"></i> Local</label>
+                <div class="controls">
+                 <input type="text" class="input-xlarge" value="Sala de perícias do 1º JEF de Maringá">
                 </div>
               </div>
               <div class="control-group">
@@ -258,7 +264,7 @@
           <div class="well" id="">
             <h3><input type="checkbox" checked> 4. Requisição para APS</h3>
             <form class="form-horizontal" style="margin: 0">
-              <button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao">Personalizar requisição da APS</button>
+              <button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_APS">Personalizar requisição da APS</button>
               <div class="control-group">
                 <label class="control-label" for="inputEmail">Número do benefício:</label>
                 <div class="controls">
@@ -355,16 +361,42 @@
 
     <!-- MODAL -->
 
-    <!-- Modal -->
-    <div id="personalizar_requisicao" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Modal  da APS -->
+    <div id="personalizar_requisicao_APS" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Personalizar requisição</h3>
+        <h3 id="myModalLabel">Personalizar requisição da APS</h3>
       </div>
       <div class="modal-body">
         <form>
           <textarea id="texto_requisicao" rows="10" class="btn-block">
             Encaminho os autos para requisição da APS de Maringá a fim de que, no prazo de 20 (vinte) dias, proceda à juntada do PA do benefício nº 123.456.789-8.
+          </textarea>
+        </form>
+      </div>  
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Cancelar</button>
+        <button class="btn btn-primary"><i class="icon-save"></i> Salvar</button>
+      </div>
+    </div>
+
+    <!-- Modal do perito -->
+    <div id="personalizar_requisicao_perito" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Personalizar requisição do PERITO</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <textarea id="texto_requisicao_perito" rows="10" class="btn-block">
+            Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br><br>
+            Perito:<br>
+            Local:<br>
+            Data:<br>
+            Hora:<br>
+            <br><br>
+            Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.<br><br>
+            O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.
           </textarea>
         </form>
       </div>  
@@ -400,6 +432,7 @@
     <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
     <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
         <script type="text/javascript">
+          $('#texto_requisicao_perito').wysihtml5({locale: "pt-BR"});
           $('#texto_requisicao').wysihtml5({locale: "pt-BR"});
           $('[rel=chosen]').chosen({search_contains:"true"});
           $('#data_pericia').editable();
