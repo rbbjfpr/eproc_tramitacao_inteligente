@@ -1714,7 +1714,7 @@
           </div>
 
           <div style=" margin-top: 40px;" class="well">
-            <button class="btn btn-large btn-block btn-danger" type="button">Gerar ato de emenda <i class="icon-arrow-right"></i> </button>
+            <button class="btn btn-large btn-block btn-danger" type="button" data-toggle="modal" data-target="#editor_final">Gerar ato de emenda <i class="icon-arrow-right"></i> </button>
           </div>
 
 
@@ -1731,73 +1731,17 @@
     <!-- MODAL -->
 
     <!-- Modal -->
-    <div id="ver_pericia" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="editor_final" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Perícia de João Fernandes de Almeida</h3>
+        <h3 id="myModalLabel">Editor final</h3>
       </div>
       <div class="modal-body">
-        <p>1. Dados da parte autora:</p>
-        <ul>
-        <li>- Idade:</li>
-        <li>- Sexo:</li>
-        <li>- Escolaridade:</li>
-        <li>- Histórico Profissional (com indicação da função específica exercida):</li>
-        <li>- Outros dados relevantes (anamnese):</li>
-        </ul>
-
-        <p>2. Quais são as queixas da parte autora?</p>
-
-        <p>3. Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </p>
-
-        <p>4. O que foi apurado no exame físico/clínico?</p>
-
-        <p>5. Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</p>
-
-        <p>6. Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar?  </p>
-
-        <p>7. A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </p>
-
-        <p>8. Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</p>
-
-        <p>9. Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </p>
-
-        <p>10. A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante?  </p>
-
-        <p>11. A parte autora está seguindo o tratamento que lhe é indicado? </p>
-
-        <p>12. Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </p>
-
-        <p>13. Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </p>
-
-        <p>14. Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </p>
-
-        <p>15. A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e </p><p>indicar se apresentou atestado.</p>
-
-        <p>16. A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</p>
-
-        <p>17. Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</p>
-
-        <p>18. A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.)?</p>
-
-        <p>19. De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</p>
-        <p>(  ) a) Capaz para o exercício de qualquer trabalho;</p>
-
-        <p>20. Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</p>
-
-        <p>21. Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</p>
-
-        <p>22. Qual a data do início da doença a que está acometida a parte autora? Fundamente.</p>
-
-        <p>23. Qual a data do início de sua incapacidade? Fundamente.</p>
-
-        <p>24. Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</p>
-
-        <p>25. Prestar outros esclarecimentos sobre o que foi constatado.</p>
+        <textarea id="editor_texto_final" rows="3" class="btn-block ckeditor"></textarea>
       </div>  
         <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
-        <button class="btn btn-danger"><i class="icon-question-sign"></i> Solicitar complementação</button>
+        <button class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
       </div>
     </div>
 
