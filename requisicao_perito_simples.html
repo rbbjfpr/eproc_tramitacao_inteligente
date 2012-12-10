@@ -249,7 +249,15 @@
               <button type="button" class="btn pull-right" data-toggle="collapse" data-target="#personalizar_ato_ordinatorio" style="margin-top: -25px">Personalizar ato ordinatório <i class="icon-arrow-down"></i></button>
               <div id="personalizar_ato_ordinatorio" class="collapse clearfix" style="clear: both">
                 <legend>Personalizar ato ordinatório</legend>
-                <textarea id="texto_ato_ordinatorio" rows="10" class="btn-block">
+                <style type="text/css">
+                #personalizar_ato_ordinatorio .cke_contents {
+                  height: 500px !important;
+                }
+                </style>
+                <textarea id="texto_ato_ordinatorio" rows="10" class="btn-block ckeditor">
+                </textarea>
+                <textarea id="texto_requisicao" rows="10" class="btn-block ckeditor">
+                  Encaminho os autos para requisição da APS de Maringá a fim de que, no <b>prazo de 20 (vinte) dias</b>, proceda à juntada do PA do benefício nº 123.456.789-8.
                 </textarea>
               </div>
             </form>
@@ -457,9 +465,10 @@
       </div>
       <div class="modal-body">
         <form>
-          <textarea id="texto_requisicao" rows="10" class="btn-block ckeditor">
+          <!-- Foi removido daqui pois coloquei INLINE, aqui funciona também, mas dentro de MODAL -->
+          <!-- <textarea id="texto_requisicao" rows="10" class="btn-block ckeditor">
             Encaminho os autos para requisição da APS de Maringá a fim de que, no <b>prazo de 20 (vinte) dias</b>, proceda à juntada do PA do benefício nº 123.456.789-8.
-          </textarea>
+          </textarea> -->
         </form>
       </div>  
         <div class="modal-footer">
@@ -476,16 +485,9 @@
       </div>
       <div class="modal-body">
         <form>
-          <textarea id="texto_requisicao_perito" rows="10" class="btn-block ckeditor">
-            Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br><br>
-            Perito:<br>
-            Local:<br>
-            Data:<br>
-            Hora:<br>
-            <br><br>
-            Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.<br><br>
-            O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.
-          </textarea>
+          <!-- Aqui funciona no modal, mas removi para colocar INLINE logo acima, por isso estas linhas foram comentadas -->
+          <!-- <textarea id="texto_requisicao_perito" rows="10" class="btn-block ckeditor">
+          </textarea> -->
         </form>
       </div>  
         <div class="modal-footer">
@@ -517,19 +519,47 @@
     <script src="assets/bootstrap-editable/js/bootstrap-editable.min.js"></script>
     <script src="assets/ckeditor/ckeditor.js"></script>
 <script>
-$('#personalizar_requisicao_perito').on('show', function(e)
+$('#personalizar_ato_ordinatorio').on('show', function(e)
 {
   sTexto = '';
-  sTexto += 'Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br><br>';
-  sTexto += 'Perito: ' + $('#perito').val() + '<br>';
-  sTexto += 'Local: ' + $('#local').val() + '<br>';
-  sTexto += 'Data: ' + $('#data').val() + '<br>';
-  sTexto += 'Hora: ' + $('#hora').val() + '<br>';
-  sTexto += '<br><br>';
-  sTexto += 'Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.<br><br>';
-  sTexto += 'O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.';
-  CKEDITOR.instances.texto_requisicao_perito.setData(sTexto);
+  sTexto = '<html lang="pt-BR" dir="ltr">\n';
+  sTexto += '  <head>\n';
+  sTexto += '  <style type="text/css">\n';
+  sTexto += 'body { counter-reset: lista1; }\n';
+  sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; }\n';
+  sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold; }\n';
+  sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; }\n';
+  sTexto += '.text { font-family: Times; font-size: 13pt; }\n';
+  sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; }\n';
+  sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; }\n';
+  sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; }\n';
+  sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; }\n';
+  sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold; }\n';
+  sTexto += '  </style>\n';
+  sTexto += '  </head>\n';
+  sTexto += '  <body bgcolor="white">\n';
+  sTexto += '  <p class="header" align="center"><img width="85" height="86" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República"><br/>';
+  sTexto += 'PODER JUDICIÁRIO<br/>';
+  sTexto += '&nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br/>';
+  sTexto += 'SEÇÃO JUDICIÁRIA DO PARANÁ<br/>';
+  sTexto += 'Subseção Judiciária de Maringá<br/>';
+  sTexto += '1ª Vara do Juizado Especial Federal</p>\n';
+  sTexto += '  <p class="title" align="center">CERTIDÃO</p>\n';
+  sTexto += '<p class="text" align="justify">Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br/></p>';
+  sTexto += '<p class="text">Perito: <b>' + $('#perito').val() + '</b><br>';
+  sTexto += 'Local: <b>' + $('#local').val() + '</b><br>';
+  sTexto += 'Data: <b>' + $('#data').val() + '</b><br>';
+  sTexto += 'Hora: <b>' + $('#hora').val() + '</b><br>';
+  sTexto += '</p>';
+  sTexto += '<p class="text">Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.</p>';
+  sTexto += '<p class="text">O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.</p>';
+  sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
+  sTexto += '  <p class="signature" align="center">Nome do Servidor<br>documento assinado eletronicamente</p>\n';
+  sTexto += '</body>\n';
+  sTexto += '</html>\n';
+  CKEDITOR.instances.texto_ato_ordinatorio.setData(sTexto);
 });
+$('[rel=chosen]').chosen({search_contains:"true"});
 </script>
 
   </body>
