@@ -1738,12 +1738,12 @@
         <textarea id="editor_texto_final" rows="3" class="btn-block ckeditor"></textarea>
       </div>  
         <div class="modal-footer">
-        <form class="form-inline pull-left" style="margin: 0">
-          Prazo: <input type="text" size="2" style="width: 22px" value="10"> dias
+        <form id="prazo" class="form-inline pull-left" style="margin: 0">
+          Prazo: <input id="dias" type="text" size="2" style="width: 22px" value="10"> dias
         </form>
 
         <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
-        <button class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
+        <button id="intimar" class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
       </div>
     </div>
 
@@ -1844,13 +1844,16 @@ function verificaRequisitos(e)
   if (naoMarcados == 0) {
     gerarAto.removeClass('btn-danger');
     gerarAto.addClass('btn-success');
+    gerarAto.html('Analisar Inicial <i class="icon-arrow-right"/>');
   } else {
     gerarAto.removeClass('btn-success');
     gerarAto.addClass('btn-danger');
+    gerarAto.html('Gerar ato de emenda <i class="icon-arrow-right"/>');
   }
 }
 verificaRequisitos();
-$('#gerarAto').on('click', function(e)
+$('#gerarAto').on('click', gerarDocumentoAto);
+function gerarDocumentoAto(e)
 {
   var valores = {};
   var ajg = CKEDITOR.instances.texto_ajg.getData().replace(/<\/?p>/g, ' ');
@@ -1894,11 +1897,19 @@ $('#gerarAto').on('click', function(e)
     sTexto += '  <p class="text" align="justify">' + valores.ajg + '</p>\n';
   }
   sTexto += '  <p class="text" align="justify">A fim de verificar eventual prevenção, litispendência ou coisa julgada, certifico que procedi à consulta do sistema e-Proc e SIAPRO (físico), <strong>não</strong> tendo encontrado processos anteriormente ajuizados entre as mesmas partes no âmbito da Seção Judiciária do Paraná.</p>\n';
-  if (requisitosAusentes > 0) {
+  if (requisitosAusentes == 0) {
+    sTexto += '  <p class="text" align="justify">Por fim, certifico que os autos encontram-se aptos para a designação de perícia médica.</p>\n';
+    $('#prazo').hide();
+    $('#intimar').removeClass('btn-danger').addClass('btn-success');
+    $('#intimar').html('Gerar movimentação <i class="icon-arrow-right"/>');
+  } else {
+    $('#prazo').show();
+    $('#intimar').removeClass('btn-success').addClass('btn-danger');
+    $('#intimar').html('Intimar p/ emenda <i class="icon-arrow-right"/>');
     sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
     sTexto += '  <p class="title" align="center">ATO DE SECRETARIA</p>\n';
     sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
-    sTexto += '  <p class="text" align="justify">Por oportuno, encaminho estes autos para <strong>INTIMAÇÃO</strong> da parte autora para que, no prazo de <strong>10 (dez) dias</strong>, junte aos autos os documentos abaixo relacionados e/ou esclareça/retifique o que lhe for solicitado, <strong><u>sob pena de extinção do processo</u></strong>:</p>\n';
+    sTexto += '  <p class="text" align="justify">Por oportuno, encaminho estes autos para <strong>INTIMAÇÃO</strong> da parte autora para que, no prazo de <strong>' + $('#dias').val() + ' dias</strong>, junte aos autos os documentos abaixo relacionados e/ou esclareça/retifique o que lhe for solicitado, <strong><u>sob pena de extinção do processo</u></strong>:</p>\n';
     sTexto += '  <p class="lista1" align="justify">Apresentar:</p>\n';
     sTexto += valores.procuracao.toTexto('Instrumento procuratório com os poderes para o foro judicial', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
     sTexto += valores.rg.toTexto('Cópias dos documentos pessoais da parte autora (RG e CPF)', ', tendo em vista que aquelas juntadas aos autos estão ilegíveis', ';');
@@ -1916,7 +1927,7 @@ $('#gerarAto').on('click', function(e)
   sTexto += '</body>\n';
   sTexto += '</html>\n';
   CKEDITOR.instances.editor_texto_final.setData(sTexto);
-});
+}
 function Requisito(presente, ilegivel)
 {
   this.presente = presente;
@@ -1951,6 +1962,10 @@ Requisito.fromParagrafo = function(p)
   }
   return requisito;
 };
+$('#dias').on('change', function(e)
+{
+  gerarDocumentoAto();
+});
 </script>
   </body>
 </html>
