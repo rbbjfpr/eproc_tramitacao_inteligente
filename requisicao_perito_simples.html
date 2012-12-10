@@ -191,7 +191,7 @@
             <h3>1. Dados da perícia<button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_perito">Personalizar requisição do perito</button></h3>
             <form class="form-horizontal" style="margin: 0">
               
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-briefcase"></i> Perito</label>
                 <div class="controls">
                  <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha">
@@ -234,13 +234,13 @@
                  <input type="text" size="2" style="width: 22px" value="10"> dias
                 </div>
               </div>
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-calendar"></i> Data</label>
                 <div class="controls">
                  <input type="text" class="input-small">
                 </div>
               </div>
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-time"></i> Hora</label>
                 <div class="controls">
                  <input type="text" class="input-small">
@@ -280,7 +280,7 @@
             <h3><input type="checkbox" checked> 4. Requisição para APS</h3>
             <form class="form-horizontal" style="margin: 0">
               <button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_APS">Personalizar requisição da APS</button>
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail">Número do benefício:</label>
                 <div class="controls">
                  <input type="text">
@@ -306,6 +306,30 @@
                 <label class="control-label" for="inputEmail">Prazo réu</label>
                 <div class="controls">
                  <input type="text" size="2" style="width: 22px" value="10"> dias
+                </div>
+              </div>
+            </form>
+            <hr>
+            <h3> 6. Programar eventos futuros</h3>
+            <form class="form-horizontal" style="margin: 0">
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox" checked="checked"> Citação do réu após juntada do laudo, <input type="text" size="2" style="width: 22px" value="30"> dias
+                 </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox" checked="checked"> Intimação do autor após juntada do laudo, <input type="text" size="2" style="width: 22px" value="10"> dias
+                 </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox" style="float: left">
+                   <input type="checkbox" checked="checked"> Conclusão para sentença automática, localizador </label> <select style="margin-left: 10px; width: 80px"><option>GAB</option><option>GABS</option></select>
                 </div>
               </div>
             </form>
@@ -385,6 +409,14 @@
               <li>Intimar autor</li>
               <li>Intimar réu</li>
               <li>Requisitar APS (<a href="#" data-toggle="modal" data-target="#personalizar_requisicao_APS">ver</a>)</li>
+            </ul>
+            <hr style="margin: 5px 0">
+            Eventos programados:
+            <ul>
+              <li>Citação do réu automática, 30 dias</li>
+              <li>Intimação do autor automática, 10 dias</li>
+              <li>Vista ao MPF automática</li>
+              <li>Conclusão para sentença automática</li>
             </ul>
 
           </div>
