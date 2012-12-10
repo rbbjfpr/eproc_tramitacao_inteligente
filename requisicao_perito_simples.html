@@ -188,7 +188,7 @@
            
         
           <div class="well" id="">
-            <h3>1. Dados da perícia<button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_perito">Personalizar requisição do perito</button></h3>
+            <h3>1. Dados da perícia</h3>
             <form class="form-horizontal" style="margin: 0">
               
               <div class="control-group success">
@@ -246,6 +246,12 @@
                  <input type="text" class="input-small">
                 </div>
               </div>
+              <button type="button" class="btn pull-right" data-toggle="collapse" data-target="#personalizar_ato_ordinatorio" style="margin-top: -25px">Personalizar ato ordinatório <i class="icon-arrow-down"></i></button>
+              <div id="personalizar_ato_ordinatorio" class="collapse clearfix" style="clear: both">
+                <legend>Personalizar ato ordinatório</legend>
+                <textarea id="texto_ato_ordinatorio" rows="10" class="btn-block">
+                </textarea>
+              </div>
             </form>
           </div>
           <div class="well" id="">
@@ -274,7 +280,7 @@
                 </div>
                 <div class="btn-group">
                   <button type="button" class="btn" data-toggle="collapse" data-target="#">
-                  Anexar arquivos <i class="icon-arrow-down"></i>
+                  Anexar arquivos <i class="icon-upload-alt"></i>
                   </button>
                 </div>
               </div>
@@ -373,8 +379,8 @@
               </div>
             </form>
             <hr>
-            <h3> 5. Programar eventos futuros</h3>
-            <form class="form-horizontal" style="margin: 0">
+            <h3> <a href="#eventos_futuros" data-toggle="collapse">5. Programar eventos futuros</a></h3>
+            <form class="form-horizontal collapse" style="margin: 0" id="eventos_futuros">
               <div class="control-group">
                 <div class="controls">
                  <label class="checkbox">
