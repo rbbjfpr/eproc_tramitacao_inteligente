@@ -236,6 +236,7 @@
               <h3>1. Assunto do processo</h3>
               <div>
                 <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha o assunto">
+                  <option> Auxílio-Doença Previdenciário, Benefícios em Espécie</option>
                   <option>1/3 de férias, Contribuições Previdenciárias, Direito Tributário</option>
                   <option>Abandono de função (art. 323), Crimes contra a Administração Pública</option>
                   <option>Abandono de incapaz (art. 133), Periclitação da Vida e da Saúde e Rixa</option>
@@ -398,8 +399,6 @@
                   <option> Auxílio-Acidente (Art. 86), Benefícios em Espécie</option>
                   <option> Auxílio-Alimentação, Contribuições Previdenciárias, Direito Tributário</option>
                   <option> Auxílio-alimentação, Sistema Remuneratório e Benefícios, Direito Administrativo e outras matérias do Direito Público</option>
-                  <option> Auxílio-Doença Acidentário, Benefícios em Espécie</option>
-                  <option> Auxílio-Doença Previdenciário, Benefícios em Espécie</option>
                   <option> Auxílio-Funeral, Sistema Remuneratório e Benefícios, Direito Administrativo e outras matérias do Direito Público</option>
                   <option> Auxílio-invalidez, Sistema Remuneratório e Benefícios, Direito Administrativo e outras matérias do Direito Público</option>
                   <option> Auxílio-Natalidade, Sistema Remuneratório e Benefícios, Direito Administrativo e outras matérias do Direito Público</option>
@@ -1664,18 +1663,23 @@
             <form id="justicaGratuita" class="" style="margin: 0">
               <h3>2. Justiça Gratuita</h3>
               <label class="radio">
-                <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios" data-texto="Com fulcro no art. 7º da Portaria já referida, ficam deferidos, por ora, independentemente de despacho e intimação, os benefícios da Justiça Gratuita, ante o preenchimento dos requisitos legais.">
+                <input type="radio" checked="checked" value="option1" id="optionsRadios1" name="optionsRadios" data-texto="Com fulcro no art. 7º da Portaria já referida, ficam <strong>deferidos, por ora,</strong> independentemente de despacho e intimação, os benefícios da <strong>Justiça Gratuita</strong>, ante o preenchimento dos requisitos legais.">
                 Foi requerida, certificar deferimento
               </label>
               <label class="radio">
-                <input type="radio" checked="" value="option2" id="optionsRadios1" name="optionsRadios" data-texto="Registro que retifiquei na autuação o status da Justiça Gratuita para não requerida, ante a inexistência de pedido nesse sentido na exordial.">
-                Não foi requerida, retificar a autuação, certificar.
-              </label>
-              <label class="radio">
-                <input type="radio" checked="" value="option3" id="optionsRadios1" name="optionsRadios" data-texto="" checked="checked">
+                <input type="radio" value="option3" id="optionsRadios1" name="optionsRadios" data-texto="">
                 Não certificar nada
               </label>
-              <textarea id="texto_ajg" rows="3" class="btn-block ckeditor"></textarea>
+              <label class="radio">
+                <input type="radio" value="option2" id="optionsRadios1" name="optionsRadios" data-texto="Registro que retifiquei na autuação o status da Justiça Gratuita para <strong>não requerida</strong>, ante a inexistência de pedido nesse sentido na exordial.">
+                Certificar que não foi requerida
+              </label>
+              <style type="text/css">
+                #texto_ajg_wrapper .cke_contents {
+                height: 110px !important;
+                }
+              </style>
+              <div id="texto_ajg_wrapper"><textarea id="texto_ajg"  class="btn-block ckeditor"></textarea></div>
             </form>
           </div>
           <div class="well" id="">
@@ -1691,7 +1695,7 @@
               </p>
               <p>
                 <label class="checkbox"><input type="checkbox"> Comprovante de residência atualizado </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Em nome de terceiros</button>
               </p>
               <p>
                 <label class="checkbox" rel="tooltip" data-original-title="Deve conter menção às 12 vincendas" data-placement="left"><input type="checkbox"> Termo de renúncia </label>
@@ -1717,7 +1721,7 @@
           </div>
 
           <div style=" margin-top: 40px;" class="well">
-            <button class="btn btn-large btn-block btn-danger" type="button" data-toggle="modal" data-target="#editor_final">Gerar ato de emenda <i class="icon-arrow-right"></i> </button>
+            <button id="gerarAto" class="btn btn-large btn-block btn-danger" type="button" data-toggle="modal" data-target="#editor_final">Gerar ato de emenda <i class="icon-arrow-right"></i> </button>
           </div>
 
 
@@ -1734,16 +1738,21 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Editor final</h3>
       </div>
-      <div class="modal-body">
-        <textarea id="editor_texto_final" rows="3" class="btn-block ckeditor"></textarea>
+      <div class="modal-body" style="height: 450px">
+        <style type="text/css">
+          .modal-body .cke_contents {
+          height: 350px !important;
+          }
+        </style>
+        <textarea id="editor_texto_final" rows="6" class="btn-block ckeditor"></textarea>
       </div>  
         <div class="modal-footer">
-        <form class="form-inline pull-left" style="margin: 0">
-          Prazo: <input type="text" size="2" style="width: 22px" value="10"> dias
+        <form id="prazo" class="form-inline pull-left" style="margin: 0">
+          Prazo: <input id="dias" type="text" size="2" style="width: 22px" value="10"> dias
         </form>
 
         <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
-        <button class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
+        <button id="intimar" class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
       </div>
     </div>
 
@@ -1825,20 +1834,143 @@ $(window).on('beforeunload', function(e)
 {
   sessionStorage.setItem('justicaGratuita', CKEDITOR.instances.texto_ajg.getData());
 });
-$('#requisitos input[type=checkbox]').each(verificaRequisitos);
 $('#requisitos input[type=checkbox]').on('change', verificaRequisitos);
-function verificaRequisitos(e, chk)
+function verificaRequisitos(e)
 {
-  if (typeof chk == 'undefined') {
-    chk = e.target;
-  }
-  var botao = $(chk).parent().parent().find('button')[0];
-  if (chk.checked) {
-    botao.disabled = false;
+  var naoMarcados = 0;
+  $('#requisitos input[type=checkbox]').each(function(i, chk)
+  {
+    var botao = $(chk).parent().parent().find('button')[0];
+    if (chk.checked) {
+      botao.disabled = false;
+    } else {
+      naoMarcados++;
+      $(botao).removeClass('active');
+      botao.disabled = true;
+    }
+  });
+  var gerarAto = $('#gerarAto');
+  if (naoMarcados == 0) {
+    gerarAto.removeClass('btn-danger');
+    gerarAto.addClass('btn-success');
+    gerarAto.html('Analisar Inicial <i class="icon-arrow-right"/>');
   } else {
-    botao.disabled = true;
+    gerarAto.removeClass('btn-success');
+    gerarAto.addClass('btn-danger');
+    gerarAto.html('Gerar ato de emenda <i class="icon-arrow-right"/>');
   }
 }
+verificaRequisitos();
+$('#gerarAto').on('click', gerarDocumentoAto);
+function gerarDocumentoAto(e)
+{
+  var valores = {};
+  var ajg = CKEDITOR.instances.texto_ajg.getData().replace(/<\/?p>/g, ' ');
+  if (! /^ *$/.test(ajg)) {
+    valores.ajg = ajg;
+  }
+  var requisitos = $('#requisitos p'), requisitosAusentes = 0;
+  $.each(['procuracao', 'rg', 'residencia', 'renuncia', 'ctps', 'indeferimento', 'medicos', 'planilha'], function(r, requisito) {
+    valores[requisito] = Requisito.fromParagrafo(requisitos[r]);
+    if (valores[requisito].presente == false || valores[requisito].ilegivel == true) {
+      requisitosAusentes++;
+    }
+  });
+  var sTexto = '<html lang="pt-BR" dir="ltr">\n';
+  sTexto += '  <head>\n';
+  sTexto += '  <style type="text/css">\n';
+  sTexto += 'body { counter-reset: lista1; }\n';
+  sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; }\n';
+  sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold; }\n';
+  sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; }\n';
+  sTexto += '.text { font-family: Times; font-size: 13pt; }\n';
+  sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; }\n';
+  sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; }\n';
+  sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; }\n';
+  sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; }\n';
+  sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold; }\n';
+  sTexto += '  </style>\n';
+  sTexto += '  </head>\n';
+  sTexto += '  <body bgcolor="white">\n';
+  sTexto += '  <p class="header" align="center"><img width="85" height="86" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República"><br/>';
+  sTexto += 'PODER JUDICIÁRIO<br/>';
+  sTexto += '&nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br/>';
+  sTexto += 'SEÇÃO JUDICIÁRIA DO PARANÁ<br/>';
+  sTexto += 'Subseção Judiciária de Maringá<br/>';
+  sTexto += '1ª Vara do Juizado Especial Federal</p>\n';
+  sTexto += '  <p class="title" align="center">CERTIDÃO</p>\n';
+  sTexto += '  <p class="text" align="justify">Nos termos da Portaria 03/2006 deste Juizado, efetuei a análise prévia da petição inicial e dos documentos encartados.</p>\n';
+  if ('ajg' in valores) {
+    sTexto += '  <p class="text" align="justify">' + valores.ajg + '</p>\n';
+  }
+  sTexto += '  <p class="text" align="justify">A fim de verificar eventual prevenção, litispendência ou coisa julgada, certifico que procedi à consulta do sistema e-Proc e SIAPRO (físico), <strong>não</strong> tendo encontrado processos anteriormente ajuizados entre as mesmas partes no âmbito da Seção Judiciária do Paraná.</p>\n';
+  if (requisitosAusentes == 0) {
+    sTexto += '  <p class="text" align="justify">Por fim, certifico que os autos encontram-se aptos para a designação de perícia médica.</p>\n';
+    $('#prazo').hide();
+    $('#intimar').removeClass('btn-danger').addClass('btn-success');
+    $('#intimar').html('Gerar movimentação <i class="icon-arrow-right"/>');
+  } else {
+    $('#prazo').show();
+    $('#intimar').removeClass('btn-success').addClass('btn-danger');
+    $('#intimar').html('Intimar p/ emenda <i class="icon-arrow-right"/>');
+    sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
+    sTexto += '  <p class="title" align="center">ATO DE SECRETARIA</p>\n';
+    sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
+    sTexto += '  <p class="text" align="justify">Por oportuno, encaminho estes autos para <strong>INTIMAÇÃO</strong> da parte autora para que, no prazo de <strong>' + $('#dias').val() + ' dias</strong>, junte aos autos os documentos abaixo relacionados e/ou esclareça/retifique o que lhe for solicitado, <strong><u>sob pena de extinção do processo</u></strong>:</p>\n';
+    sTexto += '  <p class="lista1" align="justify">Apresentar:</p>\n';
+    sTexto += valores.procuracao.toTexto('Instrumento procuratório com os poderes para o foro judicial', ', <b>tendo em vista que aquele juntado aos autos está <u>ilegível</u></b>', ';');
+    sTexto += valores.rg.toTexto('Cópias dos documentos pessoais da parte autora (RG e CPF)', ', <b>tendo em vista que aquelas juntadas aos autos estão ilegíveis</b>', ';');
+    sTexto += valores.residencia.toTexto('Comprovante de residência atualizado (emitido há no máximo um ano, como contas de água, luz ou telefone) e em nome da parte autora', ' (o comprovante juntado está no nome de pessoa estranha aos autos)', ', para fins de verificação da competência territorial, a qual é absoluta no âmbito dos Juizados Federais (art. 3º, §3º da Lei 10.259/01). Na hipótese de apresentação de comprovante em nome de terceiro, deve a parte comprovar qual o vínculo com o titular, apresentando documentos, por exemplo: certidão de nascimento, casamento, contrato de locação, ou ainda, sendo o caso, declaração do companheiro(a) ou do titular do comprovante. Informamos ainda que conforme entendimento do Juízo o comprovante atual de endereço é necessário para verificação da competência territorial, eis que, nos termos do art. 87 do CPC, <em>“determina-se a competência no momento em que a ação é proposta. São irrelevantes as modificações do estado de fato ou de direito ocorridas posteriormente, salvo quando suprimirem o órgão judiciário ou alterarem a competência em razão da matéria ou da hierarquia”</em>;');
+    sTexto += valores.renuncia.toTexto('Termo de renúncia, com a menção expressa à <em>“renúncia das parcelas vencidas, que <u>somadas as 12 parcelas vincendas</u>, excederem a 60 salários mínimos”</em>, assinado devidamente pelo(a) autor(a), conforme art. 260 do CPC e Determinação expressa n.º 01/2007 deste Juizado', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
+    sTexto += valores.ctps.toTexto('Cópia INTEGRAL da CTPS ou das guias de contribuições (acompanhadas do comprovante de pagamento) com o fito de comprovar a qualidade de segurado e carência, quando for o caso', ', tendo em vista que aquela juntada aos autos está ilegível', ';');
+    sTexto += valores.indeferimento.toTexto('Cópia do indeferimento administrativo', ', tendo em vista que aquela juntada aos autos está ilegível', ';');
+    sTexto += valores.medicos.toTexto('Documentos médicos que possam comprovar a alegação da enfermidade da autora, tais como: laudos, atestados, exames, prontuários, fichas de atendimento médico ou internação, guias de encaminhamento médico, perícias', ', tendo em vista que aqueles juntados aos autos estão ilegíveis', ';');
+    sTexto += valores.planilha.toTexto('Demonstrativo pormenorizado e atualizado do valor da causa (planilha), para verificação da competência para julgamento pelo JEF, computando-se além das parcelas vencidas as doze vincendas (art. 260 do CPC), retificando o valor já atribuído, caso necessário', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
+  }
+  sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
+  sTexto += '  <p class="signature" align="center">Nome do Servidor<br>documento assinado eletronicamente</p>\n';
+  sTexto += '</body>\n';
+  sTexto += '</html>\n';
+  CKEDITOR.instances.editor_texto_final.setData(sTexto);
+}
+function Requisito(presente, ilegivel)
+{
+  this.presente = presente;
+  this.ilegivel = ilegivel;
+}
+Requisito.prototype = {
+  presente: false,
+  ilegivel: false,
+  toTexto: function(inicioSeAusenteOuIlegivel, textoSeIlegivel, fimSeAusenteOuIlegivel)
+  {
+    var texto = '';
+    if (! this.presente || this.ilegivel) {
+      texto += '  <p class="lista2" align="justify">';
+      texto += inicioSeAusenteOuIlegivel;
+      if (this.ilegivel) {
+        texto += textoSeIlegivel;
+      }
+      texto += fimSeAusenteOuIlegivel;
+      texto += '</p>\n';
+    }
+    return texto;
+  }
+};
+Requisito.fromParagrafo = function(p)
+{
+  var requisito = new Requisito(false, false);
+  if ($(p).find('input')[0].checked) {
+    requisito.presente = true;
+  }
+  if ($(p).find('button').hasClass('active')) {
+    requisito.ilegivel = true;
+  }
+  return requisito;
+};
+$('#dias').on('change', function(e)
+{
+  gerarDocumentoAto();
+});
 </script>
   </body>
 </html>

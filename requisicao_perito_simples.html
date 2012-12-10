@@ -188,13 +188,13 @@
            
         
           <div class="well" id="">
-            <h3>1. Dados da perícia<button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_perito">Personalizar requisição do perito</button></h3>
+            <h3>1. Dados da perícia</h3>
             <form class="form-horizontal" style="margin: 0">
               
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-briefcase"></i> Perito</label>
                 <div class="controls">
-                 <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha">
+                 <select id="perito" tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha">
                    <option></option>
                    <optgroup label="Ortopedista">
                      <option>JOÃO SOUZA FILHO - ORTOPEDISTA</option>
@@ -225,26 +225,40 @@
               <div class="control-group">
                 <label class="control-label" for="inputEmail"><i class="icon-map-marker"></i> Local</label>
                 <div class="controls">
-                 <input type="text" class="input-xlarge" value="Sala de perícias do 1º JEF de Maringá">
+                 <input id="local" type="text" class="input-xlarge" value="Sala de perícias do 1º JEF de Maringá">
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label" for="inputEmail"><i class="icon-warning-sign"></i> Prazo p/ entrega</label>
                 <div class="controls">
-                 <input type="text" size="2" style="width: 22px" value="10"> dias
+                 <input id="prazo" type="text" size="2" style="width: 22px" value="10"> dias
                 </div>
               </div>
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-calendar"></i> Data</label>
                 <div class="controls">
-                 <input type="text" class="input-small">
+                 <input id="data" type="text" class="input-small">
                 </div>
               </div>
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-time"></i> Hora</label>
                 <div class="controls">
-                 <input type="text" class="input-small">
+                 <input id="hora" type="text" class="input-small">
                 </div>
+              </div>
+              <button type="button" class="btn pull-right" data-toggle="collapse" data-target="#personalizar_ato_ordinatorio" style="margin-top: -25px">Personalizar ato ordinatório <i class="icon-arrow-down"></i></button>
+              <div id="personalizar_ato_ordinatorio" class="collapse clearfix" style="clear: both">
+                <legend>Personalizar ato ordinatório</legend>
+                <style type="text/css">
+                #personalizar_ato_ordinatorio .cke_contents {
+                  height: 500px !important;
+                }
+                </style>
+                <textarea id="texto_ato_ordinatorio" rows="10" class="btn-block ckeditor">
+                </textarea>
+                <textarea id="texto_requisicao" rows="10" class="btn-block ckeditor">
+                  Encaminho os autos para requisição da APS de Maringá a fim de que, no <b>prazo de 20 (vinte) dias</b>, proceda à juntada do PA do benefício nº 123.456.789-8.
+                </textarea>
               </div>
             </form>
           </div>
@@ -260,11 +274,74 @@
                   <option>LOAS - normal</option>
                   <option>LOAS - criança</option>
                 </optgroup>
-              </select>
-              <a href="#" class="btn pull-right" data-toggle="modal" data-target="#a_desenvolver"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
+              </select><br>
+              <div class="btn-group" style="margin-top: 15px">
+                <div class="btn-group">
+                  <button type="button" class="btn" data-toggle="collapse" data-target="#personalizar">
+                  Personalizar quesitos <i class="icon-arrow-down"></i>
+                  </button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn" data-toggle="collapse" data-target="#mensagem_perito">
+                  Mensagem para o perito <i class="icon-arrow-down"></i>
+                  </button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn" data-toggle="collapse" data-target="#">
+                  Anexar arquivos <i class="icon-upload-alt"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- <a href="#" class="btn pull-right" data-toggle="modal" data-target="#a_desenvolver"><i class="icon-external-link"></i> Editar modelos de quesitos</a> -->
             </form>
+            <div id="mensagem_perito" class="collapse">
+              <legend id="fundamentacao_final">Mensagem para o perito (aparecerá apenas para o perito)</legend>
+              <textarea id="texto_fundamentacao_final" rows="10" class="btn-block">
+              </textarea>
+            </div>
+            <div id="personalizar" class="collapse">
+              <div class="" id="relatorio">
+                <form id="fundamentacao_quesitos">
+                  <div style=""> <!-- Para fazer a caixa não ficar muito extensa, usar height: 500px; overflow: auto -->
+                    <legend>Personalizar quesitos
+                      <div class="pull-right">
+                        <a class="btn btn-mini">Marcar todos</a> 
+                        <a class="btn btn-mini">Desmarcar todos</a>
+                      </div>
+                    </legend>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 2  </label>  <textarea rows="1" class="input-block-level">Quais são as queixas da parte autora?</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 3  </label>  <textarea rows="1" class="input-block-level">Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 4  </label>  <textarea rows="1" class="input-block-level">O que foi apurado no exame físico/clínico?</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 5  </label>  <textarea rows="1" class="input-block-level">Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 6  </label>  <textarea rows="1" class="input-block-level">Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar? </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 7  </label>  <textarea rows="1" class="input-block-level">A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 8  </label>  <textarea rows="1" class="input-block-level">Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 9  </label>  <textarea rows="1" class="input-block-level">Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 10 </label> <textarea rows="1" class="input-block-level">A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante? </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 11 </label> <textarea rows="1" class="input-block-level">A parte autora está seguindo o tratamento que lhe é indicado? </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 12 </label> <textarea rows="1" class="input-block-level">Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 13 </label> <textarea rows="1" class="input-block-level">Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 14 </label> <textarea rows="1" class="input-block-level">Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 15 </label> <textarea rows="1" class="input-block-level">A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e indicar se apresentou atestado.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 16 </label> <textarea rows="1" class="input-block-level">A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 17 </label> <textarea rows="1" class="input-block-level">Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 18 </label> <textarea rows="1" class="input-block-level">A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 19 </label> <textarea rows="1" class="input-block-level">De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 20 </label> <textarea rows="1" class="input-block-level">Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 21 </label> <textarea rows="1" class="input-block-level">Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 22 </label> <textarea rows="1" class="input-block-level">Qual a data do início da doença a que está acometida a parte autora? Fundamente.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 23 </label> <textarea rows="1" class="input-block-level">Qual a data do início de sua incapacidade? Fundamente.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 24 </label> <textarea rows="1" class="input-block-level">Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</textarea>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 25 </label> <textarea rows="1" class="input-block-level">Prestar outros esclarecimentos sobre o que foi constatado.</textarea>
+                    <button class="btn">Adicionar quesito</button>
+                    <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 26 </label> <textarea rows="1" class="input-block-level" placeholder="Digite aqui o quesito 26"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="well" id="">
+          <!-- <div class="well" id="">
             <form class="form-inline" style="margin: 0">
               <h3>3. Modelos de quesitos adicionais</h3>
               <select tabindex="1" style="width:500px;" multiple="" rel="chosen" data-placeholder="Escolha">
@@ -275,12 +352,12 @@
               </select>
               <a href="#" class="btn pull-right" data-toggle="modal" data-target="#a_desenvolver"><i class="icon-external-link"></i> Editar modelos de quesitos</a>
             </form>
-          </div>
+          </div> -->
           <div class="well" id="">
-            <h3><input type="checkbox" checked> 4. Requisição para APS</h3>
+            <h3><input type="checkbox" checked> 3. Requisição para APS</h3>
             <form class="form-horizontal" style="margin: 0">
               <button type="button" class="btn pull-right" data-toggle="modal" data-target="#personalizar_requisicao_APS">Personalizar requisição da APS</button>
-              <div class="control-group">
+              <div class="control-group success">
                 <label class="control-label" for="inputEmail">Número do benefício:</label>
                 <div class="controls">
                  <input type="text">
@@ -294,7 +371,7 @@
               </div>
             </form>
             <hr>
-            <h3><input type="checkbox" checked> 5. Intimação das partes</h3>
+            <h3><input type="checkbox" checked> 4. Intimação das partes</h3>
             <form class="form-horizontal" style="margin: 0">
               <div class="control-group">
                 <label class="control-label" for="inputEmail">Prazo autor</label>
@@ -309,72 +386,32 @@
                 </div>
               </div>
             </form>
-          </div>
-
-          <div class="btn-toolbar well">
-          
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#personalizar">
-            Personalizar quesitos <i class="icon-arrow-down"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
-            Anexar mensagem para o perito <i class="icon-arrow-down"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#">
-            Anexar arquivos para o perito <i class="icon-arrow-down"></i>
-            </button>
-
-          </div>
-           
-          <div id="personalizar" class="collapse">
-            <div class="" id="relatorio">
-              <form id="fundamentacao_quesitos">
-                <div style=""> <!-- Para fazer a caixa não ficar muito extensa, usar height: 500px; overflow: auto -->
-                  <legend>Personalizar quesitos
-                    <div class="pull-right">
-                      <a class="btn btn-mini">Marcar todos</a> 
-                      <a class="btn btn-mini">Desmarcar todos</a>
-                    </div>
-                  </legend>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 2  </label>  <textarea rows="1" class="input-block-level">Quais são as queixas da parte autora?</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 3  </label>  <textarea rows="1" class="input-block-level">Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 4  </label>  <textarea rows="1" class="input-block-level">O que foi apurado no exame físico/clínico?</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 5  </label>  <textarea rows="1" class="input-block-level">Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 6  </label>  <textarea rows="1" class="input-block-level">Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar? </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 7  </label>  <textarea rows="1" class="input-block-level">A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 8  </label>  <textarea rows="1" class="input-block-level">Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 9  </label>  <textarea rows="1" class="input-block-level">Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 10 </label> <textarea rows="1" class="input-block-level">A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante? </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 11 </label> <textarea rows="1" class="input-block-level">A parte autora está seguindo o tratamento que lhe é indicado? </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 12 </label> <textarea rows="1" class="input-block-level">Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 13 </label> <textarea rows="1" class="input-block-level">Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 14 </label> <textarea rows="1" class="input-block-level">Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 15 </label> <textarea rows="1" class="input-block-level">A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e indicar se apresentou atestado.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 16 </label> <textarea rows="1" class="input-block-level">A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 17 </label> <textarea rows="1" class="input-block-level">Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 18 </label> <textarea rows="1" class="input-block-level">A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 19 </label> <textarea rows="1" class="input-block-level">De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 20 </label> <textarea rows="1" class="input-block-level">Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 21 </label> <textarea rows="1" class="input-block-level">Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 22 </label> <textarea rows="1" class="input-block-level">Qual a data do início da doença a que está acometida a parte autora? Fundamente.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 23 </label> <textarea rows="1" class="input-block-level">Qual a data do início de sua incapacidade? Fundamente.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 24 </label> <textarea rows="1" class="input-block-level">Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</textarea>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 25 </label> <textarea rows="1" class="input-block-level">Prestar outros esclarecimentos sobre o que foi constatado.</textarea>
-                  <button class="btn">Adicionar quesito</button>
-                  <label class="checkbox"><input type="checkbox" checked="" value="">Quesito 26 </label> <textarea rows="1" class="input-block-level" placeholder="Digite aqui o quesito 26"></textarea>
+            <hr>
+            <h3> <a href="#eventos_futuros" data-toggle="collapse">5. Programar eventos futuros</a></h3>
+            <form class="form-horizontal collapse" style="margin: 0" id="eventos_futuros">
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox" checked="checked"> Citação do réu após juntada do laudo, <input type="text" size="2" style="width: 22px" value="30"> dias
+                 </label>
                 </div>
-              </form>
-            </div>
-          </div>
-          
-          <div id="demo" class="collapse">
-            <legend id="fundamentacao_final">Mensagem para o perito (aparecerá apenas para o perito)</legend>
-            <textarea id="texto_fundamentacao_final" rows="10" class="btn-block">
-            </textarea>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox" checked="checked"> Intimação do autor após juntada do laudo, <input type="text" size="2" style="width: 22px" value="10"> dias
+                 </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox" style="float: left">
+                   <input type="checkbox" checked="checked"> Conclusão para sentença automática, localizador </label> <select style="margin-left: 10px; width: 80px"><option>GAB</option><option>GABS</option></select>
+                </div>
+              </div>
+            </form>
           </div>
 
-          
           <div style="max-width: 400px; margin: 0px auto 0" class="well">
             <button class="btn btn-large btn-block btn-success" type="button">Movimentar processo (6 eventos) <i class="icon-arrow-right"></i> </button>
             <br>
@@ -385,6 +422,14 @@
               <li>Intimar autor</li>
               <li>Intimar réu</li>
               <li>Requisitar APS (<a href="#" data-toggle="modal" data-target="#personalizar_requisicao_APS">ver</a>)</li>
+            </ul>
+            <hr style="margin: 5px 0">
+            Eventos programados:
+            <ul>
+              <li>Citação do réu automática (<span class='text-success'>30 dias</span>)</li>
+              <li>Intimação do autor automática (<span class='text-success'>10 dias</span>)</li>
+              <li>Vista ao MPF automática</li>
+              <li>Conclusão para sentença automática</li>
             </ul>
 
           </div>
@@ -420,9 +465,10 @@
       </div>
       <div class="modal-body">
         <form>
-          <textarea id="texto_requisicao" rows="10" class="btn-block">
+          <!-- Foi removido daqui pois coloquei INLINE, aqui funciona também, mas dentro de MODAL -->
+          <!-- <textarea id="texto_requisicao" rows="10" class="btn-block ckeditor">
             Encaminho os autos para requisição da APS de Maringá a fim de que, no <b>prazo de 20 (vinte) dias</b>, proceda à juntada do PA do benefício nº 123.456.789-8.
-          </textarea>
+          </textarea> -->
         </form>
       </div>  
         <div class="modal-footer">
@@ -439,16 +485,9 @@
       </div>
       <div class="modal-body">
         <form>
-          <textarea id="texto_requisicao_perito" rows="10" class="btn-block">
-            Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br><br>
-            Perito:<br>
-            Local:<br>
-            Data:<br>
-            Hora:<br>
-            <br><br>
-            Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.<br><br>
-            O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.
-          </textarea>
+          <!-- Aqui funciona no modal, mas removi para colocar INLINE logo acima, por isso estas linhas foram comentadas -->
+          <!-- <textarea id="texto_requisicao_perito" rows="10" class="btn-block ckeditor">
+          </textarea> -->
         </form>
       </div>  
         <div class="modal-footer">
@@ -478,17 +517,50 @@
     <script src="assets/js/bootstrap-affix.js"></script>
     <script src="assets/js/application.js"></script>
     <script src="assets/bootstrap-editable/js/bootstrap-editable.min.js"></script>
-    <!-- Editor de textos -->
-    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
-        <script type="text/javascript">
-          $('#texto_requisicao_perito').wysihtml5({locale: "pt-BR"});
-          $('#texto_requisicao').wysihtml5({locale: "pt-BR"});
-          $('[rel=chosen]').chosen({search_contains:"true"});
-          $('#data_pericia').editable();
-        </script>
-    <!-- Final editor textos  -->
+    <script src="assets/ckeditor/ckeditor.js"></script>
+<script>
+$('#personalizar_ato_ordinatorio').on('show', function(e)
+{
+  sTexto = '';
+  sTexto = '<html lang="pt-BR" dir="ltr">\n';
+  sTexto += '  <head>\n';
+  sTexto += '  <style type="text/css">\n';
+  sTexto += 'body { counter-reset: lista1; }\n';
+  sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; }\n';
+  sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold; }\n';
+  sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; }\n';
+  sTexto += '.text { font-family: Times; font-size: 13pt; }\n';
+  sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; }\n';
+  sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; }\n';
+  sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; }\n';
+  sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; }\n';
+  sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold; }\n';
+  sTexto += '  </style>\n';
+  sTexto += '  </head>\n';
+  sTexto += '  <body bgcolor="white">\n';
+  sTexto += '  <p class="header" align="center"><img width="85" height="86" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República"><br/>';
+  sTexto += 'PODER JUDICIÁRIO<br/>';
+  sTexto += '&nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br/>';
+  sTexto += 'SEÇÃO JUDICIÁRIA DO PARANÁ<br/>';
+  sTexto += 'Subseção Judiciária de Maringá<br/>';
+  sTexto += '1ª Vara do Juizado Especial Federal</p>\n';
+  sTexto += '  <p class="title" align="center">CERTIDÃO</p>\n';
+  sTexto += '<p class="text" align="justify">Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br/></p>';
+  sTexto += '<p class="text">Perito: <b>' + $('#perito').val() + '</b><br>';
+  sTexto += 'Local: <b>' + $('#local').val() + '</b><br>';
+  sTexto += 'Data: <b>' + $('#data').val() + '</b><br>';
+  sTexto += 'Hora: <b>' + $('#hora').val() + '</b><br>';
+  sTexto += '</p>';
+  sTexto += '<p class="text">Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.</p>';
+  sTexto += '<p class="text">O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.</p>';
+  sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
+  sTexto += '  <p class="signature" align="center">Nome do Servidor<br>documento assinado eletronicamente</p>\n';
+  sTexto += '</body>\n';
+  sTexto += '</html>\n';
+  CKEDITOR.instances.texto_ato_ordinatorio.setData(sTexto);
+});
+$('[rel=chosen]').chosen({search_contains:"true"});
+</script>
 
   </body>
 </html>
