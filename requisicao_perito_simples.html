@@ -194,7 +194,7 @@
               <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-briefcase"></i> Perito</label>
                 <div class="controls">
-                 <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha">
+                 <select id="perito" tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Escolha">
                    <option></option>
                    <optgroup label="Ortopedista">
                      <option>JOÃO SOUZA FILHO - ORTOPEDISTA</option>
@@ -225,25 +225,25 @@
               <div class="control-group">
                 <label class="control-label" for="inputEmail"><i class="icon-map-marker"></i> Local</label>
                 <div class="controls">
-                 <input type="text" class="input-xlarge" value="Sala de perícias do 1º JEF de Maringá">
+                 <input id="local" type="text" class="input-xlarge" value="Sala de perícias do 1º JEF de Maringá">
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label" for="inputEmail"><i class="icon-warning-sign"></i> Prazo p/ entrega</label>
                 <div class="controls">
-                 <input type="text" size="2" style="width: 22px" value="10"> dias
+                 <input id="prazo" type="text" size="2" style="width: 22px" value="10"> dias
                 </div>
               </div>
               <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-calendar"></i> Data</label>
                 <div class="controls">
-                 <input type="text" class="input-small">
+                 <input id="data" type="text" class="input-small">
                 </div>
               </div>
               <div class="control-group success">
                 <label class="control-label" for="inputEmail"><i class="icon-time"></i> Hora</label>
                 <div class="controls">
-                 <input type="text" class="input-small">
+                 <input id="hora" type="text" class="input-small">
                 </div>
               </div>
               <button type="button" class="btn pull-right" data-toggle="collapse" data-target="#personalizar_ato_ordinatorio" style="margin-top: -25px">Personalizar ato ordinatório <i class="icon-arrow-down"></i></button>
@@ -457,7 +457,7 @@
       </div>
       <div class="modal-body">
         <form>
-          <textarea id="texto_requisicao" rows="10" class="btn-block">
+          <textarea id="texto_requisicao" rows="10" class="btn-block ckeditor">
             Encaminho os autos para requisição da APS de Maringá a fim de que, no <b>prazo de 20 (vinte) dias</b>, proceda à juntada do PA do benefício nº 123.456.789-8.
           </textarea>
         </form>
@@ -476,7 +476,7 @@
       </div>
       <div class="modal-body">
         <form>
-          <textarea id="texto_requisicao_perito" rows="10" class="btn-block">
+          <textarea id="texto_requisicao_perito" rows="10" class="btn-block ckeditor">
             Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br><br>
             Perito:<br>
             Local:<br>
@@ -515,17 +515,22 @@
     <script src="assets/js/bootstrap-affix.js"></script>
     <script src="assets/js/application.js"></script>
     <script src="assets/bootstrap-editable/js/bootstrap-editable.min.js"></script>
-    <!-- Editor de textos -->
-    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
-        <script type="text/javascript">
-          $('#texto_requisicao_perito').wysihtml5({locale: "pt-BR"});
-          $('#texto_requisicao').wysihtml5({locale: "pt-BR"});
-          $('[rel=chosen]').chosen({search_contains:"true"});
-          $('#data_pericia').editable();
-        </script>
-    <!-- Final editor textos  -->
+    <script src="assets/ckeditor/ckeditor.js"></script>
+<script>
+$('#personalizar_requisicao_perito').on('show', function(e)
+{
+  sTexto = '';
+  sTexto += 'Certifico que foi designado perito médico, local, data e horário, para exame da parte autora, conforme dados abaixo especificados.<br><br>';
+  sTexto += 'Perito: ' + $('#perito').val() + '<br>';
+  sTexto += 'Local: ' + $('#local').val() + '<br>';
+  sTexto += 'Data: ' + $('#data').val() + '<br>';
+  sTexto += 'Hora: ' + $('#hora').val() + '<br>';
+  sTexto += '<br><br>';
+  sTexto += 'Após a entrega do laudo pericial, será requisitado o pagamento dos honorários periciais, fixados em <b>R$ 176,10</b> (cento e setenta e seis reais e dez centavos), nos moldes da Tabela Judiciária em vigor.<br><br>';
+  sTexto += 'O Perito Judicial deverá entregar o laudo pericial até 10 (dez) dias após a perícia, com as respostas fundamentadas, usando linguajar acessível aos leigos em medicina.';
+  CKEDITOR.instances.texto_requisicao_perito.setData(sTexto);
+});
+</script>
 
   </body>
 </html>
