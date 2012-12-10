@@ -1734,8 +1734,13 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Editor final</h3>
       </div>
-      <div class="modal-body">
-        <textarea id="editor_texto_final" rows="3" class="btn-block ckeditor"></textarea>
+      <div class="modal-body" style="height: 450px">
+        <style type="text/css">
+          .modal-body .cke_contents {
+          height: 350px !important;
+          }
+        </style>
+        <textarea id="editor_texto_final" rows="6" class="btn-block ckeditor"></textarea>
       </div>  
         <div class="modal-footer">
         <form class="form-inline pull-left" style="margin: 0">
@@ -1910,9 +1915,7 @@ $('#gerarAto').on('click', function(e)
     sTexto += valores.ctps.toTexto('Demonstrativo pormenorizado e atualizado do valor da causa (planilha), para verificação da competência para julgamento pelo JEF, computando-se além das parcelas vencidas as doze vincendas (art. 260 do CPC), retificando o valor já atribuído, caso necessário', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
   }
   sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
-  sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
-  sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
-  sTexto += '  <p class="signature" align="center">documento assinado eletronicamente</p>\n';
+  sTexto += '  <p class="signature" align="center">Nome do Servidor<br>documento assinado eletronicamente</p>\n';
   sTexto += '</body>\n';
   sTexto += '</html>\n';
   CKEDITOR.instances.editor_texto_final.setData(sTexto);
