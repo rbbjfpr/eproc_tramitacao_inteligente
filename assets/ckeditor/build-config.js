@@ -40,7 +40,9 @@ var CKBUILDER_CONFIG = {
 		'dialog' : 1,
 		'dialogui' : 1,
 		'button' : 1,
-		'fakeobjects' : 1
+		'fakeobjects' : 1,
+		'maximize' : 1,
+		'justify' : 1
 	},
 	languages : {
 		'en' : 1,
