@@ -1677,6 +1677,10 @@
               <style type="text/css">
                 #texto_ajg_wrapper .cke_contents {
                 height: 110px !important;
+                font-size: 12pt !important;  
+                }
+                #texto_ajg_wrapper .cke_editable {
+                font-size: 12pt !important;  
                 }
               </style>
               <div id="texto_ajg_wrapper"><textarea id="texto_ajg"  class="btn-block ckeditor"></textarea></div>
@@ -1880,15 +1884,15 @@ function gerarDocumentoAto(e)
   sTexto += '  <head>\n';
   sTexto += '  <style type="text/css">\n';
   sTexto += 'body { counter-reset: lista1; }\n';
-  sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; }\n';
-  sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold; }\n';
-  sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; }\n';
+  sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; text-indent: 0; line-height: 1.5em }\n';
+  sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold;  text-indent: 0}\n';
+  sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; text-indent: 0 }\n';
   sTexto += '.text { font-family: Times; font-size: 13pt; }\n';
-  sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; }\n';
-  sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; }\n';
-  sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; }\n';
-  sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; }\n';
-  sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold; }\n';
+  sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; text-indent: 0}\n';
+  sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; text-indent: 0 }\n';
+  sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; text-indent: 0}\n';
+  sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; text-indent: 0}\n';
+  sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold;text-indent: 0 }\n';
   sTexto += '  </style>\n';
   sTexto += '  </head>\n';
   sTexto += '  <body bgcolor="white">\n';
@@ -1913,9 +1917,7 @@ function gerarDocumentoAto(e)
     $('#prazo').show();
     $('#intimar').removeClass('btn-success').addClass('btn-danger');
     $('#intimar').html('Intimar p/ emenda <i class="icon-arrow-right"/>');
-    sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
     sTexto += '  <p class="title" align="center">ATO DE SECRETARIA</p>\n';
-    sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
     sTexto += '  <p class="text" align="justify">Por oportuno, encaminho estes autos para <strong>INTIMAÇÃO</strong> da parte autora para que, no prazo de <strong>' + $('#dias').val() + ' dias</strong>, junte aos autos os documentos abaixo relacionados e/ou esclareça/retifique o que lhe for solicitado, <strong><u>sob pena de extinção do processo</u></strong>:</p>\n';
     sTexto += '  <p class="lista1" align="justify">Apresentar:</p>\n';
     sTexto += valores.procuracao.toTexto('Instrumento procuratório com os poderes para o foro judicial', ', <b>tendo em vista que aquele juntado aos autos está <u>ilegível</u></b>', ';');
