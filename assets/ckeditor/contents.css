@@ -6,8 +6,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 body
 {
 	/* Font */
-	font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
-	font-size: 12px;
+	/*font-family: sans-serif, Arial, Verdana, "Trebuchet MS";*/
+	font-family: Times;
+	font-size: 13pt;
+	line-height: 1.6em;
 
 	/* Text color */
 	color: #333;
@@ -20,7 +22,7 @@ body
 
 .cke_editable
 {
-	font-size: 13px;
+	font-size: 13pt;
 	line-height: 1.6em;
 }
 
