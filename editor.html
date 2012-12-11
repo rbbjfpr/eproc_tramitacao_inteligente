@@ -12,6 +12,49 @@
     <link rel="stylesheet" type="text/css" href="assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
     <!-- editor de textos -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
+    <script>
+      function PrimeiroRequisito() {
+        // Get the editor instance that you want to interact with.
+        var editor = CKEDITOR.instances.texto_fundamentacao;
+
+        // Get editor contents
+        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
+        var content = editor.getData();
+        document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
+        document.getElementById( 'requisito1' ).innerHTML = '<b>falta de qualidade de segurado</b>';
+        var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
+        editor.setData(content);
+      }
+      function SegundoRequisito() {
+        // Get the editor instance that you want to interact with.
+        var editor = CKEDITOR.instances.texto_fundamentacao;
+
+        // Get editor contents
+        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
+        var content = editor.getData();
+        document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
+        document.getElementById( 'requisito2' ).innerHTML = ', <b>incapacidade para o trabalho</b>';
+        var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
+        editor.setData(content);
+      }
+      
+      function TerceiroRequisito() {
+        // Get the editor instance that you want to interact with.
+        var editor = CKEDITOR.instances.texto_fundamentacao;
+
+        // Get editor contents
+        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
+        var content = editor.getData();
+        document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
+        document.getElementById( 'requisito3' ).innerHTML = ' e <b>carência</b>';
+        var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
+        editor.setData(content);
+      }
+
+
+
+    </script>
+
     <style type="text/css">
       body {
         padding-top: 70px;
@@ -234,7 +277,6 @@
             
           <div class="well" id="relatorio">
             <form class="" style="margin: 0">
-              <h3>2. Relatório</h3>
               <legend>
                 O que o autor pede ?
                 <div class="pull-right">
@@ -259,9 +301,9 @@
                 </div>
               </legend>
               <div style="margin-bottom: 20px">
-                <label class="checkbox"><input type="checkbox" value="">Falta de qualidade de segurado</label>
-                <label class="checkbox"><input type="checkbox" value="">Falta de incapacidade para o trabalho</label>
-                <label class="checkbox"><input type="checkbox" value="">Falta de carência</label>
+                <label class="checkbox"><input type="checkbox" value="" onClick="PrimeiroRequisito();">Falta de qualidade de segurado</label>
+                <label class="checkbox"><input type="checkbox" value="" onClick="SegundoRequisito();">Falta de incapacidade para o trabalho</label>
+                <label class="checkbox"><input type="checkbox" value="" onClick="TerceiroRequisito();">Falta de carência</label>
               </div>
               <!-- <select tabindex="1" style="width:350px;" rel="chosen" data-placeholder="Parágrafos">
                 <optgroup label="Auxílio-doença">
@@ -275,18 +317,6 @@
                   <option>LOAS parcialmente procedente</option>
                 </optgroup>
               </select> -->
-              <div id="texto_relatorio_improcedente" style="display: none">
-                 <p>A parte autora, profissão, atualmente com 28 anos de idade, postula a concessão de benefício por incapacidade a partir de <span id="data_DER"></span> </p>
-                <p> O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: XX, XX, XX. (selecionar dentre as opções: incapacidade para o trabalho, carência e qualidade de segurado na data do início da incapacidade).</p>
-              </div>
-              <textarea name="texto_relatorio" placeholder="Enter text ..." rows="10" class="btn-block">
-              </textarea>
-            </form>
-          </div>
-
-          <div class="well" id="fundamentacao_inicial">
-            <form class="" style="">
-              <h3>3. Fundamentação</h3>
               <select tabindex="1" style="width:500px;" rel="chosen" data-placeholder="Preliminares e prejudiciais de mérito">
                 <optgroup label="Preliminares">
                   <option></option>
@@ -299,51 +329,81 @@
                   <option>Prescrição quinquenal</option>
                 </optgroup>
               </select>
-              <div id="texto_fundamentacao_improcedente" style="display: none">
-                <p><b>Decide-se</b><br><br></p>
+              <div id="texto_fundamentacao_oculto" style="display: none">
+                <style type="text/css">
+                  body { counter-reset: lista1; }
+                  .header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; text-indent: 0; line-height: 1.5em }
+                  .dados { font-family: Times; font-size: 13pt; font-weight: bold;  text-indent: 0}
+                  .title { font-family: Times; font-size: 16pt; font-weight: bold; text-indent: 0 }
+                  .text { font-family: Times; font-size: 13pt; }
+                  .signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; text-indent: 0}
+                  .lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; text-indent: 0 }
+                  .lista1:before { content: counter(lista1) ") "; counter-increment: lista1; text-indent: 0}
+                  .lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; text-indent: 0}
+                  .lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold;text-indent: 0}
+                  .no_indent {text-indent: 0}
+
+
+                </style>
+                <body bgcolor="white">
+                <p class="header" align="center"><img width="65" height="65" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República"><br/>
+                PODER JUDICIÁRIO<br/>
+                &nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br/>
+                SEÇÃO JUDICIÁRIA DO PARANÁ<br/>
+                Subseção Judiciária de Maringá<br/>
+                1ª Vara do Juizado Especial Federal</p>
+                  <p class="title" align="center">S E N T E N Ç A</p>
+                 <p>A parte autora, profissão, atualmente com 28 anos de idade, postula a concessão de benefício por incapacidade a partir de <span id="data_DER"></span> </p>
+                <p> O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: <span id="requisito1"> </span><span id="requisito2"> </span><span id="requisito3"> </span>.</p>
+                <p><b>Decide-se.</b></p>
                 <p>A qualidade de segurado e a carência são requisitos que devem estar presentes no momento do fato gerador do benefício almejado, ou seja, na data de início da incapacidade (DII). Nesse passo, entende-se prejudicada a manifestação do Juízo acerca de tais premissas, vez que o caso em apreço se resolve pela inexistência de incapacidade.</p>
                 <p>É que, conforme se verifica pela perícia realizada, apesar das queixas da parte autora, não foi clinicamente constatada a incapacidade para a atividade que habitualmente exerce. Pela pertinência, transcrevem-se alguns trechos do exame técnico:</p>
                 <div class="citacao">
-                  <p><b>2. Quais são as queixas da parte autora?</b></p>
+                  <!-- <p><b>2. Quais são as queixas da parte autora?</b></p>
                   <p><b>3. Quais os exames apresentados (indicar a data de realização e a síntese do resultado)? </b></p>
-                  <p><b>4. O que foi apurado no exame físico/clínico?</b></p>
-                  <p><b>5. Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</b></p>
-                  <p><b>6. Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar? </b></p>
-                  <p><b>7. A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </b></p>
-                  <p><b>8. Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</b></p>
-                  <p><b>9. Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </b></p>
-                  <p><b>10. A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante? </b></p>
-                  <p><b>11. A parte autora está seguindo o tratamento que lhe é indicado? </b></p>
-                  <p><b>12. Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </b></p>
-                  <p><b>13. Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </b></p>
-                  <p><b>14. Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </b></p>
-                  <p><b>15. A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e indicar se apresentou atestado.</b></p>
-                  <p><b>16. A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</b></p>
-                  <p><b>17. Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</b></p>
-                  <p><b>18. A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.</b></p>
-                  <p><b>19. De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</b></p>
-                  <p><b>20. Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</b></p>
-                  <p><b>21. Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</b></p>
-                  <p><b>22. Qual a data do início da doença a que está acometida a parte autora? Fundamente.</b></p>
-                  <p><b>23. Qual a data do início de sua incapacidade? Fundamente.</b></p>
-                  <p><b>24. Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</b></p>
-                  <p><b>25. Prestar outros esclarecimentos sobre o que foi constatado.</b></p>
-                </div>
+                  <p><b>4. O que foi apurado no exame físico/clínico?</b></p> -->
+                  <p><b>5. Com base nos exames, em sua opinião, a parte autora é portadora de alguma moléstia? Especifique as moléstias.</b><br>Não.</p>
+                  <p><b>6. Existe correlação entre os sintomas referidos pela parte autora e os achados do exame clínico e/ou complementar? </b><br>Não.</p>
+                  <p><b>7. A moléstia porventura existente está evoluindo (piorando), regredindo (melhorando) ou está estabilizada? </b><br>Não há moléstia.</p>
+                  <p><b>8. Comparando a parte autora com uma pessoa saudável, da mesma idade e sexo, esclarecer se sofre restrições em decorrência da moléstia. Especifique.</b><br>Não há restrições quando comparada à pessoa de mesma idade.</p>
+                  <!-- <p><b>9. Existe possibilidade de cura, controle ou minoração dos efeitos de tal moléstia? Prestar esclarecimentos. </b></p> -->
+                  <!-- <p><b>10. A parte autora necessita de cuidados médicos e/ou utilização de medicamentos de forma constante? </b></p> -->
+                  <!-- <p><b>11. A parte autora está seguindo o tratamento que lhe é indicado? </b></p> -->
+                  <p><b>12. Levando-se em consideração o histórico profissional da parte autora, esclarecer se esta, atualmente, pode continuar a exercer tais atividades. Justificar a resposta. </b><br>Tem plenas condições.</p>
+                  <!-- <p><b>13. Caso a parte autora não possa atualmente exercer sua atividade, após eventual tratamento médico poderá ela retornar ao seu trabalho habitual? </b></p> -->
+                  <p><b>14. Não sendo possível o retorno à sua atividade habitual, a parte autora pode ser reabilitada para o exercício de outras atividades econômicas? Citar exemplos. </b><br>Não há incapacidade, prejudicado. </p>
+                  <!-- <p><b>15. A parte autora informou se, em algum momento, deixou de exercer o seu trabalho por mais de 15 dias em razão da moléstia anteriormente mencionada? Informar o período e indicar se apresentou atestado.</b></p> -->
+                  <!-- <p><b>16. A parte autora tem condições de realizar atos do cotidiano (ex. higiene, alimentação, vestuário, lazer, etc.)? Prestar esclarecimentos.</b></p> -->
+                  <!-- <p><b>17. Em razão da moléstia a parte autora necessita da ajuda, supervisão ou vigilância de terceiros? Esclarecer quais são as necessidades da parte autora.</b></p> -->
+                  <!-- <p><b>18. A parte autora está capaz ou incapaz para os atos da vida civil (ex.: assinar contratos, gerenciar recursos financeiros, etc.</b></p> -->
+                  <p><b>19. De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</b><br>A) Capaz para o exercício de qualquer trabalho.</p>
+                  <!-- <p><b>20. Não sendo nenhuma das hipóteses anteriores, descrever qual é o enquadramento da parte autora.</b></p> -->
+                  <!-- <p><b>21. Qual o grau de comprometimento da capacidade laborativa da parte autora, em termos gerais e para a sua atividade profissional: LEVE, MÉDIO ou INTENSO? Esclareça.</b></p> -->
+                  <!-- <p><b>22. Qual a data do início da doença a que está acometida a parte autora? Fundamente.</b></p> -->
+                  <!-- <p><b>23. Qual a data do início de sua incapacidade? Fundamente.</b></p> -->
+                  <!-- <p><b>24. Se não houver incapacidade atual, em algum momento a parte autora esteve incapacitada para o exercício do trabalho? Indicar o período.</b></p> -->
+                  <p><b>25. Prestar outros esclarecimentos sobre o que foi constatado.</b><br>A parte autora sofreu lesão em 10/10/2012 mas já se recuperou plenamente, hoje está completamente apta para o trabalho.</p>
+                </div>Não.
                 <p>Registre-se que se deve prestigiar e dar relevância aos apontamentos do examinador designado, uma vez que, ao contrário dos médicos particulares da postulante, o perito judicial está dotado de imparcialidade, a qual é indispensável a que se tenha um processo hígido e livre de qualquer interferência viciada ou tendenciosa.</p>
 
                 <p>Ademais, destaque-se que não há nos autos elementos que tenham o condão de afastar as conclusões devidamente fundamentadas de um profissional especializado, da confiança do juízo.</p>
 
-                <h2><b>Dispositivo</b></h2>
+                <h3><b>Dispositivo</b></h3>
                 <p>Diante do exposto, <b>JULGA-SE IMPROCEDENTE</b> o pedido formulado na exordial, resolvendo o mérito nos termos do art. 269, I, do Código de Processo Civil.</p>
 
                 <p>Sem custas e sem honorários advocatícios.</p>
 
-                <p>Sentença registrada e publicada eletronicamente. Intimem-se.</p>
+                <p>Sentença registrada e publicada eletronicamente. Intimem-se.</p><br>
+
+                <p align="center" class="no_indent" style="line-height: 1.2em">Adriano José Pinheiro<br><small>Juiz Federal</small></p>
 
               </div>
               <textarea id="texto_fundamentacao" placeholder="Enter text ..." rows="8" class="btn-block">
               </textarea>
             </form>
+          </div>
+
+          <div class="well" id="fundamentacao_inicial">
             
             <form class="form-horizontal">
               <div class="control-group">
@@ -514,14 +574,10 @@
     <script src="assets/ckeditor/ckeditor.js"></script>
         <script type="text/javascript">
           $('[rel=chosen]').chosen();
-           CKEDITOR.replace( 'texto_relatorio', {
-            height: '200',
-           });
-           CKEDITOR.instances.texto_relatorio.setData( document.getElementById( 'texto_relatorio_improcedente' ).innerHTML );
            CKEDITOR.replace( 'texto_fundamentacao', {
             height: '500',
            });
-           CKEDITOR.instances.texto_fundamentacao.setData( document.getElementById( 'texto_fundamentacao_improcedente' ).innerHTML );
+           CKEDITOR.instances.texto_fundamentacao.setData( document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML );
 
 
 
