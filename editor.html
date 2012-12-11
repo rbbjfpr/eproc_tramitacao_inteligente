@@ -275,7 +275,7 @@
                   <option>LOAS parcialmente procedente</option>
                 </optgroup>
               </select> -->
-              <textarea id="texto_relatorio" placeholder="Enter text ..." rows="10" class="btn-block">
+              <textarea id="texto_relatorio" placeholder="Enter text ..." rows="10" class="btn-block ckeditor">
                 A parte autora, profissão, atualmente com X anos de idade, postula a concessão de benefício por incapacidade a partir de XXX.<br><br>
                 O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: XX, XX, XX. (selecionar dentre as opções: incapacidade para o trabalho, carência e qualidade de segurado na data do início da incapacidade).
               </textarea>
@@ -297,7 +297,7 @@
                   <option>Prescrição quinquenal</option>
                 </optgroup>
               </select>
-              <textarea id="texto_fundamentacao" placeholder="Enter text ..." rows="8" class="btn-block">
+              <textarea id="texto_fundamentacao" placeholder="Enter text ..." rows="8" class="btn-block ckeditor">
                 <b>Decide-se</b><br><br>
                 A qualidade de segurado e a carência são requisitos que devem estar presentes no momento do fato gerador do benefício almejado, ou seja, na data de início da incapacidade (DII). Nesse passo, entende-se prejudicada a manifestação do Juízo acerca de tais premissas, vez que o caso em apreço se resolve pela inexistência de incapacidade.
                 <br><br>
@@ -413,7 +413,7 @@
 
             <form>
               <legend id="fundamentacao_final">Parte final</legend>
-              <textarea id="texto_fundamentacao_final" rows="20" class="btn-block">
+              <textarea id="texto_fundamentacao_final" rows="20" class="btn-block ckeditor">
                 Registre-se que se deve prestigiar e dar relevância aos apontamentos do examinador designado, uma vez que, ao contrário dos médicos particulares da postulante, o perito judicial está dotado de imparcialidade, a qual é indispensável a que se tenha um processo hígido e livre de qualquer interferência viciada ou tendenciosa.<br><br>
                 Ademais, destaque-se que não há nos autos elementos que tenham o condão de afastar as conclusões devidamente fundamentadas de um profissional especializado, da confiança do juízo.<br><br>
                 Pelo exposto, concluindo o perito judicial, que a parte autora está apta para realizar qualquer atividade ou sua atividade habitual, impende reconhecer que sua pretensão não merece prosperar, pois inexiste a incapacidade laborativa exigida pelos arts. 42 ou 59 da Lei nº 8.213/91. 
@@ -424,7 +424,7 @@
           <div class="well" id="dispositivo">
             <h3>4. Dispositivo</h3>
             <form>
-              <textarea id="texto_dispositivo" rows="8" class="btn-block">
+              <textarea id="texto_dispositivo" rows="8" class="btn-block ckeditor">
                 Diante do exposto, <b>JULGA-SE IMPROCEDENTE</b> o pedido formulado na exordial, resolvendo o mérito nos termos do art. 269, I, do Código de Processo Civil.<br><br>
 
                 Sem custas e sem honorários advocatícios.<br><br>
@@ -598,16 +598,11 @@
     <script src="assets/js/bootstrap-affix.js"></script>
     <script src="assets/js/application.js"></script>
     <!-- Editor de textos -->
-    <script src="assets/js/wysihtml5-0.3.0_rc2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
-    <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
+    <script src="assets/ckeditor/ckeditor.js"></script>
         <script type="text/javascript">
-          $('#texto_fundamentacao').wysihtml5({locale: "pt-BR"});
-          $('#texto_relatorio').wysihtml5({locale: "pt-BR"});
-          $('#texto_fundamentacao_final').wysihtml5({locale: "pt-BR"});
-          $('#texto_dispositivo').wysihtml5({locale: "pt-BR"});
           $('[rel=chosen]').chosen();
         </script>
+
     <!-- Final editor textos  -->
 
   </body>
