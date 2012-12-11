@@ -8,7 +8,7 @@ body
 	/* Font */
 	/*font-family: sans-serif, Arial, Verdana, "Trebuchet MS";*/
 	font-family: Times;
-	font-size: 13pt;
+	font-size: 14pt;
 	line-height: 1.6em;
 
 	/* Text color */
@@ -22,9 +22,17 @@ body
 
 .cke_editable
 {
-	font-size: 13pt;
+	font-size: 14pt;
 	line-height: 1.6em;
+	text-indent: 50px;
+	text-align: justify;
 }
+
+.cke_editable .citacao {
+    padding-left: 100px;
+    font-style: italic;
+    text-indent: 0px;
+}		
 
 blockquote
 {
