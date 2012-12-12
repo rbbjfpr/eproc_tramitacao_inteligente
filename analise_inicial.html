@@ -1752,9 +1752,11 @@
       </div>  
         <div class="modal-footer">
         <form id="prazo" class="form-inline pull-left" style="margin: 0">
-          Prazo: <input id="dias" type="text" size="2" style="width: 22px" value="10"> dias
+          Prazo: <input id="dias" type="text" size="2" style="width: 22px" value="10"> dias, localizador <select style="margin-left: 5px; width: 105px"><option>EMENDA</option><option>FELIPE</option></select>
         </form>
-
+        <form id="localizador" class="form-inline pull-left" style="margin: 0;">
+          Localizador: <select style="margin-left: 5px; width: 175px"><option>MARCAR-PERICIA</option><option>FELIPE</option></select>
+        </form>
         <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
         <button id="intimar" class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
       </div>
@@ -1790,7 +1792,9 @@
         </script>
     <script src="assets/ckeditor/ckeditor.js"></script>
     <script src="assets/js/keymaster.min.js"></script>
-    <script>          
+    <script>
+
+
 $('#documento').on('change', function(e)
 {
   var val = e.target.value;
@@ -1911,10 +1915,12 @@ function gerarDocumentoAto(e)
   if (requisitosAusentes == 0) {
     sTexto += '  <p class="text" align="justify">Por fim, certifico que os autos encontram-se aptos para a designação de perícia médica.</p>\n';
     $('#prazo').hide();
+    $('#localizador').show();
     $('#intimar').removeClass('btn-danger').addClass('btn-success');
     $('#intimar').html('Gerar movimentação <i class="icon-arrow-right"/>');
   } else {
     $('#prazo').show();
+    $('#localizador').hide();
     $('#intimar').removeClass('btn-success').addClass('btn-danger');
     $('#intimar').html('Intimar p/ emenda <i class="icon-arrow-right"/>');
     sTexto += '  <p class="title" align="center">ATO DE SECRETARIA</p>\n';
@@ -1930,7 +1936,7 @@ function gerarDocumentoAto(e)
     sTexto += valores.planilha.toTexto('Demonstrativo pormenorizado e atualizado do valor da causa (planilha), para verificação da competência para julgamento pelo JEF, computando-se além das parcelas vencidas as doze vincendas (art. 260 do CPC), retificando o valor já atribuído, caso necessário', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
   }
   sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
-  sTexto += '  <p class="signature" align="center">Nome do Servidor<br>documento assinado eletronicamente</p>\n';
+  sTexto += '  <p class="signature" align="center">Felipe Benali<br>documento assinado eletronicamente</p>\n';
   sTexto += '</body>\n';
   sTexto += '</html>\n';
   CKEDITOR.instances.editor_texto_final.setData(sTexto);
