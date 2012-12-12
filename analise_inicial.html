@@ -1793,8 +1793,14 @@
     <script src="assets/ckeditor/ckeditor.js"></script>
     <script src="assets/js/keymaster.min.js"></script>
     <script>
+    
+    // (Felipe) Marca o botão de ilegível como btn-danger caso active
     $('.btn-mini').on('click', function() {
-      $(this).addClass('btn-danger');
+      if ($(this).hasClass('btn-danger')) {
+        $(this).removeClass('btn-danger');
+      } else {
+        $(this).addClass('btn-danger');
+      }
     });
 
 
