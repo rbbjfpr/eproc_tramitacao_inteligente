@@ -196,16 +196,16 @@
           <legend>19) De acordo com o que foi constatado, a parte autora pode ser enquadrada como:</legend>
           <div class="control-group">
             <div class="controls">
-              <label class="radio"><input type="radio" value="option1" id="option1" name="capacidade"> <span class=""><span class="label label-success">Capaz</span> para o exercício de qualquer trabalho</span>;</label>
-              <label class="radio"><input type="radio" value="option2" id="option2" name="capacidade"> <span class=""><span class="label label-success">Capaz</span> para o exercício de seu trabalho, apesar de <span class="label label-important">incapaz</span> para certas atividades</span>.</label>
-              <label class="radio"><input type="radio" value="option3" id="option3" name="capacidade"> <span class=""><span class="label label-important">Incapaz</span> para o exercício de certos tipos de trabalho, inclusive o seu</span>.</label>
-              <label class="radio"><input type="radio" value="option4" id="option4" name="capacidade"> <span class=""><span class="label label-important">Incapaz</span> para o exercício de qualquer trabalho</span>.</label>
+              <label class="radio" onClick="MostrarAlerta();"><input type="radio" value="option1" id="option1" name="capacidade"> <span class=""><span class="label label-success">Capaz</span> para o exercício de qualquer trabalho</span>;</label>
+              <label class="radio ocultar_alerta"><input type="radio" value="option2" id="option2" name="capacidade"> <span class=""><span class="label label-success">Capaz</span> para o exercício de seu trabalho, apesar de <span class="label label-important">incapaz</span> para certas atividades</span>.</label>
+              <label class="radio ocultar_alerta"><input type="radio" value="option3" id="option3" name="capacidade"> <span class=""><span class="label label-important">Incapaz</span> para o exercício de certos tipos de trabalho, inclusive o seu</span>.</label>
+              <label class="radio ocultar_alerta"><input type="radio" value="option4" id="option4" name="capacidade"> <span class=""><span class="label label-important">Incapaz</span> para o exercício de qualquer trabalho</span>.</label>
             </div>
           </div>
 
           <legend>23) Qual a data de início de sua incapacidade ?</legend>
           <div class="control-group">
-            <div class="alert alert-block alert-error">
+            <div class="alert alert-block alert-error" id="alerta_perito">
               <button data-dismiss="alert" class="close" type="button">×</button>
               <h4>Atenção</h4>
               No quesito 19 você informou que a parte autora encontra-se capaz, portanto, caso for preencher este quesito, deve prestar esclarecimentos adicionais para evitar laudo contraditório.
@@ -284,7 +284,17 @@
     <script src="assets/js/bootstrap-wysihtml5-0.0.2.js"></script>
     <script src="assets/js/bootstrap-wysihtml5-0.0.2.pt-BR.js"></script> <!-- Não consegui fazer ele carregar em Portugues -->
     <script type="text/javascript">
-        $('#some-textarea').wysihtml5({locale: "pt-BR"});
+        $('#alerta_perito').hide();
+        function MostrarAlerta() {
+          $('#alerta_perito').show();
+        };
+        $('.ocultar_alerta').on('click', function() {
+          $('#alerta_perito').hide();
+        }
+
+
+
+          );
       </script>
     <!-- Final editor textos  -->
 
