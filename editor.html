@@ -24,7 +24,7 @@
         document.getElementById( 'requisito1' ).innerHTML = '<b>falta de qualidade de segurado</b>';
         var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
         editor.setData(content);
-      }
+      };
       function SegundoRequisito() {
         // Get the editor instance that you want to interact with.
         var editor = CKEDITOR.instances.texto_fundamentacao;
@@ -36,7 +36,7 @@
         document.getElementById( 'requisito2' ).innerHTML = ', <b>incapacidade para o trabalho</b>';
         var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
         editor.setData(content);
-      }
+      };
       
       function TerceiroRequisito() {
         // Get the editor instance that you want to interact with.
@@ -49,9 +49,7 @@
         document.getElementById( 'requisito3' ).innerHTML = ' e <b>carência</b>';
         var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
         editor.setData(content);
-      }
-
-
+      };
 
     </script>
 
@@ -292,7 +290,7 @@
                 Restabelecimento de benefício
               </label>
               <label>DER / DCB:</label>
-              <input type="date" class="input-mini" placeholder="dd/mm/aa" id="data_DER">
+              <input type="text" class="input-mini" placeholder="dd/mm/aa" id="data_DER">
 
               <legend>
                 O que o INSS alegou em contestação ?
@@ -353,7 +351,7 @@
                 Subseção Judiciária de Maringá<br/>
                 1ª Vara do Juizado Especial Federal</p>
                   <p class="title" align="center">S E N T E N Ç A</p>
-                 <p>A parte autora, profissão, atualmente com 28 anos de idade, postula a concessão de benefício por incapacidade a partir de <span id="data_DER"></span> </p>
+                 <p>A parte autora, profissão, atualmente com 28 anos de idade, postula a concessão de benefício por incapacidade a partir de <span id="data_DER_minuta"> </span>. </p>
                 <p> O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: <span id="requisito1"> </span><span id="requisito2"> </span><span id="requisito3"> </span>.</p>
                 <p><b>Decide-se.</b></p>
                 <p>A qualidade de segurado e a carência são requisitos que devem estar presentes no momento do fato gerador do benefício almejado, ou seja, na data de início da incapacidade (DII). Nesse passo, entende-se prejudicada a manifestação do Juízo acerca de tais premissas, vez que o caso em apreço se resolve pela inexistência de incapacidade.</p>
@@ -436,6 +434,37 @@
                  <input type="text" class="input-small" rel="tooltip" data-original-title="Data de início do pagamento">
                 </div>
               </div>
+              <hr>
+              <h3>Programar eventos após assinatura</h3>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox" checked="checked"> Intimação de sentença do autor, <input type="text" size="2" style="width: 22px" value="10"> dias
+                 </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox" checked="checked"> Intimação de sentença do réu, <input type="text" size="2" style="width: 22px" value="10"> dias
+                 </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   <input type="checkbox"> Requisitar implementação de tutela antecipada à APS, <input type="text" size="2" style="width: 22px" value="10"> dias
+                 </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                 <label class="checkbox">
+                   Localizador <select style="margin-left: 5px; width: 105px"><option>INT-SENT</option><option>FELIPE</option></select>
+                 </label>
+                </div>
+              </div>
+              
               <center>
                 <br><span class="muted">Magistrado</span><br>
                 <select tabindex="1" style="width:350px;" rel="chosen">
@@ -578,6 +607,15 @@
             height: '500',
            });
            CKEDITOR.instances.texto_fundamentacao.setData( document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML );
+
+           // Muda a data da DER
+           $('#data_DER').on('blur', function() {
+             var editor = CKEDITOR.instances.texto_fundamentacao;
+             var div = $('#texto_fundamentacao_oculto');
+             div.html(editor.getData());
+             $('#data_DER_minuta').text($('#data_DER').val());
+             editor.setData(div.html());
+           });
 
 
 
