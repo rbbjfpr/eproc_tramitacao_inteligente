@@ -12,68 +12,6 @@
     <link rel="stylesheet" type="text/css" href="assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
     <!-- editor de textos -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
-    <script>
-      function PrimeiroRequisito() {
-        // Get the editor instance that you want to interact with.
-        var editor = CKEDITOR.instances.texto_fundamentacao;
-
-        // Get editor contents
-        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
-        var content = editor.getData();
-        document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
-        var destino = $('#requisito1');
-        if (destino.hasClass('preenchido')) {
-          destino.html(' ');  
-          destino.removeClass('preenchido');
-        } else {
-          destino.html('<b>falta de qualidade de segurado</b>');
-          destino.addClass('preenchido');  
-        };
-        var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
-        editor.setData(content);
-      };
-      function SegundoRequisito() {
-        // Get the editor instance that you want to interact with.
-        var editor = CKEDITOR.instances.texto_fundamentacao;
-
-        // Get editor contents
-        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
-        var content = editor.getData();
-        document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
-        var destino = $('#requisito2');
-        if (destino.hasClass('preenchido')) {
-          destino.html(' ');  
-          destino.removeClass('preenchido');
-        } else {
-          destino.html(', <b>incapacidade para o trabalho</b>');
-          destino.addClass('preenchido');  
-        };
-        var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
-        editor.setData(content);
-      };
-      
-      function TerceiroRequisito() {
-        // Get the editor instance that you want to interact with.
-        var editor = CKEDITOR.instances.texto_fundamentacao;
-
-        // Get editor contents
-        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
-        var content = editor.getData();
-        document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
-        var destino = $('#requisito3');
-        if (destino.hasClass('preenchido')) {
-          destino.html(' ');  
-          destino.removeClass('preenchido');
-        } else {
-          destino.html(' e <b>carência</b>');
-          destino.addClass('preenchido');  
-        };
-        var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
-        editor.setData(content);
-      };
-
-    </script>
-
     <style type="text/css">
       body {
         padding-top: 70px;
@@ -319,10 +257,10 @@
                   <a class="btn btn-mini">Abrir contestação</a> 
                 </div>
               </legend>
-              <div style="margin-bottom: 20px">
-                <label class="checkbox"><input type="checkbox" value="" onClick="PrimeiroRequisito();">Falta de qualidade de segurado</label>
-                <label class="checkbox"><input type="checkbox" value="" onClick="SegundoRequisito();">Falta de incapacidade para o trabalho</label>
-                <label class="checkbox"><input type="checkbox" value="" onClick="TerceiroRequisito();">Falta de carência</label>
+              <div style="margin-bottom: 20px" id="requisitos">
+                <label class="checkbox"><input type="checkbox" value="" data-text="qualidade de segurado">Falta de qualidade de segurado</label>
+                <label class="checkbox"><input type="checkbox" value="" data-text="incapacidade para o trabalho">Falta de incapacidade para o trabalho</label>
+                <label class="checkbox"><input type="checkbox" value="" data-text="carência">Falta de carência</label>
               </div>
               <!-- <select tabindex="1" style="width:350px;" rel="chosen" data-placeholder="Parágrafos">
                 <optgroup label="Auxílio-doença">
@@ -348,7 +286,7 @@
                   <option>Prescrição quinquenal</option>
                 </optgroup>
               </select>
-              <div id="texto_fundamentacao_oculto" style="display: none">
+              <textarea id="texto_fundamentacao" placeholder="Enter text ..." rows="8" class="btn-block">
                 <style type="text/css">
                   body { counter-reset: lista1; }
                   .header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; text-indent: 0; line-height: 1.5em }
@@ -373,7 +311,7 @@
                 1ª Vara do Juizado Especial Federal</p>
                   <p class="title" align="center">S E N T E N Ç A</p>
                  <p>A parte autora, profissão, atualmente com 28 anos de idade, postula a concessão de benefício por incapacidade a partir de <span id="data_DER_minuta"> </span>. </p>
-                <p> O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: <span id="requisito1"> </span><span id="requisito2"> </span><span id="requisito3"> </span>.</p>
+                <p> O INSS, em contestação, sustenta que a parte não cumpre o(s) seguinte(s) requisitos: <span id="requisitos_minuta"> </span>.</p>
                 <p><b>Decide-se.</b></p>
                 <p>A qualidade de segurado e a carência são requisitos que devem estar presentes no momento do fato gerador do benefício almejado, ou seja, na data de início da incapacidade (DII). Nesse passo, entende-se prejudicada a manifestação do Juízo acerca de tais premissas, vez que o caso em apreço se resolve pela inexistência de incapacidade.</p>
                 <p>É que, conforme se verifica pela perícia realizada, apesar das queixas da parte autora, não foi clinicamente constatada a incapacidade para a atividade que habitualmente exerce. Pela pertinência, transcrevem-se alguns trechos do exame técnico:</p>
@@ -416,8 +354,6 @@
 
                 <p align="center" class="no_indent" style="line-height: 1.2em">Adriano José Pinheiro<br><small>Juiz Federal</small></p>
 
-              </div>
-              <textarea id="texto_fundamentacao" placeholder="Enter text ..." rows="8" class="btn-block">
               </textarea>
             </form>
           </div>
@@ -624,23 +560,43 @@
     <script src="assets/ckeditor/ckeditor.js"></script>
         <script type="text/javascript">
           $('[rel=chosen]').chosen();
-           CKEDITOR.replace( 'texto_fundamentacao', {
-            height: '500',
-           });
-           CKEDITOR.instances.texto_fundamentacao.setData( document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML );
 
-           // Muda a data da DER
-           $('#data_DER').on('blur', function() {
-             var editor = CKEDITOR.instances.texto_fundamentacao;
-             var div = $('#texto_fundamentacao_oculto');
-             div.html(editor.getData());
-             $('#data_DER_minuta').text($('#data_DER').val());
-             editor.setData(div.html());
-           });
+          CKEDITOR.replace( 'texto_fundamentacao', {
+           height: '500',
+          });
 
+          $('#data_DER').on('change', verificaDataDER);
+          function verificaDataDER(e)
+          {
+            var editor = CKEDITOR.instances.texto_fundamentacao;
+            $('#data_DER_minuta', editor.document.$).text($('#data_DER').val());
+          }
 
+          $('#requisitos input[type=checkbox]').on('change', verificaRequisitos);
+          function verificaRequisitos(e) {
+            var requisitos = [];
+            $('#requisitos input[type=checkbox]').each(function(r, requisito)
+            {
+              if (requisito.checked) {
+                requisitos.push('<strong>' + $(requisito).data('text') + '</strong>');
+              }
+            });
+            if (requisitos.length > 1) {
+              var ultimos = requisitos.splice(-2, 2);
+              requisitos.push(ultimos.join(' e '));
+            }
+            requisitos = requisitos.join(', ');
+            var editor = CKEDITOR.instances.texto_fundamentacao;
+            $('#requisitos_minuta', editor.document.$).html(requisitos);
+          }
 
-          
+          CKEDITOR.on('instanceReady', function(e)
+          {
+            if (e.editor.name == 'texto_fundamentacao') {
+              verificaDataDER();
+              verificaRequisitos();
+            }
+          });
         </script>
 
     <!-- Final editor textos  -->
