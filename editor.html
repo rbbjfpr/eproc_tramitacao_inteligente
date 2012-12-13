@@ -21,7 +21,14 @@
         // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
         var content = editor.getData();
         document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
-        document.getElementById( 'requisito1' ).innerHTML = '<b>falta de qualidade de segurado</b>';
+        var destino = $('#requisito1');
+        if (destino.hasClass('preenchido')) {
+          destino.html(' ');  
+          destino.removeClass('preenchido');
+        } else {
+          destino.html('<b>falta de qualidade de segurado</b>');
+          destino.addClass('preenchido');  
+        };
         var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
         editor.setData(content);
       };
@@ -33,7 +40,14 @@
         // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
         var content = editor.getData();
         document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
-        document.getElementById( 'requisito2' ).innerHTML = ', <b>incapacidade para o trabalho</b>';
+        var destino = $('#requisito2');
+        if (destino.hasClass('preenchido')) {
+          destino.html(' ');  
+          destino.removeClass('preenchido');
+        } else {
+          destino.html(', <b>incapacidade para o trabalho</b>');
+          destino.addClass('preenchido');  
+        };
         var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
         editor.setData(content);
       };
@@ -46,7 +60,14 @@
         // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
         var content = editor.getData();
         document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML = content;
-        document.getElementById( 'requisito3' ).innerHTML = ' e <b>carência</b>';
+        var destino = $('#requisito3');
+        if (destino.hasClass('preenchido')) {
+          destino.html(' ');  
+          destino.removeClass('preenchido');
+        } else {
+          destino.html(' e <b>carência</b>');
+          destino.addClass('preenchido');  
+        };
         var content = document.getElementById( 'texto_fundamentacao_oculto' ).innerHTML;
         editor.setData(content);
       };
@@ -290,7 +311,7 @@
                 Restabelecimento de benefício
               </label>
               <label>DER / DCB:</label>
-              <input type="text" class="input-mini" placeholder="dd/mm/aa" id="data_DER">
+              <input type="text" class="input-small" placeholder="dd/mm/aaaa" id="data_DER">
 
               <legend>
                 O que o INSS alegou em contestação ?
