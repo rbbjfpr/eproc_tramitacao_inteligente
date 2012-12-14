@@ -6,17 +6,48 @@
 (function() {
 	CKEDITOR.plugins.add( 'templates', {
 		requires: 'dialog',
-		lang: 'af,ar,bg,bn,bs,ca,cs,cy,da,de,el,en-au,en-ca,en-gb,en,eo,es,et,eu,fa,fi,fo,fr-ca,fr,gl,gu,he,hi,hr,hu,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,pl,pt-br,pt,ro,ru,sk,sl,sr-latn,sr,sv,th,tr,ug,uk,vi,zh-cn,zh', // %REMOVE_LINE_CORE%
-		icons: 'templates,templates-rtl', // %REMOVE_LINE_CORE%
+		lang: 'en,pt-br', // %REMOVE_LINE_CORE%
+		icons: 'templates,salvarmodelo', // %REMOVE_LINE_CORE%
 		init: function( editor ) {
 			CKEDITOR.dialog.add( 'templates', CKEDITOR.getUrl( this.path + 'dialogs/templates.js' ) );
 
 			editor.addCommand( 'templates', new CKEDITOR.dialogCommand( 'templates' ) );
+			editor.addCommand( 'salvarmodelo', new CKEDITOR.command( editor, {
+				exec: function(editor)
+				{
+					var ranges = editor.getSelection().getRanges();
+					var div = $('<div></div>');
+					$.each(ranges, function(r, range)
+					{
+						div.append(range.cloneContents().$);
+					});
+					var modelo = prompt('Nome do modelo a ser criado','');
+					if (modelo === null) {
+						// Usuário clicou em "Cancelar"
+					} else {
+						for (var i = 0, fim = false; fim == false; i++) {
+							var namespace = 'templates.' + i;
+							if ((namespace+'.title') in sessionStorage && (namespace+'.html') in sessionStorage) {
+								// Modelo número "i" já existe
+							} else {
+								sessionStorage.setItem(namespace+'.title', modelo);
+								sessionStorage.setItem(namespace+'.html', div.html().replace(/<\/[^>]+>/g, '\0\n'));
+								fim = true;
+							}
+						}
+					}
+				}
+			}));
 
 			editor.ui.addButton && editor.ui.addButton( 'Templates', {
 				label: editor.lang.templates.button,
 				command: 'templates',
-				toolbar: 'doctools,10'
+				toolbar: 'insert,10'
+			});
+			editor.ui.addButton && editor.ui.addButton( 'SalvarModelo', {
+				label: editor.lang.templates.button2,
+				command: 'salvarmodelo',
+				toolbar: 'insert,11'
 			});
 		}
 	});
@@ -33,21 +64,25 @@
 	};
 
 	CKEDITOR.loadTemplates = function( templateFiles, callback ) {
-		// Holds the templates files to be loaded.
-		var toLoad = [];
-
-		// Look for pending template files to get loaded.
-		for ( var i = 0, count = templateFiles.length; i < count; i++ ) {
-			if ( !loadedTemplatesFiles[ templateFiles[ i ] ] ) {
-				toLoad.push( templateFiles[ i ] );
-				loadedTemplatesFiles[ templateFiles[ i ] ] = 1;
+		var templates = [];
+		for (n in sessionStorage) {
+			console.info(n);
+			var match = /^templates\.(\d+)\.(title|html)$/.exec(n);
+			if (match) {
+				var numero, campo;
+				[, numero, campo] = match;
+				if (! (numero in templates)) {
+					templates[numero] = {};
+				}
+				templates[numero][campo] = sessionStorage[n];
+				if (campo == 'html') {
+					templates[numero]['description'] = sessionStorage[n];
+				}
 			}
 		}
 
-		if ( toLoad.length )
-			CKEDITOR.scriptLoader.load( toLoad, callback );
-		else
-			setTimeout( callback, 0 );
+		CKEDITOR.addTemplates('user', {templates: templates});
+		setTimeout(callback, 0);
 	};
 })();
 
@@ -62,7 +97,7 @@
  * @cfg {String} [templates='default']
  * @member CKEDITOR.config
  */
-
+CKEDITOR.config.templates = 'user';
 /**
  * The list of templates definition files to load.
  *
@@ -87,4 +122,4 @@ CKEDITOR.config.templates_files = [
  * @cfg
  * @member CKEDITOR.config
  */
-CKEDITOR.config.templates_replaceContent = true;
+CKEDITOR.config.templates_replaceContent = false;
