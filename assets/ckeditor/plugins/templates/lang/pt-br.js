@@ -3,8 +3,8 @@ Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'templates', 'pt-br', {
-	button: 'Modelos',
-	button2: 'Salvar Modelo',
+	button: 'Parágrafos modelos',
+	button2: 'Salvar parágrafo c/ modelo',
 	emptyListMsg: '(Não foram definidos modelos)',
 	insertOption: 'Substituir o conteúdo atual',
 	options: 'Opções de Template',
