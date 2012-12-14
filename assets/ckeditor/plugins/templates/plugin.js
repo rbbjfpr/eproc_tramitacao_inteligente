@@ -75,9 +75,6 @@
 					templates[numero] = {};
 				}
 				templates[numero][campo] = sessionStorage[n];
-				if (campo == 'html') {
-					templates[numero]['description'] = sessionStorage[n];
-				}
 			}
 		}
 
