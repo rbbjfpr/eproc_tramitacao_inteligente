@@ -10,7 +10,7 @@
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap-editable/css/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-editable.css">
     <!-- editor de textos -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
     <style type="text/css">
@@ -225,8 +225,12 @@
               <td><strong>FABIANE CRISTINA MACHADO</strong></td>
             </tr>
             <tr>
+              <td>Data de nascimento:</td>
+              <td><a href="#" rel="editable" data-type="text" data-placement="bottom" id="teste10">15/03/1984</td>
+            </tr>
+            <tr>
               <td>Idade:</td>
-              <td>28 anos</td>
+              <td><span id="idade">28 anos</span></td>
             </tr>
           </table>
            
@@ -1782,13 +1786,18 @@
     <script src="assets/js/bootstrap-typeahead.js"></script>
     <script src="assets/js/bootstrap-affix.js"></script>
     <script src="assets/js/application.js"></script>
-    <script src="assets/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+    <script src="assets/js/bootstrap-editable.min.js"></script>
         <script type="text/javascript">
           $('[rel=chosen]').chosen({search_contains:"true"});
+          $('[rel=editable]').editable();
           $('#data_pericia').editable();
           $('.carousel').carousel({
           interval: 0
           });
+          $('#teste10').on('hidden', function() {
+            $('#idade').html('29 anos');
+          });
+
         </script>
     <script src="assets/ckeditor/ckeditor.js"></script>
     <script src="assets/js/keymaster.min.js"></script>
