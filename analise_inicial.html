@@ -1664,25 +1664,68 @@
             </form>
           </div>
           <div class="well" id="">
+            <form class="form-inline" style="margin: 0" id="requisitos">
+              <h3>2. Requisitos da inicial (marque aqueles que estão presentes)</h3>
+              <div class="pull-right">
+                <a class="btn btn-small" id="marcar_todos">Marcar todos</a> 
+              </div>
+              <p>
+                <label class="checkbox"><input type="checkbox" class="analise_checkbox"> Instrumento procuratório </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" ><input type="checkbox" class="analise_checkbox"> RG e CPF </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" ><input type="checkbox" class="analise_checkbox"> Comprovante de residência atualizado </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Em nome de terceiros</button>
+              </p>
+              <p>
+                <label class="checkbox"  rel="tooltip"  data-original-title="Deve conter menção às 12 vincendas" data-placement="left"><input type="checkbox" class="analise_checkbox"> Termo de renúncia </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" ><input type="checkbox" class="analise_checkbox"> Cópia integral da CTPS </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" ><input type="checkbox" class="analise_checkbox"> Cópia do indeferimento administrativo </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" ><input type="checkbox" class="analise_checkbox"> Documentos médicos </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+              <p>
+                <label class="checkbox" ><input type="checkbox" class="analise_checkbox"> Planilha de cálculos </label>
+                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
+              </p>
+            </form>
+          </div>
+
+          <div class="well" id="">
             <form id="justicaGratuita" class="" style="margin: 0">
-              <h3>2. Justiça Gratuita</h3>
+              <h3>3. Justiça Gratuita</h3>
               <label class="radio">
-                <input type="radio" checked="checked" value="option1" id="optionsRadios1" name="optionsRadios" data-texto="Com fulcro no art. 7º da Portaria já referida, ficam <strong>deferidos, por ora,</strong> independentemente de despacho e intimação, os benefícios da <strong>Justiça Gratuita</strong>, ante o preenchimento dos requisitos legais.">
-                Foi requerida, certificar deferimento
+                <input type="radio" value="option3" id="optionsRadios1" name="optionsRadios" data-texto="" checked="checked">
+                Não certificar nada
               </label>
               <label class="radio">
-                <input type="radio" value="option3" id="optionsRadios1" name="optionsRadios" data-texto="">
-                Não certificar nada
+                <input type="radio"  value="option1" id="optionsRadios1" name="optionsRadios" data-texto="Com fulcro no art. 7º da Portaria já referida, ficam <strong>deferidos, por ora,</strong> independentemente de despacho e intimação, os benefícios da <strong>Justiça Gratuita</strong>, ante o preenchimento dos requisitos legais.">
+                Foi requerida, certificar deferimento
               </label>
               <label class="radio">
                 <input type="radio" value="option2" id="optionsRadios1" name="optionsRadios" data-texto="Registro que retifiquei na autuação o status da Justiça Gratuita para <strong>não requerida</strong>, ante a inexistência de pedido nesse sentido na exordial.">
                 Certificar que não foi requerida
               </label>
               <style type="text/css">
-                #texto_ajg_wrapper .cke_contents {
+                #texto_ajg_wrapper .cke_contents, #texto_lembrete_wrapper .cke_contents {
                 height: 110px !important;
                 font-size: 12pt !important;  
                 }
+                #texto_ajg_wrapper #cke_20_label, #texto_ajg_wrapper #cke_21_label { display: none;}
+
                 #texto_ajg_wrapper .cke_editable {
                 font-size: 12pt !important;  
                 }
@@ -1690,41 +1733,11 @@
               <div id="texto_ajg_wrapper"><textarea id="texto_ajg"  class="btn-block ckeditor"></textarea></div>
             </form>
           </div>
+
           <div class="well" id="">
-            <form class="form-inline" style="margin: 0" id="requisitos">
-              <h3>3. Requisitos da inicial (marque aqueles que estão presentes)</h3>
-              <p>
-                <label class="checkbox"><input type="checkbox"> Instrumento procuratório </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
-              <p>
-                <label class="checkbox"><input type="checkbox"> RG e CPF </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
-              <p>
-                <label class="checkbox"><input type="checkbox"> Comprovante de residência atualizado </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Em nome de terceiros</button>
-              </p>
-              <p>
-                <label class="checkbox" rel="tooltip" data-original-title="Deve conter menção às 12 vincendas" data-placement="left"><input type="checkbox"> Termo de renúncia </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
-              <p>
-                <label class="checkbox"><input type="checkbox"> Cópia integral da CTPS </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
-              <p>
-                <label class="checkbox"><input type="checkbox"> Cópia do indeferimento administrativo </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
-              <p>
-                <label class="checkbox"><input type="checkbox"> Documentos médicos </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
-              <p>
-                <label class="checkbox"><input type="checkbox"> Planilha de cálculos </label>
-                <button data-toggle="button" class="btn btn-mini" type="button" style="margin-top: -5px; padding: 0 6px;" disabled>Ilegível</button>
-              </p>
+            <form id="justicaGratuita" class="" style="margin: 0">
+              <h3>4. Lembrete</h3>
+              <div id="texto_lembrete_wrapper"><textarea id="texto_lembrete"  class="btn-block ckeditor"></textarea></div>
             </form>
           </div>
 
@@ -1810,6 +1823,21 @@
       } else {
         $(this).addClass('btn-danger');
       }
+    });
+
+    // (Felipe) Marca o botão de ilegível como btn-danger caso active
+    $('#marcar_todos').on('click', function() {
+      if ( $(this).hasClass('marcado') ) {
+        $('.analise_checkbox').prop('checked', false);
+        $(this).removeClass('marcado');
+        $(this).html('Marcar todos');
+      } else {
+        
+        $('.analise_checkbox').prop('checked', true);
+        $(this).addClass('marcado');
+        $(this).html('Desmarcar todos');
+      };
+      
     });
 
 
