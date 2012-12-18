@@ -38,6 +38,12 @@
 					}
 				}
 			}));
+      editor.addCommand( 'ver_pericia', new CKEDITOR.command( editor, {
+        exec: function(editor)
+        {
+          $('#ver_pericia').modal().css('z-index', '10000');
+        }
+      }));
 
 			editor.ui.addButton && editor.ui.addButton( 'Templates', {
 				label: editor.lang.templates.button,
@@ -48,6 +54,11 @@
 				label: editor.lang.templates.button2,
 				command: 'salvarmodelo',
 				toolbar: 'insert,11'
+			});
+			editor.ui.addButton && editor.ui.addButton( 'VerPericia', {
+				label: 'Ver perícia',
+				command: 'ver_pericia',
+				toolbar: 'insert,12'
 			});
 		}
 	});
