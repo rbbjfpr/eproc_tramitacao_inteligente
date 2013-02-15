@@ -124,7 +124,14 @@
 
       /* Estilos especiais do RAIO X*/
       .aviso_leilao {
-        background: none repeat scroll 0 0 orange;
+        background: #ffaf4b; /* Old browsers */
+        background: -moz-linear-gradient(top, #ffaf4b 0%, #ff920a 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffaf4b), color-stop(100%,#ff920a)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ffaf4b 0%,#ff920a 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ffaf4b 0%,#ff920a 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #ffaf4b 0%,#ff920a 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #ffaf4b 0%,#ff920a 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=0 ); /* IE6-9 */
         border-radius: 5px 0 0 5px;
         color: #FFFFFF;
         font-size: 24px;
@@ -194,8 +201,8 @@
           font-size: 15px;
           height: 120px;
           min-height: 100%;
-          padding-left: 20px;
-          padding-top: 33px;
+          padding-left: 10px;
+          padding-top: 31px;
           position: absolute;
           right: 22px;
           text-shadow: none;
@@ -571,7 +578,26 @@
                 </div>
             </form>
           </article>
+          <article>
+            <h2>Leilão</h2>
+            <hr>
+            <div class="tabbable"> <!-- Only required for left/right tabs -->
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+                <li><a href="#gerador_mandados" data-toggle="tab">Gerador de mandados</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                  <p>I'm in Section 1.</p>
+                </div>
+                <div class="tab-pane" id="gerador_mandados">
+                  <p>Howdy, I'm in Section 2.</p>
+                </div>
+              </div>
+            </div>
 
+
+          </article>
 
 
 
