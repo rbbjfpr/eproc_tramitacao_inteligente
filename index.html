@@ -14,6 +14,19 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
+
+      .btn-group > .btn-large {
+        font-size: 17.5px;
+      }
+
+      .dropdown-menu {
+        text-align: left;
+      }
+
+      .status_bem {
+        line-height: 25px
+      }
+
     </style>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -44,11 +57,16 @@
               <ul class="dropdown-menu">
                 <li><a href="/eproc_tramitacao_inteligente">Tela de apresentação</a></li>
                 <li class="divider"></li>
-                <li><a href="analise_inicial.html">1. Análise de Inicial</a></li>
-                <li><a href="requisicao_perito_simples.html">2. Requisição do Perito</a></li>
-                <li><a href="resposta_perito.html">3. Resposta do Perito</a></li>
-                <li><a href="editor.html">4. Editor de Minuta Inteligente</a></li>
-                
+                <li><a href="analise_inicial.html"><span class="label label-info">Previdenciário</span> Análise de Inicial</a></li>
+                <li><a href="requisicao_perito_simples.html"><span class="label label-info">Previdenciário</span> Requisição do Perito</a></li>
+                <li><a href="resposta_perito.html"><span class="label label-info">Previdenciário</span> Resposta do Perito</a></li>
+                <li><a href="editor.html"><span class="label label-info">Previdenciário</span> Editor de Minuta Inteligente</a></li>
+                <li class="divider"></li>
+                <li><a href="execucao_fiscal_cumprimento_mandado.html"><span class="label label-warning">Ex. Fiscal</span> Cumprimento de mandado</a></li>
+                <li><a href="execucao_fiscal_raio_x.html"><span class="label label-warning">Ex. Fiscal</span> Raio X</a></li>
+                <li><a href="execucao_fiscal_modulo_leilao.html"><span class="label label-warning">Ex. Fiscal</span> Gerenciador de Leilões</a></li>
+                <li class="divider"></li>
+                <li><a href="selecione_localizador.html"><span class="label label-success">Usabilidade</span> Seleção de localizador</a></li>
               </ul>
             </li>
           </ul>
@@ -65,11 +83,37 @@
         <p class="lead muted" style="margin: 0"><a href="mailto:rbb@jfpr.jus.br" rel="tooltip" data-original-title="Servidor do 1º Juizado Federal de Maringá/PR">Felipe Raul Borges Benali</a> | <a href="mailto:ryy@jfpr.jus.br" rel='tooltip' data-original-title="Servidora do 1º Juizado Federal de Maringá/PR">Renata Yuri Yokosawa Fujisawa</a></p>
         <p><small class="muted">Colaboração de <a href="mailto:pmj@jfsc.jus.br" rel='tooltip' data-original-title="Servidor da 1ª VF e JEF Criminal de Itajaí/SC">Paulo Roberto Maurici Junior</a></small></p>
         <p class="lead">e-Proc V2 - Tribunal Regional Federal da 4ª Região</p>
-        <p style="margin: 15px auto 0"><a class="btn btn-primary btn-large">Iniciar demonstração &raquo;</a> <a class="btn btn-large btn-inverse" href="https://docs.google.com/presentation/pub?id=1Eny0nmJynyKLiE5kFh-pDcw5J-4R3fSEhOUecgfpkFc&start=false&loop=false&delayms=3000">Ver slides &raquo;</a></p>
+        <div class="btn-toolbar" style="margin: 15px auto 0">
+          <div class="btn-group">
+            <a class="btn btn-primary btn-large dropdown-toggle" data-toggle="dropdown" href="#">Telas de demonstração <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/eproc_tramitacao_inteligente">Tela de apresentação</a></li>
+              <li class="divider"></li>
+              <li><a href="analise_inicial.html"><span class="label label-info">Previdenciário</span> Análise de Inicial</a></li>
+              <li><a href="requisicao_perito_simples.html"><span class="label label-info">Previdenciário</span> Requisição do Perito</a></li>
+              <li><a href="resposta_perito.html"><span class="label label-info">Previdenciário</span> Resposta do Perito</a></li>
+              <li><a href="editor.html"><span class="label label-info">Previdenciário</span> Editor de Minuta Inteligente</a></li>
+              <li class="divider"></li>
+              <li><a href="execucao_fiscal_cumprimento_mandado.html"><span class="label label-warning">Ex. Fiscal</span> Cumprimento de mandado</a></li>
+              <li><a href="execucao_fiscal_raio_x.html"><span class="label label-warning">Ex. Fiscal</span> Raio X</a></li>
+              <li><a href="execucao_fiscal_modulo_leilao.html"><span class="label label-warning">Ex. Fiscal</span> Gerenciador de Leilões</a></li>
+              <li class="divider"></li>
+              <li><a href="selecione_localizador.html"><span class="label label-success">Usabilidade</span> Seleção de localizador</a></li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn btn-large btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">Slides & Documentação <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://docs.google.com/presentation/pub?id=1Eny0nmJynyKLiE5kFh-pDcw5J-4R3fSEhOUecgfpkFc&start=false&loop=false&delayms=3000">Slides</a></li>
+              <li><a href="#">Documentação</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
+        <div class="span12 pagination-centered"><h2>Previdenciário</h2><hr></div>
         <div class="span4">
           <a href="analise_inicial.html"><h3>1. Análise de Inicial</h3></a>
           <ul>
@@ -106,7 +150,7 @@
 
       <div class="row">
         <div class="span4">
-          <h3>4. Citação/intimação/conclusão automática</h3>
+          <h3>4. Citação, intimação e conclusão automática</h3>
           <ul>
             <li>Após a entrega do laudo pelo perito, o e-Proc citará o INSS e Intimará o autor, automaticamente, alterando o localizador.</li>
             <li>Após o decurso de prazo de tais eventos, abre réplica para o autor automaticamente, alterando o localizador.</li>
@@ -133,11 +177,32 @@
           </ul>
         </div>
       </div>
+      
+      <div class="row" style="margin-top: 25px"><div class="span12 pagination-centered"><h2>Execução Fiscal</h2><hr></div></div>
+      <div class="row">
+        <div class="span4">
+          <h3>Gerenciador de bens</h3>
+          <ul>
+            <li>Cada bem incluído se atribui um status, dentre os quais:</li>
+            <ul>
+              <li class="status_bem"><span class="label label-important">Triagem</span></li>
+              <li class="status_bem"><span class="label">Rejeitado</span></li>
+              <li class="status_bem"><span class="label label-success">Pré-listagem</span></li>
+              <li class="status_bem"><span class="label label-warning">Designado</span></li>
+                <ul>
+                  <li class="status_bem"><span class="label label-inverse">Leilão cancelado</span></li>
+                  <li class="status_bem"><span class="label label-info">Arrematado</span></li>
+                  <li class="status_bem"><span class="label label-important" style="background-color: #EA1212">Leilão negativo</span></li>
+                </ul>
+            </ul>
+          </ul>
+        </div>
+      </div>
 
       <hr>
 
       <div class="marketing">
-        <h1>Agradecimentos</h1>
+        <h2 class="pagination-centered">Agradecimentos</h2>
         <ul>
           <li>Aos Juízes Federais <b>Adriano José Pinheiro</b> e <b>Vitor Marques Lento</b>, por possibilitarem e incentivarem um ambiente de trabalho apto à inovação.</li>
           <li>Aos colegas do <b>Gabinete</b> e da <b>Secretaria</b> do <b>1º e 2º Juizados Federais de Maringá</b>, pelas valiosas sugestões e pelo trabalho dobrado quando de nossa ausências para trabalho no projeto.</li>

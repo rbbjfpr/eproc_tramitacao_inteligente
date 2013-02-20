@@ -349,11 +349,14 @@
           <hr>
           <div class="btn-toolbar" style="margin-bottom: 30px">
             <button class="btn" data-toggle="collapse" data-target="#adicionar_imovel"><i class="icon-home"></i> Adicionar bem imóvel</button>
-            <button class="btn"><i class="icon-truck"></i> Adicionar veículo</button>
-            <button class="btn"><i class="icon-money"></i> Adicionar crédito</button>
-            <button class="btn"><i class="icon-spinner"></i> Adicionar bem móvel</button>
+            <button class="btn" data-toggle="collapse" data-target="#nao_desenvolvido"><i class="icon-truck"></i> Adicionar veículo</button>
+            <button class="btn" data-toggle="collapse" data-target="#nao_desenvolvido"><i class="icon-money"></i> Adicionar crédito</button>
+            <button class="btn" data-toggle="collapse" data-target="#nao_desenvolvido"><i class="icon-spinner"></i> Adicionar bem móvel</button>
           </div>
           <!-- Adicionar bem imóvel -->
+          <div id="nao_desenvolvido" class="collapse">
+            <p>Funcionalidade não desenvolvida no protótipo, favor utilizar o botão "Adicionar bem <b>imóvel</b></p>
+          </div>
           <div id="adicionar_imovel" class="collapse">
             <div class="well" style="margin-top: 10px">
               <form class="custom_form form-inline">
@@ -362,6 +365,8 @@
                   <h2 style="margin-bottom: 13px">Adicionar bem imóvel</h2>
                   <div class="clearfix"></div>
                   <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small"> do CRI <input type="text" autocomplete="off" class="input-xlarge"></p>
+                  <label>Endereço do imóvel</label>
+                  <textarea style="height: 50px; width: 45%; margin-bottom: 10px; display: block"></textarea>
                   <label>Descrição do imóvel</label>
                   <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
                   <label>Área</label>
@@ -439,6 +444,21 @@
                   <p><legend>Anotações</legend></p>
                   <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
                 </fieldset>
+                <legend>Avaliação</legend>
+                <label>Fixação dos parâmetros valorativos:</label>
+                <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                <label>Média de mercado:</label>
+                <p><input type="text"></p>
+                <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                <label>Ocupante do imóvel</label>
+                <p><input type="text"></p>
+                <label>Benfeitorias não registradas</label>
+                <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                <label>Características constatadas</label>
+                <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                <label>Avaliação</label>
+                R$ <input type="text">
                 <div class="btn-toolbar">
                   <button class="btn"><i class="icon-print"></i> Imprimir auto de penhora</button>
                   <div class="btn-group">
@@ -621,190 +641,6 @@
     });
 
 
-// $('#documento').on('change', function(e)
-// {
-//   var val = e.target.value;
-//   if (/^\d+$/.test(val)) {
-//     val = Number(val);
-//   } else {
-//     val = 2;
-//   }
-//   $('.carousel').carousel(val);
-// });
-// $('.carousel').on('slid', analisaDocumentoSelecionado);
-// function analisaDocumentoSelecionado(e)
-// {
-//   var currentImg = $('.carousel .active img');
-//   if (currentImg.length == 1) {
-//     currentImg = currentImg[0];
-//     $('#documento option').each(function(o, option) {
-//       if (new RegExp(currentImg.id).test(option.textContent)) {
-//         $('#documento')[0].value = option.value;
-//       }
-//     });
-//   } else {
-//     $('#documento')[0].value = 2;
-//   }
-// }
-// analisaDocumentoSelecionado();
-
-// $('#texto_ajg').html(sessionStorage.getItem('justicaGratuita'));
-// $('#justicaGratuita input[name=optionsRadios]').on('change', verificaAlteracaoJusticaGratuita);
-// function verificaAlteracaoJusticaGratuita(e)
-// {
-//   var valor = false;
-//   $('#justicaGratuita input[name=optionsRadios]').each(function(i, input)
-//   {
-//     if (input.checked) {
-//       valor = $(input).attr('data-texto');
-//     }
-//   });
-//   CKEDITOR.instances.texto_ajg.setData(valor);
-//   sessionStorage.setItem('justicaGratuita', valor);
-// }
-// key('ctrl+left', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('prev'); });
-// key('ctrl+right', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('next'); });
-// $(window).on('beforeunload', function(e)
-// {
-//   sessionStorage.setItem('justicaGratuita', CKEDITOR.instances.texto_ajg.getData());
-// });
-// $('#requisitos input[type=checkbox]').on('change', verificaRequisitos);
-// function verificaRequisitos(e)
-// {
-//   var naoMarcados = 0;
-//   $('#requisitos input[type=checkbox]').each(function(i, chk)
-//   {
-//     var botao = $(chk).parent().parent().find('button')[0];
-//     if (chk.checked) {
-//       botao.disabled = false;
-//     } else {
-//       naoMarcados++;
-//       $(botao).removeClass('active');
-//       botao.disabled = true;
-//     }
-//   });
-//   var gerarAto = $('#gerarAto');
-//   if (naoMarcados == 0) {
-//     gerarAto.removeClass('btn-danger');
-//     gerarAto.addClass('btn-success');
-//     gerarAto.html('Analisar Inicial <i class="icon-arrow-right"/>');
-//   } else {
-//     gerarAto.removeClass('btn-success');
-//     gerarAto.addClass('btn-danger');
-//     gerarAto.html('Gerar ato de emenda <i class="icon-arrow-right"/>');
-//   }
-// }
-// verificaRequisitos();
-// $('#gerarAto').on('click', gerarDocumentoAto);
-// function gerarDocumentoAto(e)
-// {
-//   var valores = {};
-//   var ajg = CKEDITOR.instances.texto_ajg.getData().replace(/<\/?p>/g, ' ');
-//   if (! /^ *$/.test(ajg)) {
-//     valores.ajg = ajg;
-//   }
-//   var requisitos = $('#requisitos p'), requisitosAusentes = 0;
-//   $.each(['procuracao', 'rg', 'residencia', 'renuncia', 'ctps', 'indeferimento', 'medicos', 'planilha'], function(r, requisito) {
-//     valores[requisito] = Requisito.fromParagrafo(requisitos[r]);
-//     if (valores[requisito].presente == false || valores[requisito].ilegivel == true) {
-//       requisitosAusentes++;
-//     }
-//   });
-//   var sTexto = '<html lang="pt-BR" dir="ltr">\n';
-//   sTexto += '  <head>\n';
-//   sTexto += '  <style type="text/css">\n';
-//   sTexto += 'body { counter-reset: lista1; }\n';
-//   sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; text-indent: 0; line-height: 1.5em }\n';
-//   sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold;  text-indent: 0}\n';
-//   sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; text-indent: 0 }\n';
-//   sTexto += '.text { font-family: Times; font-size: 13pt; }\n';
-//   sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; text-indent: 0}\n';
-//   sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; text-indent: 0 }\n';
-//   sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; text-indent: 0}\n';
-//   sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; text-indent: 0}\n';
-//   sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold;text-indent: 0 }\n';
-//   sTexto += '  </style>\n';
-//   sTexto += '  </head>\n';
-//   sTexto += '  <body bgcolor="white">\n';
-//   sTexto += '  <p class="header" align="center"><img width="85" height="86" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República"><br/>';
-//   sTexto += 'PODER JUDICIÁRIO<br/>';
-//   sTexto += '&nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br/>';
-//   sTexto += 'SEÇÃO JUDICIÁRIA DO PARANÁ<br/>';
-//   sTexto += 'Subseção Judiciária de Maringá<br/>';
-//   sTexto += '1ª Vara do Juizado Especial Federal</p>\n';
-//   sTexto += '  <p class="title" align="center">CERTIDÃO</p>\n';
-//   sTexto += '  <p class="text" align="justify">Nos termos da Portaria 03/2006 deste Juizado, efetuei a análise prévia da petição inicial e dos documentos encartados.</p>\n';
-//   if ('ajg' in valores) {
-//     sTexto += '  <p class="text" align="justify">' + valores.ajg + '</p>\n';
-//   }
-//   sTexto += '  <p class="text" align="justify">A fim de verificar eventual prevenção, litispendência ou coisa julgada, certifico que procedi à consulta do sistema e-Proc e SIAPRO (físico), <strong>não</strong> tendo encontrado processos anteriormente ajuizados entre as mesmas partes no âmbito da Seção Judiciária do Paraná.</p>\n';
-//   if (requisitosAusentes == 0) {
-//     sTexto += '  <p class="text" align="justify">Por fim, certifico que os autos encontram-se aptos para a designação de perícia médica.</p>\n';
-//     $('#prazo').hide();
-//     $('#localizador').show();
-//     $('#intimar').removeClass('btn-danger').addClass('btn-success');
-//     $('#intimar').html('Gerar movimentação <i class="icon-arrow-right"/>');
-//   } else {
-//     $('#prazo').show();
-//     $('#localizador').hide();
-//     $('#intimar').removeClass('btn-success').addClass('btn-danger');
-//     $('#intimar').html('Intimar p/ emenda <i class="icon-arrow-right"/>');
-//     sTexto += '  <p class="title" align="center">ATO DE SECRETARIA</p>\n';
-//     sTexto += '  <p class="text" align="justify">Por oportuno, encaminho estes autos para <strong>INTIMAÇÃO</strong> da parte autora para que, no prazo de <strong>' + $('#dias').val() + ' dias</strong>, junte aos autos os documentos abaixo relacionados e/ou esclareça/retifique o que lhe for solicitado, <strong><u>sob pena de extinção do processo</u></strong>:</p>\n';
-//     sTexto += '  <p class="lista1" align="justify">Apresentar:</p>\n';
-//     sTexto += valores.procuracao.toTexto('Instrumento procuratório com os poderes para o foro judicial', ', <b>tendo em vista que aquele juntado aos autos está <u>ilegível</u></b>', ';');
-//     sTexto += valores.rg.toTexto('Cópias dos documentos pessoais da parte autora (RG e CPF)', ', <b>tendo em vista que aquelas juntadas aos autos estão ilegíveis</b>', ';');
-//     sTexto += valores.residencia.toTexto('Comprovante de residência atualizado (emitido há no máximo um ano, como contas de água, luz ou telefone) e em nome da parte autora', ' (o comprovante juntado está no nome de pessoa estranha aos autos)', ', para fins de verificação da competência territorial, a qual é absoluta no âmbito dos Juizados Federais (art. 3º, §3º da Lei 10.259/01). Na hipótese de apresentação de comprovante em nome de terceiro, deve a parte comprovar qual o vínculo com o titular, apresentando documentos, por exemplo: certidão de nascimento, casamento, contrato de locação, ou ainda, sendo o caso, declaração do companheiro(a) ou do titular do comprovante. Informamos ainda que conforme entendimento do Juízo o comprovante atual de endereço é necessário para verificação da competência territorial, eis que, nos termos do art. 87 do CPC, <em>“determina-se a competência no momento em que a ação é proposta. São irrelevantes as modificações do estado de fato ou de direito ocorridas posteriormente, salvo quando suprimirem o órgão judiciário ou alterarem a competência em razão da matéria ou da hierarquia”</em>;');
-//     sTexto += valores.renuncia.toTexto('Termo de renúncia, com a menção expressa à <em>“renúncia das parcelas vencidas, que <u>somadas as 12 parcelas vincendas</u>, excederem a 60 salários mínimos”</em>, assinado devidamente pelo(a) autor(a), conforme art. 260 do CPC e Determinação expressa n.º 01/2007 deste Juizado', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
-//     sTexto += valores.ctps.toTexto('Cópia INTEGRAL da CTPS ou das guias de contribuições (acompanhadas do comprovante de pagamento) com o fito de comprovar a qualidade de segurado e carência, quando for o caso', ', tendo em vista que aquela juntada aos autos está ilegível', ';');
-//     sTexto += valores.indeferimento.toTexto('Cópia do indeferimento administrativo', ', tendo em vista que aquela juntada aos autos está ilegível', ';');
-//     sTexto += valores.medicos.toTexto('Documentos médicos que possam comprovar a alegação da enfermidade da autora, tais como: laudos, atestados, exames, prontuários, fichas de atendimento médico ou internação, guias de encaminhamento médico, perícias', ', tendo em vista que aqueles juntados aos autos estão ilegíveis', ';');
-//     sTexto += valores.planilha.toTexto('Demonstrativo pormenorizado e atualizado do valor da causa (planilha), para verificação da competência para julgamento pelo JEF, computando-se além das parcelas vencidas as doze vincendas (art. 260 do CPC), retificando o valor já atribuído, caso necessário', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
-//   }
-//   sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
-//   sTexto += '  <p class="signature" align="center">Felipe Benali<br>documento assinado eletronicamente</p>\n';
-//   sTexto += '</body>\n';
-//   sTexto += '</html>\n';
-//   CKEDITOR.instances.editor_texto_final.setData(sTexto);
-// }
-// function Requisito(presente, ilegivel)
-// {
-//   this.presente = presente;
-//   this.ilegivel = ilegivel;
-// }
-// Requisito.prototype = {
-//   presente: false,
-//   ilegivel: false,
-//   toTexto: function(inicioSeAusenteOuIlegivel, textoSeIlegivel, fimSeAusenteOuIlegivel)
-//   {
-//     var texto = '';
-//     if (! this.presente || this.ilegivel) {
-//       texto += '  <p class="lista2" align="justify">';
-//       texto += inicioSeAusenteOuIlegivel;
-//       if (this.ilegivel) {
-//         texto += textoSeIlegivel;
-//       }
-//       texto += fimSeAusenteOuIlegivel;
-//       texto += '</p>\n';
-//     }
-//     return texto;
-//   }
-// };
-// Requisito.fromParagrafo = function(p)
-// {
-//   var requisito = new Requisito(false, false);
-//   if ($(p).find('input')[0].checked) {
-//     requisito.presente = true;
-//   }
-//   if ($(p).find('button').hasClass('active')) {
-//     requisito.ilegivel = true;
-//   }
-//   return requisito;
-// };
-// $('#dias').on('change', function(e)
-// {
-//   gerarDocumentoAto();
-// });
 </script>
   </body>
 </html>
