@@ -348,15 +348,12 @@
           <h2>Bens</h2>
           <hr>
           <div class="btn-toolbar" style="margin-bottom: 30px">
-            <button class="btn" data-toggle="collapse" data-target="#adicionar_imovel"><i class="icon-home"></i> Adicionar bem imóvel</button>
-            <button class="btn" data-toggle="collapse" data-target="#nao_desenvolvido"><i class="icon-truck"></i> Adicionar veículo</button>
-            <button class="btn" data-toggle="collapse" data-target="#nao_desenvolvido"><i class="icon-money"></i> Adicionar crédito</button>
-            <button class="btn" data-toggle="collapse" data-target="#nao_desenvolvido"><i class="icon-spinner"></i> Adicionar bem móvel</button>
+            <button class="btn" data-toggle="collapse" data-target='#adicionar_imovel'><i class="icon-home"></i> Adicionar bem imóvel</button>
+            <button class="btn a_desenvolver" data-mensagem="Favor utilizar o botão adicionar bem imóvel."><i class="icon-truck"></i> Adicionar veículo</button>
+            <button class="btn a_desenvolver" data-mensagem="Favor utilizar o botão adicionar bem imóvel."><i class="icon-money"></i> Adicionar crédito</button>
+            <button class="btn a_desenvolver" data-mensagem="Favor utilizar o botão adicionar bem imóvel."><i class="icon-spinner"></i> Adicionar bem móvel</button>
           </div>
           <!-- Adicionar bem imóvel -->
-          <div id="nao_desenvolvido" class="collapse">
-            <p>Funcionalidade não desenvolvida no protótipo, favor utilizar o botão "Adicionar bem <b>imóvel</b></p>
-          </div>
           <div id="adicionar_imovel" class="collapse">
             <div class="well" style="margin-top: 10px">
               <form class="custom_form form-inline">
@@ -555,28 +552,17 @@
 
 
     <!-- Modal -->
-    <div id="editor_final" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 750px; left: 44%">
+    <div id="a_desenvolver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Editor final</h3>
+        <h3 id="myModalLabel">A desenvolver</h3>
       </div>
-      <div class="modal-body" style="height: 450px">
-        <style type="text/css">
-          .modal-body .cke_contents {
-          height: 350px !important;
-          }
-        </style>
-        <textarea id="editor_texto_final" rows="6" class="btn-block ckeditor"></textarea>
+      <div class="modal-body">
+        <p>Esta tela / funcionalidade não foi desenvolvida no protótipo.</p>
+        <p id="mensagem_extra"> </p>
       </div>  
         <div class="modal-footer">
-        <form id="prazo" class="form-inline pull-left" style="margin: 0">
-          Prazo: <input id="dias" type="text" size="2" style="width: 22px" value="10"> dias, localizador <select style="margin-left: 5px; width: 105px"><option>EMENDA</option><option>FELIPE</option></select>
-        </form>
-        <form id="localizador" class="form-inline pull-left" style="margin: 0;">
-          Localizador: <select style="margin-left: 5px; width: 175px"><option>MARCAR-PERICIA</option><option>FELIPE</option></select>
-        </form>
-        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
-        <button id="intimar" class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
 
@@ -640,6 +626,13 @@
       
     });
 
+    // (Felipe) chama modal de a_desenvolver quando esta classe "a_desenvolver" esta atribuída ao link ou button
+    // Usar no button o elemento data-mensagem="bla bla" para passar a mensagem opcional que vai aparecer dentro do modal
+    $('.a_desenvolver').on('click', function() {
+      $('#a_desenvolver').modal('show');
+      $('#mensagem_extra').html($(this).data('mensagem'));
+      return false;
+    });
 
 </script>
   </body>

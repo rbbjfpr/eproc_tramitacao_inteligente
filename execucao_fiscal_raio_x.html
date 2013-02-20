@@ -140,7 +140,7 @@
         right: 0;
         text-shadow: 1px 1px gray;
         top: 81px;
-        width: 44%;
+        width: 410px;
       }
 
       .custom_form label {
@@ -223,6 +223,34 @@
         display: block;
 
       }
+
+      .pendencias_counter {
+        position: absolute !important;
+        border-radius: 20px 20px 20px 20px !important;
+        top: -10px !important;
+        opacity: 0.95;
+      }
+
+      .detalhar {
+        position: relative;
+      }
+
+      .pendencias_table {
+        background-color: #fff;
+      }
+
+      .pendencia_faltante {
+        background-color: rgba(235, 114, 114, 0.66);
+      }
+
+      .pendencia_ok {
+        background-color: rgba(140, 214, 137, 0.68)
+      }
+
+      .pendencia_aguardando {
+        background-color: rgba(228, 235, 114, 0.66)
+      }
+
 
     </style>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -327,7 +355,7 @@
                     </div> -->
                   </td>
                   <td>
-                    <span class="text-error"><strong>CURTUME CENTRAL LIMITADA</strong></span>, CNPJ 77.643.179/0001-20, com endereço à Estrada Carlos Borges, nº 2.711, Maringá/PR, representada legalmente por FELIPE RAUL BORGES BENALI, CPF 054.658.236-65, com endereço à Rua Martin Afonso, 800, Maringá - PR, CEP 87010-410 
+                    <span class="text-error"><strong>CURTUME XYZ LIMITADA</strong></span>, CNPJ 77.643.179/0001-20, com endereço à Estrada Carlos Borges, nº 2.711, Maringá/PR, representada legalmente por FELIPE RAUL BORGES BENALI, CPF 054.658.236-65, com endereço à Rua Martin Afonso, 800, Maringá - PR, CEP 87010-410 
                     <div id="executado1" class="collapse hist_end_table">
                       <table class="table">
                         <thead>
@@ -409,7 +437,7 @@
             <hr>
             <form class="custom_form form-inline">
               <fieldset>
-                <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Citado CURTUME CENTRAL LTDA no ev.</label> <input type="text" class="event_number" value="2"></p>
+                <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Citado CURTUME XYZ LTDA no ev.</label> <input type="text" class="event_number" value="2"></p>
                 <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Citado FELIPE RAUL BORGES BENAL no ev.</label> <input type="text" class="event_number" value="2"></p>
               </fieldset> 
             </form>
@@ -424,7 +452,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th width="40px">Tipo</th>
+                  <th width="30px">Tipo</th>
                   <th>Descrição</th>
                   <th>Avaliação</th>
                   <th>Situação</th>
@@ -438,28 +466,21 @@
                   </td>
                   <td>
                     Lote de terras nº 10-A, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
-                    <div id="detalhe_bem_1" class="collapse">
+                    <div id="detalhe_bem_1" class="collapse in"> <!-- TODO: remover este IN, para debug -->
                       <div class="well" style="margin-top: 10px">
                         <form class="custom_form form-inline">
                           <fieldset>
-                            <!-- <input type="text" class="span6" value="CURTUME CENTRAL LTDA"> -->
+                            <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
                             <legend style="padding-top: 0">Origem dos dados</legend>
                             <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
                             <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
                             <legend>Proprietários</legend>
-                            <p>1) CURTUME CENTRAL LTDA </button></p>
+                            <p>1) CURTUME XYZ LTDA </button></p>
                             <p>2) FELIPE RAUL BORGES BENALI </button></p>
                             <blockquote class="conjuge">
                               <p><small>Izilda Benali (cônjuge)</small></p>
                             </blockquote>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
-                            <legend>Constrições realizadas</legend>
-                            <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
-                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
-                            <legend>Intimação da penhora</legend>
-                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME CENTRAL LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
                             <legend>Avaliações</legend>
                             <div class="alert alert-success" style="margin-bottom: 5px">
                               Última avaliação há menos de 12 meses
@@ -467,7 +488,7 @@
                             <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
                             <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
                             <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
                             <legend>Depositário</legend>
                             <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
                             <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
@@ -494,7 +515,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
                             <legend>Reservas</legend>
                             <table class="table">
                               <thead>
@@ -514,16 +535,123 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
                             <legend>Anotações</legend>
                             <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
+                            <table class="table pendencias_table table-bordered table-condensed">
+                              <thead>
+                                <tr>
+                                  <th width="40px"></th>
+                                  <th>Pendência</th>
+                                  <th>Realizado ?</th>
+                                  <th width="15px"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr class="pendencia_ok">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Penhora</td>
+                                  <td>ev. 5</td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_ok">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                                  <td>ev. 5</td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_ok">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                                  <td>ev. 5</td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_ok">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Avaliação há menos de 12 meses</td>
+                                  <td>ev. 5</td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Cientificação - Banco Itaú</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_aguardando">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                                  <td>mandado expedido (ev. 8)</td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Expedição do edital do Leilão</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr class="pendencia_faltante">
+                                  <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                  <td>Publicação do edital do leilão</td>
+                                  <td><b>não</b></td>
+                                  <td><input type="checkbox" autocomplete="off"></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="4" style="padding: 5px 0 5px 10px">
+                                    <div class="btn-toolbar">
+                                      <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                                      <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                                      <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                                      <div class="btn-group dropup">
+                                        <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                                        <ul class="dropdown-menu">
+                                          <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                          <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                          <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                          <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                          <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                             <legend>Situação</legend>
-                            <select style="margin-bottom: 10px" class="input-block-level">
+                            <select style="margin-bottom: 10px" class="input-block-level" autocomplete="off">
                               <option>Triagem</option>
+                              <option>Rejeitado</option>
                               <option>Pré-listagem: "Leilão de Abril"</option>
                               <option>Pré-listagem: "Leilão de Novembro"</option>
-                              <option>Designado leilão: "Leilão de Abril"</option>
+                              <option selected>Designado leilão: "Leilão de Abril"</option>
                               <option>Designado leilão: "Leilão de Novembro"</option>
+                              <option>Leilão cancelado</option>
+                              <option>Arrematado</option>
+                              <option>Leilão negativo</option>
                             </select>
                           </fieldset>
                           <button type="submit" class="btn btn-primary">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
@@ -533,7 +661,7 @@
                   </td>
                   <td><div rel="popover" data-trigger="hover" data-placement="top" data-title="Histórico" data-content="<p>R$ 80.000,00 em 10/2010 (ev. 10)</p><p>R$ 70.000,00 em 01/2010 (ev. 5)</p><p>R$ 60.000,00 em 01/2009 (ev. 2)</p>"><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></div></td>
                   <td><span class="label label-warning">Leilão designado</span><br><small class="muted">Leilão de Abril</small></td>
-                  <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_1">Detalhar</button></td>
+                  <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_1">Detalhar <span class="label label-important pendencias_counter">8</span></button></td>
                 </tr>
                 <tr>
                   <td>
@@ -546,22 +674,22 @@
                       <div class="well" style="margin-top: 10px">
                         <form class="custom_form form-inline">
                           <fieldset>
-                            <!-- <input type="text" class="span6" value="CURTUME CENTRAL LTDA"> -->
+                            <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
                             <legend style="padding-top: 0">Origem dos dados</legend>
                             <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234568"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
                             <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
                             <legend>Proprietários</legend>
-                            <p>1) CURTUME CENTRAL LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
+                            <p>1) CURTUME XYZ LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
                             <p>2) FELIPE RAUL BORGES BENALI <button class="btn btn-small"><i class="icon-trash"></i></button></p>
                             <blockquote class="conjuge">
                               <p><small>Izilda Benali (cônjuge)</small></p>
                             </blockquote>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
                             <legend>Constrições realizadas</legend>
                             <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
                             <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
                             <legend>Intimação da penhora</legend>
-                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME CENTRAL LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
+                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
                             <p><label class="checkbox text-error"><input type="checkbox">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" disabled></p>
                             <p><label class="checkbox text-error"><input type="checkbox">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" disabled></p>
                             <legend>Avaliações</legend>
@@ -571,7 +699,7 @@
                             <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
                             <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
                             <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
                             <legend>Depositário</legend>
                             <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
                             <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
@@ -603,7 +731,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
                             <legend>Anotações</legend>
                             <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
                           </fieldset>
@@ -614,7 +742,7 @@
                   </td>
                   <td><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></td>
                   <td><span class="label label-important">Triagem</span></td>
-                  <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_2">Detalhar</button></td>
+                  <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_2">Detalhar <span class="label label-important pendencias_counter">3</span></button></td>
                 </tr>
                 <tr>
                   <td>
@@ -626,22 +754,22 @@
                       <div class="well" style="margin-top: 10px">
                         <form class="custom_form form-inline">
                           <fieldset>
-                            <!-- <input type="text" class="span6" value="CURTUME CENTRAL LTDA"> -->
+                            <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
                             <legend style="padding-top: 0">Origem dos dados</legend>
                             <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
                             <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
                             <legend>Proprietários</legend>
-                            <p>1) CURTUME CENTRAL LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
+                            <p>1) CURTUME XYZ LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
                             <p>2) FELIPE RAUL BORGES BENALI <button class="btn btn-small"><i class="icon-trash"></i></button></p>
                             <blockquote class="conjuge">
                               <p><small>Izilda Benali (cônjuge)</small></p>
                             </blockquote>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
                             <legend>Constrições realizadas</legend>
                             <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
                             <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
                             <legend>Intimação da penhora</legend>
-                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME CENTRAL LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
+                            <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
                             <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
                             <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
                             <legend>Avaliações</legend>
@@ -651,7 +779,7 @@
                             <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
                             <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
                             <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
                             <legend>Depositário</legend>
                             <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
                             <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
@@ -683,7 +811,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                            <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
                             <legend>Anotações</legend>
                             <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
                             <legend>Situação</legend>
@@ -702,7 +830,7 @@
                   </td>
                   <td><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></td>
                   <td><span class="label label-success">Pré-listagem</span><br><small>Leilão de Abril</small></td>
-                  <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_3">Detalhar</button></td>
+                  <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_3">Detalhar <span class="label label-important pendencias_counter">3</span></button></td>
                 </tr>
                 <tr>
                   <td>
@@ -713,7 +841,7 @@
                   </td>
                   <td><span class="price">R$ 15.000,00</span> <small class="muted muted-block">em 09/2012</small></td>
                   <td><span class="label label-success">Pré-listagem</span><br><small>Leilão de Novembro</small></td>
-                  <td><button class="btn btn-mini" data-toggle="collapse" data-target="">Detalhar</button></td>
+                  <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="">Detalhar <span class="label label-important pendencias_counter">3</span></button></td>
                 </tr>
                 <tr>
                   <td>
@@ -723,7 +851,7 @@
                   </td>
                   <td><span class="price">R$ 20.000,00</span> <small class="muted muted-block">em 01/2013</small></td>
                   <td><span class="label label-important">Triagem</span></td>
-                  <td><button class="btn btn-mini" data-toggle="collapse" data-target="">Detalhar</button></td>
+                  <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="">Detalhar <span class="label label-important pendencias_counter">3</span></button></td>
                 </tr>
                 <tr>
                   <td>
@@ -733,7 +861,7 @@
                   </td>
                   <td><span class="price">R$ 7.500,00</span> <small class="muted muted-block">em 11/2012</small></td>
                   <td><span class="label label-important">Triagem</span></td>
-                  <td><button class="btn btn-mini" data-toggle="collapse" data-target="">Detalhar</button></td>
+                  <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="">Detalhar <span class="label label-success pendencias_counter">0</span></button></td>
                 </tr>
               </tbody>
             </table>
@@ -786,8 +914,108 @@
               <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
                   <p>Processo incluído no Leilão "<i>Leilão de Abril</i>", 1º leilão aos 01/04/2013, 2º leilão aos 20/04/2013</p>
-                  <table class="table">
-
+                  <table class="table pendencias_table table-bordered table-condensed">
+                    <thead>
+                      <tr>
+                        <th width="40px"></th>
+                        <th>Pendência</th>
+                        <th>Realizado ?</th>
+                        <th width="15px"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Penhora</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Avaliação há menos de 12 meses</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Cientificação - Banco Itaú</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_aguardando">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                        <td>mandado expedido (ev. 8)</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Expedição do edital do Leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td>Publicação do edital do leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="4" style="padding: 5px 0 5px 10px">
+                          <div class="btn-toolbar">
+                            <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                            <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                            <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                            <div class="btn-group dropup">
+                              <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
                 <div class="tab-pane" id="gerador_mandados">
@@ -809,29 +1037,18 @@
     </div> <!-- /container -->
 
 
-    <!-- Modal -->
-    <div id="editor_final" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 750px; left: 44%">
+    <!-- MODAL desenvovlimento -->
+    <div id="a_desenvolver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Editor final</h3>
+        <h3 id="myModalLabel">A desenvolver</h3>
       </div>
-      <div class="modal-body" style="height: 450px">
-        <style type="text/css">
-          .modal-body .cke_contents {
-          height: 350px !important;
-          }
-        </style>
-        <textarea id="editor_texto_final" rows="6" class="btn-block ckeditor"></textarea>
+      <div class="modal-body">
+        <p>Esta tela / funcionalidade não foi desenvolvida no protótipo.</p>
+        <p id="mensagem_extra"> </p>
       </div>  
         <div class="modal-footer">
-        <form id="prazo" class="form-inline pull-left" style="margin: 0">
-          Prazo: <input id="dias" type="text" size="2" style="width: 22px" value="10"> dias, localizador <select style="margin-left: 5px; width: 105px"><option>EMENDA</option><option>FELIPE</option></select>
-        </form>
-        <form id="localizador" class="form-inline pull-left" style="margin: 0;">
-          Localizador: <select style="margin-left: 5px; width: 175px"><option>MARCAR-PERICIA</option><option>FELIPE</option></select>
-        </form>
-        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
-        <button id="intimar" class="btn btn-danger">Intimar p/ emenda <i class="icon-arrow-right"></i></button>
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
 
@@ -894,6 +1111,16 @@
         $(this).html('Desmarcar todos');
       };
       
+    });
+
+
+    // (Felipe) chama modal de a_desenvolver quando esta classe "a_desenvolver" esta atribuída ao link ou button
+    // Usar no button o elemento data-mensagem="bla bla" para passar a mensagem opcional que vai aparecer dentro do modal
+    // Lembrar que quando for usar esta função você tem que copiar o HTML do modal também
+    $('.a_desenvolver').on('click', function() {
+      $('#a_desenvolver').modal('show');
+      $('#mensagem_extra').html($(this).data('mensagem'));
+      return false;
     });
 
 
