@@ -159,3 +159,11 @@ $.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
         $(this).html('Ocultar pendências realizadas');
       }
     });
+
+// (Felipe) chama modal de a_desenvolver quando esta classe "a_desenvolver" esta atribuída ao link ou button
+    // Usar no button o elemento data-mensagem="bla bla" para passar a mensagem opcional que vai aparecer dentro do modal
+    $('.a_desenvolver').on('click', function() {
+      $('#a_desenvolver').modal('show');
+      $('#mensagem_extra').html($(this).data('mensagem'));
+      return false;
+    });
