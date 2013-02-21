@@ -158,6 +158,7 @@
                 <li><a href="execucao_fiscal_modulo_leilao.html"><span class="label label-warning">Ex. Fiscal</span> Gerenciador de Leilões</a></li>
                 <li class="divider"></li>
                 <li><a href="selecione_localizador.html"><span class="label label-success">Usabilidade</span> Seleção de localizador</a></li>
+<li><a href="usabilidade_movimentacoes_favoritas.html"><span class="label label-success">Usabilidade</span> Movimentações favoritas</a></li>
               </ul>
             </li>
           </ul>
@@ -411,7 +412,7 @@
                             <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
                             <legend>Anotações</legend>
                             <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
-                            <table class="table pendencias_table table-bordered table-condensed">
+                            <table class="table pendencias_table table-bordered table-condensed table-hover">
                               <thead>
                                 <tr>
                                   <th width="40px"></th>
@@ -614,7 +615,7 @@
                             <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
                             <legend>Anotações</legend>
                             <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
-                            <table class="table pendencias_table table-bordered table-condensed">
+                            <table class="table pendencias_table table-bordered table-condensed table-hover">
                               <thead>
                                 <tr>
                                   <th width="40px"></th>
@@ -861,7 +862,8 @@
           <article>
             <h2>Pendências para o leilão</h2>
             <hr class="custom">
-            <table class="table pendencias_table table-bordered table-condensed">
+            <p><button id="ocultar_pendencias" class="btn btn-mini" data-hidden="NO">Ocultar pendências já realizadas</button></p>
+            <table class="table pendencias_table table-bordered table-condensed table-hover">
               <thead>
                 <tr>
                   <th width="40px"></th>
@@ -1041,7 +1043,7 @@
                   <td><input type="checkbox" autocomplete="off"></td>
                 </tr>
                 <tr>
-                  <td colspan="4" style="padding: 5px 0 5px 10px">
+                  <td colspan="5" style="padding: 5px 0 5px 10px">
                     <div class="btn-toolbar">
                       <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
                       <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 

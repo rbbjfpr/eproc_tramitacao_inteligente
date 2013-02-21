@@ -286,7 +286,7 @@
                         <table class="table">
                           <thead>
                             <tr>
-                              <th width="40px">Tipo</th>
+                              <th width="30px">Tipo</th>
                               <th>Descrição</th>
                               <th>Avaliação</th>
                               <th>Situação</th>
@@ -300,7 +300,7 @@
                               </td>
                               <td>
                                 Lote de terras nº 10-A, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
-                                <div id="detalhe_bem_1" class="collapse">
+                                <div id="detalhe_bem_1" class="collapse"> 
                                   <div class="well" style="margin-top: 10px">
                                     <form class="custom_form form-inline">
                                       <fieldset>
@@ -309,19 +309,12 @@
                                         <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
                                         <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
                                         <legend>Proprietários</legend>
-                                        <p>1) CURTUME XYZ LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
-                                        <p>2) FELIPE RAUL BORGES BENALI <button class="btn btn-small"><i class="icon-trash"></i></button></p>
+                                        <p>1) CURTUME XYZ LTDA </button></p>
+                                        <p>2) FELIPE RAUL BORGES BENALI </button></p>
                                         <blockquote class="conjuge">
                                           <p><small>Izilda Benali (cônjuge)</small></p>
                                         </blockquote>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
-                                        <legend>Constrições realizadas</legend>
-                                        <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <legend>Intimação da penhora</legend>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
                                         <legend>Avaliações</legend>
                                         <div class="alert alert-success" style="margin-bottom: 5px">
                                           Última avaliação há menos de 12 meses
@@ -329,7 +322,7 @@
                                         <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
                                         <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
                                         <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
                                         <legend>Depositário</legend>
                                         <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
                                         <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
@@ -350,37 +343,171 @@
                                               <td>Banco Itaú, 1ª Hipoteca</td>
                                             </tr>
                                             <tr>
-                                              <td>Meação do cônjuge</td>
-                                              <td>-</td>
-                                              <td>Vide matrícula</td>
-                                            </tr>
-                                            <tr>
                                               <td>Penhora trabalhista</td>
                                               <td>R-5</td>
                                               <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
                                             </tr>
                                           </tbody>
                                         </table>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <legend>Reservas</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Meação do cônjuge</td>
+                                              <td>Vide matrícula</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Crédito trabalhista</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
                                         <legend>Anotações</legend>
-                                        <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
+                                        <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
+                                        <table class="table pendencias_table table-bordered table-condensed table-hover">
+                                          <thead>
+                                            <tr>
+                                              <th width="40px"></th>
+                                              <th>Pendência</th>
+                                              <th>Realizado ?</th>
+                                              <th width="15px"></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Penhora</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Avaliação há menos de 12 meses</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Cientificação - Banco Itaú</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_aguardando">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>mandado expedido (ev. 8)</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Expedição do edital do Leilão</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Publicação do edital do leilão</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="4" style="padding: 5px 0 5px 10px">
+                                                <div class="btn-toolbar">
+                                                  <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                                                  <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                                                  <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                                                  <div class="btn-group dropup">
+                                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
                                         <legend>Situação</legend>
-                                        <select style="margin-bottom: 10px" class="input-block-level">
-                                          <option>Pendência</option>
-                                          <option>Apto para designar leilão: "Leilão de Abril"</option>
-                                          <option>Apto para designar leilão: "Leilão de Novembro"</option>
-                                          <option>Designado leilão: "Leilão de Abril"</option>
+                                        <select style="margin-bottom: 10px" class="input-block-level" autocomplete="off">
+                                          <option>Triagem</option>
+                                          <option>Rejeitado</option>
+                                          <option>Pré-listagem: "Leilão de Abril"</option>
+                                          <option>Pré-listagem: "Leilão de Novembro"</option>
+                                          <option selected>Designado leilão: "Leilão de Abril"</option>
                                           <option>Designado leilão: "Leilão de Novembro"</option>
+                                          <option>Leilão cancelado</option>
+                                          <option>Arrematado</option>
+                                          <option>Leilão negativo</option>
                                         </select>
                                       </fieldset>
-                                      <button type="submit" class="btn btn-primary">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
+                                      <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#detalhe_bem_1">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
                                     </form>
                                   </div>
                                 </div>
                               </td>
-                              <td><div rel="popover" data-trigger="hover" data-placement="top" data-title="Histórico" data-content="<p>R$ 80.000,00 em 10/2010 (ev. 10)</p><p>R$ 70.000,00 em 01/2010 (ev. 5)</p><p>R$ 60.000,00 em 01/2009 (ev. 2)</p>"><span class="price">R$ 80.000,00</span> <small class="muted">em 10/2010</small></div></td>
+                              <td><div rel="popover" data-trigger="hover" data-placement="top" data-title="Histórico" data-content="<p>R$ 80.000,00 em 10/2010 (ev. 10)</p><p>R$ 70.000,00 em 01/2010 (ev. 5)</p><p>R$ 60.000,00 em 01/2009 (ev. 2)</p>"><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></div></td>
                               <td><span class="label label-warning">Leilão designado</span><br><small class="muted">Leilão de Abril</small></td>
-                              <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_1">Detalhar</button></td>
+                              <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_1">Detalhar <span class="label label-important pendencias_counter">8</span></button></td>
                             </tr>
                             <tr>
                               <td>
@@ -388,7 +515,7 @@
                               </td>
                               <td>
                                 Lote de terras nº 10-B, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
-                                <div id="detalhe_bem_2" class="collapse">
+                                <div id="detalhe_bem_2" class="collapse"> 
                                   <div class="well" style="margin-top: 10px">
                                     <form class="custom_form form-inline">
                                       <fieldset>
@@ -397,19 +524,12 @@
                                         <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234568"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
                                         <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
                                         <legend>Proprietários</legend>
-                                        <p>1) CURTUME XYZ LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
-                                        <p>2) FELIPE RAUL BORGES BENALI <button class="btn btn-small"><i class="icon-trash"></i></button></p>
+                                        <p>1) CURTUME XYZ LTDA </button></p>
+                                        <p>2) FELIPE RAUL BORGES BENALI </button></p>
                                         <blockquote class="conjuge">
                                           <p><small>Izilda Benali (cônjuge)</small></p>
                                         </blockquote>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
-                                        <legend>Constrições realizadas</legend>
-                                        <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <legend>Intimação da penhora</legend>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-error"><input type="checkbox">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" disabled></p>
-                                        <p><label class="checkbox text-error"><input type="checkbox">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" disabled></p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
                                         <legend>Avaliações</legend>
                                         <div class="alert alert-error" style="margin-bottom: 5px">
                                           <strong>Atenção:</strong> A última avaliação foi feita há mais de 12 meses
@@ -417,7 +537,7 @@
                                         <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
                                         <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
                                         <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
                                         <legend>Depositário</legend>
                                         <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
                                         <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
@@ -438,125 +558,359 @@
                                               <td>Banco Itaú, 1ª Hipoteca</td>
                                             </tr>
                                             <tr>
-                                              <td>Meação do cônjuge</td>
-                                              <td>-</td>
-                                              <td>Vide matrícula</td>
-                                            </tr>
-                                            <tr>
                                               <td>Penhora trabalhista</td>
                                               <td>R-5</td>
                                               <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
                                             </tr>
                                           </tbody>
                                         </table>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
-                                        <legend>Anotações</legend>
-                                        <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
-                                      </fieldset>
-                                      <button type="submit" class="btn btn-primary">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_2">Fechar</button>
-                                    </form>
-                                  </div>
-                                </div>
-                              </td>
-                              <td><span class="price">R$ 80.000,00</span> <small class="muted">em 10/2010</small></td>
-                              <td><span class="label label-inverse">Leilão cancelado</span></td>
-                              <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_2">Detalhar</button></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
-                              </td>
-                              <td>
-                                Lote de terras nº 10-C, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
-                                <div id="detalhe_bem_3" class="collapse">
-                                  <div class="well" style="margin-top: 10px">
-                                    <form class="custom_form form-inline">
-                                      <fieldset>
-                                        <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
-                                        <legend style="padding-top: 0">Origem dos dados</legend>
-                                        <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
-                                        <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
-                                        <legend>Proprietários</legend>
-                                        <p>1) CURTUME XYZ LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
-                                        <p>2) FELIPE RAUL BORGES BENALI <button class="btn btn-small"><i class="icon-trash"></i></button></p>
-                                        <blockquote class="conjuge">
-                                          <p><small>Izilda Benali (cônjuge)</small></p>
-                                        </blockquote>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
-                                        <legend>Constrições realizadas</legend>
-                                        <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <legend>Intimação da penhora</legend>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <legend>Avaliações</legend>
-                                        <div class="alert alert-success" style="margin-bottom: 5px">
-                                          Última avaliação há menos de 12 meses
-                                        </div>
-                                        <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
-                                        <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
-                                        <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
-                                        <legend>Depositário</legend>
-                                        <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
-                                        <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
-                                        <p>Endereço: <input type="text" class="span6" value="Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400"></p>
-                                        <legend>Ônus</legend>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <legend>Reservas</legend>
                                         <table class="table">
                                           <thead>
                                             <tr>
                                               <th>Tipo</th>
-                                              <th>Registro</th>
                                               <th>Observação</th>
                                             </tr>
                                           </thead>
                                           <tbody>
                                             <tr>
-                                              <td>Hipoteca</td>
-                                              <td>R-4</td>
-                                              <td>Banco Itaú, 1ª Hipoteca</td>
-                                            </tr>
-                                            <tr>
                                               <td>Meação do cônjuge</td>
-                                              <td>-</td>
                                               <td>Vide matrícula</td>
                                             </tr>
                                             <tr>
-                                              <td>Penhora trabalhista</td>
-                                              <td>R-5</td>
+                                              <td>Crédito trabalhista</td>
                                               <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
                                             </tr>
                                           </tbody>
                                         </table>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
                                         <legend>Anotações</legend>
-                                        <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
+                                        <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
+                                        <table class="table pendencias_table table-bordered table-condensed table-hover">
+                                          <thead>
+                                            <tr>
+                                              <th width="40px"></th>
+                                              <th>Pendência</th>
+                                              <th>Realizado ?</th>
+                                              <th width="15px"></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Penhora</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                                              <td>Avaliação há menos de 12 meses</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="4" style="padding: 5px 0 5px 10px">
+                                                <div class="btn-toolbar">
+                                                  <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                                                  <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                                                  <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                                                  <div class="btn-group dropup">
+                                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
                                         <legend>Situação</legend>
-                                        <select style="margin-bottom: 10px">
-                                          <option>Pendência</option>
-                                          <option>Apto para designar leilão: "Leilão de Abril"</option>
-                                          <option>Apto para designar leilão: "Leilão de Novembro"</option>
-                                          <option>Designado leilão: "Leilão de Abril"</option>
+                                        <select style="margin-bottom: 10px" class="input-block-level" autocomplete="off">
+                                          <option>Triagem</option>
+                                          <option>Rejeitado</option>
+                                          <option>Pré-listagem: "Leilão de Abril"</option>
+                                          <option>Pré-listagem: "Leilão de Novembro"</option>
+                                          <option selected>Designado leilão: "Leilão de Abril"</option>
                                           <option>Designado leilão: "Leilão de Novembro"</option>
+                                          <option>Leilão cancelado</option>
+                                          <option>Arrematado</option>
+                                          <option>Leilão negativo</option>
                                         </select>
                                       </fieldset>
-                                      <button type="submit" class="btn btn-primary">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_3">Fechar</button>
+                                      <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#detalhe_bem_1">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
                                     </form>
                                   </div>
                                 </div>
                               </td>
-                              <td><span class="price">R$ 80.000,00</span> <small class="muted">em 10/2010</small></td>
-                              <td><span class="label label-success">Apto para Leilão</span><br><small>Leilão de Abril</small></td>
-                              <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_3">Detalhar</button></td>
+                              <td><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></td>
+                              <td><span class="label label-success">Pré-listagem</span></td>
+                              <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_2">Detalhar <span class="label label-important pendencias_counter">2</span></button></td>
                             </tr>
                           </tbody>
                         </table>
-
                       </td>
                     </tr>
                   </tbody>
                 </table>
+                <article>
+                  <h2>Pendências para o leilão</h2>
+                  <hr class="custom">
+                  <p><button id="ocultar_pendencias" class="btn btn-mini" data-hidden="NO">Ocultar pendências já realizadas</button></p>
+                  <table class="table pendencias_table table-bordered table-condensed table-hover">
+                    <thead>
+                      <tr>
+                        <th width="40px"></th>
+                        <th>Processo</th>
+                        <th>Bem</th>
+                        <th>Pendência</th>
+                        <th>Realizado ?</th>
+                        <th width="15px"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Penhora</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Penhora</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Avaliação há menos de 12 meses</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Avaliação há menos de 12 meses</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Cientificação - Banco Itaú</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Cientificação - Banco Itaú</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_aguardando">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                        <td>mandado expedido (ev. 8)</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_aguardando">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                        <td>mandado expedido (ev. 8)</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Expedição do edital do Leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Expedição do edital do Leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Publicação do edital do leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+<td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Publicação do edital do leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="6" style="padding: 5px 0 5px 10px">
+                          <div class="btn-toolbar">
+                            <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                            <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                            <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                            <div class="btn-group dropup">
+                              <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </article>
 
 
 
@@ -605,7 +959,7 @@
                         <table class="table">
                           <thead>
                             <tr>
-                              <th width="40px">Tipo</th>
+                              <th width="30px">Tipo</th>
                               <th>Descrição</th>
                               <th>Avaliação</th>
                               <th>Situação</th>
@@ -615,91 +969,14 @@
                           <tbody>
                             <tr>
                               <td>
-                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                                <i class="icon-truck" rel="tooltip" data-original-title="Veículo" data-placement="left" style="font-size: 30px"></i>
                               </td>
                               <td>
-                                Lote de terras nº 10-C, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
-                                <div id="detalhe_bem_3" class="collapse">
-                                  <div class="well" style="margin-top: 10px">
-                                    <form class="custom_form form-inline">
-                                      <fieldset>
-                                        <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
-                                        <legend style="padding-top: 0">Origem dos dados</legend>
-                                        <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
-                                        <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
-                                        <legend>Proprietários</legend>
-                                        <p>1) CURTUME XYZ LTDA <button class="btn btn-small"><i class="icon-trash"></i></button></p>
-                                        <p>2) FELIPE RAUL BORGES BENALI <button class="btn btn-small"><i class="icon-trash"></i></button></p>
-                                        <blockquote class="conjuge">
-                                          <p><small>Izilda Benali (cônjuge)</small></p>
-                                        </blockquote>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
-                                        <legend>Constrições realizadas</legend>
-                                        <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto no ev.</label> <input type="text" class="event_number" disabled></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Penhora no ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <legend>Intimação da penhora</legend>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Sócio <small>FELIPE RAUL BORGES BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Cônjuge <small>IZILDA BENALI</small>, ev.</label> <input type="text" class="event_number" value="2"></p>
-                                        <legend>Avaliações</legend>
-                                        <div class="alert alert-success" style="margin-bottom: 5px">
-                                          Última avaliação há menos de 12 meses
-                                        </div>
-                                        <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
-                                        <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
-                                        <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
-                                        <legend>Depositário</legend>
-                                        <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
-                                        <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
-                                        <p>Endereço: <input type="text" class="span6" value="Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400"></p>
-                                        <legend>Ônus</legend>
-                                        <table class="table">
-                                          <thead>
-                                            <tr>
-                                              <th>Tipo</th>
-                                              <th>Registro</th>
-                                              <th>Observação</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <td>Hipoteca</td>
-                                              <td>R-4</td>
-                                              <td>Banco Itaú, 1ª Hipoteca</td>
-                                            </tr>
-                                            <tr>
-                                              <td>Meação do cônjuge</td>
-                                              <td>-</td>
-                                              <td>Vide matrícula</td>
-                                            </tr>
-                                            <tr>
-                                              <td>Penhora trabalhista</td>
-                                              <td>R-5</td>
-                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                        <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
-                                        <legend>Anotações</legend>
-                                        <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
-                                        <legend>Situação</legend>
-                                        <select style="margin-bottom: 10px">
-                                          <option>Pendência</option>
-                                          <option>Apto para designar leilão: "Leilão de Abril"</option>
-                                          <option>Apto para designar leilão: "Leilão de Novembro"</option>
-                                          <option>Designado leilão: "Leilão de Abril"</option>
-                                          <option>Designado leilão: "Leilão de Novembro"</option>
-                                        </select>
-                                      </fieldset>
-                                      <button type="submit" class="btn btn-primary">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_3">Fechar</button>
-                                    </form>
-                                  </div>
-                                </div>
+                                <div data-original-title="Enter notes" data-toggle="manual" rel="editable" data-type="wysihtml5" data-pk="1" id="note" class="editable" tabindex="-1">VW GOL, placa ABB-1534, renavam 52.362572-3, chassi 9BGXXLP4LD17985, ano/modelo 2005/2006</div>
                               </td>
-                              <td><span class="price">R$ 80.000,00</span> <small class="muted">em 10/2010</small></td>
-                              <td><span class="label label-success">Apto para Leilão</span><br><small>Leilão de Novembro</small></td>
-                              <td><button class="btn btn-mini" data-toggle="collapse" data-target="#detalhe_bem_3">Detalhar</button></td>
+                              <td><span class="price">R$ 15.000,00</span> <small class="muted muted-block">em 09/2012</small></td>
+                              <td><span class="label label-success">Pré-listagem</span><br><small>Leilão de Novembro</small></td>
+                              <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="">Detalhar <span class="label label-success pendencias_counter">0</span></button></td>
                             </tr>
                           </tbody>
                         </table>
@@ -833,7 +1110,6 @@
       };
       
     });
-
 
 // $('#documento').on('change', function(e)
 // {

@@ -142,3 +142,20 @@ $.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
 })
 
 }(window.jQuery)
+
+
+
+// FELIPE: BOTAO DE OCULTAR PENDÊNCIAS
+
+// Botão de ocultar pendÊncias já realizadas
+    $('#ocultar_pendencias').on('click', function() {
+      if ($(this).data('hidden') == 'NO') {
+        $('.pendencia_ok').hide();
+        $(this).data('hidden', 'YES');
+        $(this).html('Mostrar pendências realizadas');
+      } else {
+        $('.pendencia_ok').show();
+        $(this).data('hidden', 'NO');
+        $(this).html('Ocultar pendências realizadas');
+      }
+    });
