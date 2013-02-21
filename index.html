@@ -240,9 +240,32 @@
         <div class="span4">
           <h3>6. Possibilidade de agendamento de suspensão e sobrestamento</h3>
           <ul>
-            <li>Após o decurso do prazo de um ano de suspensão pelo art. 40 da Lei 6.830/80 sem qualquer movimentação, o e-Proc automaticamente lança o evento de sobrestamento e troca o localizador.</li>
-            <li>Após o decurso do prazo de cinco anos de sobrestamento sem movimentações, o e-Proc automaticamente intima o exequente para dizer se houve hipótese de suspensão ou de interrupção do prazo prescrição mediante o preenchimento de petição no formato de formulário.</li>
-            <li>Após a manifestação do exequente, havendo causa interruptiva ou suspensiva do prazo prescricional, o e-Proc lança conclusão para despacho. Caso contrário, o e-Proc lança a conclusão para sentença. </li>
+            <li><u>Para suspensão pelo art. 40 da Lei 6.830/80</u> <a href="#" onclick="return false" data-toggle="collapse" data-target="#susp_1">saiba mais</a></li>
+            <div class="collapse" id="susp_1">
+              <ul>
+                <li>Após o decurso do prazo de um ano de suspensão pelo art. 40 da Lei 6.830/80 sem qualquer movimentação, o e-Proc automaticamente lança o evento de sobrestamento e troca o localizador.</li>
+                <li>Após o decurso do prazo de cinco anos de sobrestamento sem movimentações, o e-Proc automaticamente intima o exequente para dizer se houve hipótese de suspensão ou de interrupção do prazo prescrição mediante o preenchimento de petição no formato de formulário.</li>
+                <li>Após a manifestação do exequente, havendo causa interruptiva ou suspensiva do prazo prescricional, o e-Proc lança conclusão para despacho. Caso contrário, o e-Proc lança a conclusão para sentença.</li>
+              </ul>
+            </div>
+            <li><u>Para suspensão por parcelamento</u> <a href="#" onclick="return false" data-toggle="collapse" data-target="#susp_2">saiba mais</a></li>
+            <div class="collapse" id="susp_2">
+              <ul>
+                <li>Após o decurso de prazo de um ano, o e-Proc automaticamente retira o processo da suspensão e intima o exquente para informar se o parcelamento está sendo cumprido pelo contribuinte.</li>
+                <li>O exequente responde à intimação mediante o preenchimento de petição no formato de formulário.</li>
+                <li>Se o parcelamento está sendo cumprido, o processo volta automaticamente para o estado de suspensão, por mais um ano. Caso contrário, o e-Proc lança conclusão para despacho.</li>
+              </ul>
+            </div>
+            <li><u>Para suspensão por decisão judicial</u> <a href="#" onclick="return false" data-toggle="collapse" data-target="#susp_3">saiba mais</a></li>
+            <div class="collapse" id="susp_3">
+              <ul>
+                <li>A assessoria elabora minuta de decisão determinando a suspensão.</li>
+                <li>Após a assinatura da decisão, o e-Proc automaticamente suspende o processo pelo prazo determinado na decisão e troca o localizador.</li>
+                <li>Após o decurso do prazo de suspensão, o e-Proc reativa o processo e intima o exequente para se manifestar.</li>
+                <li>Após a manifestação ou o decurso do prazo, a conclusão para despacho é lançada automaticamente.</li>
+              </ul>
+            </div>
+          </ul>
         </div>
       </div>
       <div class="row">
@@ -257,7 +280,7 @@
               <li><span class="label" rel="tooltip" data-title="Bem que não foi constrito (ou teve a constrição levantada) por qualquer motivo (ex. bem de família, bem já arrematado em outro processo)." data-placement="right">Rejeitado</span></li>
               <li><span class="label label-suspenso" rel="tooltip" data-title="Quando a possibilidade do bem ir a leilão está suspensa (ex: pendência de embargos com efeito suspensivo)" data-placement="right">Suspenso</span></li>
               <li><span class="label label-success" rel="tooltip" data-title="Bem que pode ser levado a leilão. Permite controlar quais bens estão aptos para a próxima hasta." data-placement="right">Pré-listagem</span></li>
-              <li><span class="label label-warning" rel="tooltip" data-title="Bem que está com leilão designado. Ao selecionar esta opção o servidor deve escolher o leilão dentre aqueles já criados no gerenciador de leilão. Com a seleção desta opção, há várias decorrências, vide documentação. Após atribuição deste status, o bem só pode receber um dos status seguintes:" data-placement="right">Designado</span></li>
+              <li><span class="label label-warning" rel="tooltip" data-title="Bem que está com leilão designado. Ao selecionar esta opção o servidor deve escolher o leilão dentre aqueles já criados no gerenciador de leilão. Com a seleção desta opção há várias decorrências, vide documentação. Após atribuição deste status, o bem só pode receber um dos status seguintes:" data-placement="right">Designado</span></li>
                 <ul>
                   <li><span class="label label-inverse" rel="tooltip" data-title="Bem saiu do leilão por algum motivo." data-placement="right">Leilão cancelado</span></li>
                   <li><span class="label label-info" rel="tooltip" data-title="Houve licitante para o bem. Quem seleciona esta opção é o leiloeiro, na tela do leiloeiro." data-placement="right">Arrematado</span></li>
@@ -268,14 +291,14 @@
         </div>
       </div>
 
-      <hr>
 
       <div class="marketing">
         <h2 class="pagination-centered">Agradecimentos</h2>
+        <hr>
         <ul>
           <li>Aos Juízes Federais <b>Adriano José Pinheiro</b>, <b>Vitor Marques Lento</b> e <b>Cleber Sanfelici Otero</b>, por possibilitarem e incentivarem um ambiente de trabalho apto à inovação no 1º Juizado Federal de Maringá.</li>
           <li>Ao Juiz Federal <b>Anderson Furlan</b>, pelo apoio geral ao projeto, sobretudo no âmbito da Execução Fiscal.</li>
-          <li>Aos colegas <b>Marcos Martins</b> e <b>Cintia Lourenco Bento Michelato</b>, Diretores do 1º JEF e Vara de Execuções Fiscais, respectivamente, pelo estímulo e colaboração no desenvolvimento do projeto nas suas unidades de trabalho. </li> 
+          <li>Aos colegas <b>Marcos Martins</b> e <b>Cintia Lourenco Bento Michelato</b>, Diretores do 1º JEF e Vara de Execuções Fiscais, respectivamente, pelo colaboração no desenvolvimento nas suas unidades de trabalho. </li> 
           <li>Aos colegas do <b>Gabinete</b> e da <b>Secretaria</b> do <b>1º e 2º Juizados Federais de Maringá</b>, pelas valiosas sugestões e pelo trabalho dobrado quando de nossas ausências para trabalho no projeto.</li>
         </ul>
       </div>
