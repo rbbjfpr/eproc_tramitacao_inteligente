@@ -182,26 +182,6 @@
       <div class="row" style="margin-top: 25px"><div class="span12 pagination-centered"><h2>Execução Fiscal</h2><hr></div></div>
       <div class="row">
         <div class="span4">
-          <h3>Gerenciador de bens</h3>
-          <ul>
-            <li>Institui um banco de dados de bens, integrado em várias telas (Raio X, Gerenciador de Leilão, Tela do Leiloeiro, etc) </li>
-            <li>Trabalhando com um identificador único (matrícula no caso de imóveis, placa no caso de veículos, etc), informa se um determinado bem já foi inserido em outro processo, de forma a prevenir equívocos (ex: um bem já arrematado ser levado novamente à hasta pública)</li>
-            <li>Cada bem incluído no processo possui um <i>status</i>. <br><i class="icon-question-sign"></i> Passe o mouse para saber mais.</li>
-            <ul class="status_bem">
-              <li><span class="label label-important" rel="tooltip" data-title="Status do bem que acabou de ser inserido. Ainda não pode ser levado a leilão, de acordo com o critério do servidor, porque há pendências importantes como: conversão do arresto em penhora, intimação da penhora de todos os co-proprietários e cônjuges, etc" data-placement="right">Triagem</span></li>
-              <li><span class="label" rel="tooltip" data-title="Bem que não foi constrito (ou teve a constrição levantada) por qualquer motivo (ex. bem de família, bem já arrematado em outro processo)." data-placement="right">Rejeitado</span></li>
-              <li><span class="label label-suspenso" rel="tooltip" data-title="Quando a possibilidade do bem ir a leilão está suspensa (ex: pendência de embargos com efeito suspensivo)" data-placement="right">Suspenso</span></li>
-              <li><span class="label label-success" rel="tooltip" data-title="Bem que pode ser levado a leilão. Permite controlar quais bens estão aptos para a próxima hasta." data-placement="right">Pré-listagem</span></li>
-              <li><span class="label label-warning" rel="tooltip" data-title="Bem que está com leilão designado. Ao selecionar esta opção o servidor deve escolher o leilão dentre aqueles já criados no gerenciador de leilão. Com a seleção desta opção, há várias decorrências, vide documentação. Após atribuição deste status, o bem só pode receber um dos status seguintes:" data-placement="right">Designado</span></li>
-                <ul>
-                  <li><span class="label label-inverse" rel="tooltip" data-title="Bem saiu do leilão por algum motivo." data-placement="right">Leilão cancelado</span></li>
-                  <li><span class="label label-info" rel="tooltip" data-title="Houve licitante para o bem. Quem seleciona esta opção é o leiloeiro, na tela do leiloeiro." data-placement="right">Arrematado</span></li>
-                  <li><span class="label label-important" rel="tooltip" data-title="Não houve licitantes para o bem. Quem escolhe esta opção também é o leiloeiro" data-placement="right">Leilão negativo</span></li>
-                </ul>
-            </ul>
-          </ul>
-        </div>
-        <div class="span4">
           <h3><a href="execucao_fiscal_cumprimento_mandado.html">1. Tela de cumprimento de mandado</a></h3>
           <ul>
             <li>O Oficial de Justiça preenche os dados da certidão e dos autos de penhora / arresto dentro do próprio e-Proc.</li>
@@ -224,8 +204,6 @@
             <li>Possibilita expedição individual ou em bloco de documentos como mandados, ofícios, cartas.</li>
           </ul>
         </div>
-      </div>
-      <div class="row">
         <div class="span4">
           <h3><a href="execucao_fiscal_modulo_leilao.html">3. Tela de Gerenciador de Leilão</a></h3>
           <ul>
@@ -236,8 +214,10 @@
             <li>Possibilita visualização rápida do resultado dos leilões.</li>
           </ul>
         </div>
+      </div>
+      <div class="row">
         <div class="span4">
-          <h3><a href="TODO.html"></a>4. Tela do Leiloeiro</h3>
+          <h3><a href="TODO.html">4. Tela do Leiloeiro</a></h3>
           <ul>
             <li>Ferramente destinada ao leiloeiro servindo como canal de comunicação entre ele e a Vara.</li>
             <li>Contém uma aba de visualização de todos os bens que deverão ser levados a leilão.</li>
@@ -257,8 +237,6 @@
             <li>Evita retrabalho e erro na contagem dos prazos. </li>
           </ul>
         </div>
-      </div>
-      <div class="row">
         <div class="span4">
           <h3>6. Possibilidade de agendamento de suspensão e sobrestamento</h3>
           <ul>
@@ -267,13 +245,37 @@
             <li>Após a manifestação do exequente, havendo causa interruptiva ou suspensiva do prazo prescricional, o e-Proc lança conclusão para despacho. Caso contrário, o e-Proc lança a conclusão para sentença. </li>
         </div>
       </div>
+      <div class="row">
+        <div class="span4">
+          <h3>Gerenciador de bens</h3>
+          <ul>
+            <li>Institui um banco de dados de bens, integrado em várias telas (Raio X, Gerenciador de Leilão, Tela do Leiloeiro, etc) </li>
+            <li>Trabalhando com um identificador único (matrícula no caso de imóveis, placa no caso de veículos, etc), informa se um determinado bem já foi inserido em outro processo, de forma a prevenir equívocos (ex: um bem já arrematado ser levado novamente à hasta pública)</li>
+            <li>Cada bem incluído no processo possui um <i>status</i>. <br><i class="icon-question-sign"></i> Passe o mouse para saber mais.</li>
+            <ul class="status_bem">
+              <li><span class="label label-important" rel="tooltip" data-title="Status do bem que acabou de ser inserido. Ainda não pode ser levado a leilão, de acordo com o critério do servidor, porque há pendências importantes como: conversão do arresto em penhora, intimação da penhora de todos os co-proprietários e cônjuges, etc" data-placement="right">Triagem</span></li>
+              <li><span class="label" rel="tooltip" data-title="Bem que não foi constrito (ou teve a constrição levantada) por qualquer motivo (ex. bem de família, bem já arrematado em outro processo)." data-placement="right">Rejeitado</span></li>
+              <li><span class="label label-suspenso" rel="tooltip" data-title="Quando a possibilidade do bem ir a leilão está suspensa (ex: pendência de embargos com efeito suspensivo)" data-placement="right">Suspenso</span></li>
+              <li><span class="label label-success" rel="tooltip" data-title="Bem que pode ser levado a leilão. Permite controlar quais bens estão aptos para a próxima hasta." data-placement="right">Pré-listagem</span></li>
+              <li><span class="label label-warning" rel="tooltip" data-title="Bem que está com leilão designado. Ao selecionar esta opção o servidor deve escolher o leilão dentre aqueles já criados no gerenciador de leilão. Com a seleção desta opção, há várias decorrências, vide documentação. Após atribuição deste status, o bem só pode receber um dos status seguintes:" data-placement="right">Designado</span></li>
+                <ul>
+                  <li><span class="label label-inverse" rel="tooltip" data-title="Bem saiu do leilão por algum motivo." data-placement="right">Leilão cancelado</span></li>
+                  <li><span class="label label-info" rel="tooltip" data-title="Houve licitante para o bem. Quem seleciona esta opção é o leiloeiro, na tela do leiloeiro." data-placement="right">Arrematado</span></li>
+                  <li><span class="label label-important" rel="tooltip" data-title="Não houve licitantes para o bem. Quem escolhe esta opção também é o leiloeiro" data-placement="right">Leilão negativo</span></li>
+                </ul>
+            </ul>
+          </ul>
+        </div>
+      </div>
 
       <hr>
 
       <div class="marketing">
         <h2 class="pagination-centered">Agradecimentos</h2>
         <ul>
-          <li>Aos Juízes Federais <b>Adriano José Pinheiro</b> e <b>Vitor Marques Lento</b>, por possibilitarem e incentivarem um ambiente de trabalho apto à inovação.</li>
+          <li>Aos Juízes Federais <b>Adriano José Pinheiro</b>, <b>Vitor Marques Lento</b> e <b>Cleber Sanfelici Otero</b>, por possibilitarem e incentivarem um ambiente de trabalho apto à inovação no 1º Juizado Federal de Maringá.</li>
+          <li>Ao Juiz Federal <b>Anderson Furlan</b>, pelo apoio geral ao projeto, sobretudo no âmbito da Execução Fiscal.</li>
+          <li>Aos colegas <b>Marcos Martins</b> e <b>Cintia Lourenco Bento Michelato</b>, Diretores do 1º JEF e Vara de Execuções Fiscais, respectivamente, pelo estímulo e colaboração no desenvolvimento do projeto nas suas unidades de trabalho. </li> 
           <li>Aos colegas do <b>Gabinete</b> e da <b>Secretaria</b> do <b>1º e 2º Juizados Federais de Maringá</b>, pelas valiosas sugestões e pelo trabalho dobrado quando de nossas ausências para trabalho no projeto.</li>
         </ul>
       </div>
