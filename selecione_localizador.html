@@ -31,6 +31,10 @@
         line-height: 20px
       }
 
+      ul.select2-choices li:first-child {
+          font-weight: bold;
+      }
+
     </style>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -56,6 +60,7 @@
     <script src="assets/js/bootstrap-collapse.js"></script>
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/sortable/js/jquery-ui-1.10.1.custom.min.js"></script>
     <script src="assets/select2/select2.js"></script>
     <script type="text/javascript">
       $('[rel=tooltip]').tooltip();
@@ -103,8 +108,18 @@
 
       <script>
           $(document).ready(function() {
-              $("#e9").select2();
-              $("#felipe").select2();
+              $("#felipe").select2({tags: ["AAUD","AAUD-ACORDO","AG - JA","AG. DIGITALIZAÇÃO","AJG","ALEXANDRE","ALEXANDRE - 2","ALEXANDRE-ANÁLISE","ALEXANDRE-CALC","ANDRESA","ANDRESA - 2","AUD-01","AUD-02","AUD-03","AUD-04","AUD-05","AUD-06","AUD-07","AUD-08","AUD-09","AUD-10","AUD-11","AUD-12","BAIXADOS","BI01 - INICIAIS","BI02 - EMENDA","BI03 - AGEND-PERICIA","BI03A - PSIQUIATRIA","BI04 - PERICIA-JEF","BI05 - PERICIA-FORA","BI06 - LAUDO-VENC","BI07 - CEMAN","BI08 - CIT","BI08 - CIT- ANALISAR","BI09 - INT","BI10 - RESOLVER","BLOCODESP","BLOCOSENT","BRUNO","CÁLCULO DEVOLVIDO","CÁLCULOS","CARTAS Pr Or Rog","CEJUSCON-RECB","CEMAN","CÉSAR","CÉSAR-2","CÉSAR-ANÁLISE","CÉSAR-CALC","CITAÇÃO","CITAÇÃO - CV","CLEUMA","CLEUMA-2","CLEUMA-CALC","CONCILIACAO_ENCERRAD","CONCILIACAO_INICIADA","CORREIO","DECURSO DE PRAZO","DEVOLUCAO TURMA","DEVOLVIDOS","DIGITALIZADOS","DILAÇÃO DE PRAZO PF","DILIGÊNCIAS","DR. VITOR","DS","EMBARGOS - TRÂNSITO","ES","ES-CALC JEF","ES-CALC-RRA","ES-EADJ-B","ES-EADJ-C","ES-EADJ-C2","ES01 - INT CÁLC","ES02 - RPV DIG","ES02A - RPV ACORDO","ES02B - RPV INT","ES03 - RPV ASS","ES04 - AGP","ES04B - AGP PREC","ES05 - INT DT","ES06 - RPV ERRO","EXP","FELIPE","FELIPE - 2","FERNANDO 2º JEF","FLAVIO","FLAVIO - 2","FLÁVIO - CV","FLÁVIO-ANÁLISE","FLAVIO-CALC","GAB","GABDESP","GABS","GUILHERME","INT-SENT","INTIMAÇÃO-CV","JORDANA","JORDANA - 2","JUIZ FEDERAL","JUIZ FEDERAL SUBST","LAUDOCAPAZ","LAUDOINCAPAZ","LISTADOS","LIUDMILA","LIUDMILA-CALC","MAGNO","MAGNO - 2","MAGNO-ANÁLISE","MAND CUMPRIDO","MAND PARC CUMPRIDO","MAND SEM CUMPRIMENTO","MARCA-AUD","MIGRADOS EPROCV1","MUT","MUT-DEV","PEDIDO DECL. COMP.","PETIÇÃO","PETIÇÃO INICIAL","PETIÇÃO INICIAL JEF","PI - DEPENDÊNCIA","PROC ADV REU","PZ-CP","PZ-OF","REATIVADOS","REBECA","RECEBIDOS","RECEBIDOS-DIL./CONC.","RENATA","RENATA - 2","REQ - INTIMADA","REQ - PAGA","REQ - PREP. TRANSM.","REQ - PROCESSADA","RESTRITO AO JUIZ","SERGIO","SERGIO - 2","SÉRGIO-ANÁLISE","SERGIO-CALC","Simone","SIMONE-ANÁLISE","SIMONE-CALC","SOLANGE","SOLANGE - 2","STF-REM","SUSPENSOS","SUSPENSOS-RETORNO","TEREZINHA","TR","TRF-AGRAVO RETIDO","TRF-BAIXADOS","TRF-DECISÃO","TRF-JULGADOS","TRF-RECEBIDOS","TRF-REMETIDOS","URGENTE","URGENTE JEF","VERIFICAR","VERIFICAR PROCURADOR","VIDISON","VISTA ADV PROCESSO"]});
+              $("#felipe").change(function(e) {
+                  if (e.val.length == 0) {
+                  } else {
+                      $('#resultado_localizadores').html(e.val[0]);
+                  }
+              });
+              $("#felipe").select2("container").find("ul.select2-choices").sortable({
+                  containment: "parent",
+                  start: function() { $("#felipe").select2("onSortStart"); },
+                  update: function() { $("#felipe").select2("onSortEnd"); }
+              });
           });
       </script>
 
@@ -124,169 +139,10 @@
               <div class="collapse in" id="proposta">
                 <h3>Selecione o localizador</h3>
                 <p>
-                    <select multiple name="felipe" id="felipe" style="width:300px" value="ag_dig">
-                      <option>AAUD</option>
-                      <option>AAUD-ACORDO</option>
-                      <option>AG - JA</option>
-                      <option value="ag_dig">AG. DIGITALIZAÇÃO</option>
-                      <option>AJG</option>
-                      <option>ALEXANDRE</option>
-                      <option>ALEXANDRE - 2</option>
-                      <option>ALEXANDRE-ANÁLISE</option>
-                      <option>ALEXANDRE-CALC</option>
-                      <option>ANDRESA</option>
-                      <option>ANDRESA - 2</option>
-                      <option>AUD-01</option>
-                      <option>AUD-02</option>
-                      <option>AUD-03</option>
-                      <option>AUD-04</option>
-                      <option>AUD-05</option>
-                      <option>AUD-06</option>
-                      <option>AUD-07</option>
-                      <option>AUD-08</option>
-                      <option>AUD-09</option>
-                      <option>AUD-10</option>
-                      <option>AUD-11</option>
-                      <option>AUD-12</option>
-                      <option>BAIXADOS</option>
-                      <option>BI01 - INICIAIS</option>
-                      <option>BI02 - EMENDA</option>
-                      <option>BI03 - AGEND-PERICIA</option>
-                      <option>BI03A - PSIQUIATRIA</option>
-                      <option>BI04 - PERICIA-JEF</option>
-                      <option>BI05 - PERICIA-FORA</option>
-                      <option>BI06 - LAUDO-VENC</option>
-                      <option>BI07 - CEMAN</option>
-                      <option>BI08 - CIT</option>
-                      <option>BI08 - CIT- ANALISAR</option>
-                      <option>BI09 - INT</option>
-                      <option>BI10 - RESOLVER</option>
-                      <option>BLOCODESP</option>
-                      <option>BLOCOSENT</option>
-                      <option>BRUNO</option>
-                      <option>CÁLCULO DEVOLVIDO</option>
-                      <option>CÁLCULOS</option>
-                      <option>CARTAS Pr Or Rog</option>
-                      <option>CEJUSCON-RECB</option>
-                      <option>CEMAN</option>
-                      <option>CÉSAR</option>
-                      <option>CÉSAR-2</option>
-                      <option>CÉSAR-ANÁLISE</option>
-                      <option>CÉSAR-CALC</option>
-                      <option>CITAÇÃO</option>
-                      <option>CITAÇÃO - CV</option>
-                      <option>CLEUMA</option>
-                      <option>CLEUMA-2</option>
-                      <option>CLEUMA-CALC</option>
-                      <option>CONCILIACAO_ENCERRAD</option>
-                      <option>CONCILIACAO_INICIADA</option>
-                      <option>CORREIO</option>
-                      <option>DECURSO DE PRAZO</option>
-                      <option>DEVOLUCAO TURMA</option>
-                      <option>DEVOLVIDOS</option>
-                      <option>DIGITALIZADOS</option>
-                      <option>DILAÇÃO DE PRAZO PF</option>
-                      <option>DILIGÊNCIAS</option>
-                      <option>DR. VITOR</option>
-                      <option>DS</option>
-                      <option>EMBARGOS - TRÂNSITO</option>
-                      <option>ES</option>
-                      <option>ES-CALC JEF</option>
-                      <option>ES-CALC-RRA</option>
-                      <option>ES-EADJ-B</option>
-                      <option>ES-EADJ-C</option>
-                      <option>ES-EADJ-C2</option>
-                      <option>ES01 - INT CÁLC</option>
-                      <option>ES02 - RPV DIG</option>
-                      <option>ES02A - RPV ACORDO</option>
-                      <option>ES02B - RPV INT</option>
-                      <option>ES03 - RPV ASS</option>
-                      <option>ES04 - AGP</option>
-                      <option>ES04B - AGP PREC</option>
-                      <option>ES05 - INT DT</option>
-                      <option>ES06 - RPV ERRO</option>
-                      <option>EXP</option>
-                      <option>FELIPE</option>
-                      <option selected>FELIPE - 2</option>
-                      <option>FERNANDO 2º JEF</option>
-                      <option>FLAVIO</option>
-                      <option>FLAVIO - 2</option>
-                      <option>FLÁVIO - CV</option>
-                      <option>FLÁVIO-ANÁLISE</option>
-                      <option>FLAVIO-CALC</option>
-                      <option>GAB</option>
-                      <option>GABDESP</option>
-                      <option>GABS</option>
-                      <option>GUILHERME</option>
-                      <option>INT-SENT</option>
-                      <option>INTIMAÇÃO-CV</option>
-                      <option>JORDANA</option>
-                      <option>JORDANA - 2</option>
-                      <option>JUIZ FEDERAL</option>
-                      <option>JUIZ FEDERAL SUBST</option>
-                      <option>LAUDOCAPAZ</option>
-                      <option>LAUDOINCAPAZ</option>
-                      <option>LISTADOS</option>
-                      <option>LIUDMILA</option>
-                      <option>LIUDMILA-CALC</option>
-                      <option>MAGNO</option>
-                      <option>MAGNO - 2</option>
-                      <option>MAGNO-ANÁLISE</option>
-                      <option>MAND CUMPRIDO</option>
-                      <option>MAND PARC CUMPRIDO</option>
-                      <option>MAND SEM CUMPRIMENTO</option>
-                      <option>MARCA-AUD</option>
-                      <option>MIGRADOS EPROCV1</option>
-                      <option>MUT</option>
-                      <option>MUT-DEV</option>
-                      <option>PEDIDO DECL. COMP.</option>
-                      <option>PETIÇÃO</option>
-                      <option>PETIÇÃO INICIAL</option>
-                      <option>PETIÇÃO INICIAL JEF</option>
-                      <option>PI - DEPENDÊNCIA</option>
-                      <option>PROC ADV REU</option>
-                      <option>PZ-CP</option>
-                      <option>PZ-OF</option>
-                      <option>REATIVADOS</option>
-                      <option>REBECA</option>
-                      <option>RECEBIDOS</option>
-                      <option>RECEBIDOS-DIL./CONC.</option>
-                      <option>RENATA</option>
-                      <option>RENATA - 2</option>
-                      <option>REQ - INTIMADA</option>
-                      <option>REQ - PAGA</option>
-                      <option>REQ - PREP. TRANSM.</option>
-                      <option>REQ - PROCESSADA</option>
-                      <option>RESTRITO AO JUIZ</option>
-                      <option>SERGIO</option>
-                      <option>SERGIO - 2</option>
-                      <option>SÉRGIO-ANÁLISE</option>
-                      <option>SERGIO-CALC</option>
-                      <option>Simone</option>
-                      <option>SIMONE-ANÁLISE</option>
-                      <option>SIMONE-CALC</option>
-                      <option>SOLANGE</option>
-                      <option>SOLANGE - 2</option>
-                      <option>STF-REM</option>
-                      <option>SUSPENSOS</option>
-                      <option>SUSPENSOS-RETORNO</option>
-                      <option>TEREZINHA</option>
-                      <option>TR</option>
-                      <option>TRF-AGRAVO RETIDO</option>
-                      <option>TRF-BAIXADOS</option>
-                      <option>TRF-DECISÃO</option>
-                      <option>TRF-JULGADOS</option>
-                      <option>TRF-RECEBIDOS</option>
-                      <option>TRF-REMETIDOS</option>
-                      <option>URGENTE</option>
-                      <option>URGENTE JEF</option>
-                      <option>VERIFICAR</option>
-                      <option>VERIFICAR PROCURADOR</option>
-                      <option>VIDISON</option>
-                      <option>VISTA ADV PROCESSO</option>
-                    </select>
+                    <input type="hidden" name="felipe" id="felipe" style="width:300px" value="AG. DIGITALIZAÇÃO"/>
                     <a class="btn btn-success btn-mini" href="#">Salvar</a>
                 </p>
+                <p>Localizador principal: <span id="resultado_localizadores" style="font-weight: bold;">AG. DIGITALIZAÇÃO</span></p>
                 <p style="margin-top: 100px">Objetiva facilitar a inserção e exclusão de localizadores nos processos.</p>
               </div>
           </div>
