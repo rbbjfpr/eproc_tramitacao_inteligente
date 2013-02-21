@@ -184,8 +184,9 @@
         <div class="span4">
           <h3>Gerenciador de bens</h3>
           <ul>
-            <li></li>
-            <li>Cada bem incluído no processo possui um status. <br><i class="icon-question-sign"></i> Passe o mouse para saber mais.</li>
+            <li>Institui um banco de dados de bens, integrado em várias telas (Raio X, Gerenciador de Leilão, Tela do Leiloeiro, etc) </li>
+            <li>Trabalhando com um identificador único (matrícula no caso de imóveis, placa no caso de veículos, etc), informa se um determinado bem já foi inserido em outro processo, de forma a prevenir equívocos (ex: um bem já arrematado ser levado novamente à hasta pública)</li>
+            <li>Cada bem incluído no processo possui um <i>status</i>. <br><i class="icon-question-sign"></i> Passe o mouse para saber mais.</li>
             <ul class="status_bem">
               <li><span class="label label-important" rel="tooltip" data-title="Status do bem que acabou de ser inserido. Ainda não pode ser levado a leilão, de acordo com o critério do servidor, porque há pendências importantes como: conversão do arresto em penhora, intimação da penhora de todos os co-proprietários e cônjuges, etc" data-placement="right">Triagem</span></li>
               <li><span class="label" rel="tooltip" data-title="Bem que não foi constrito (ou teve a constrição levantada) por qualquer motivo (ex. bem de família, bem já arrematado em outro processo)." data-placement="right">Rejeitado</span></li>
@@ -223,7 +224,48 @@
             <li>Possibilita expedição individual ou em bloco de documentos como mandados, ofícios, cartas.</li>
           </ul>
         </div>
-        
+      </div>
+      <div class="row">
+        <div class="span4">
+          <h3><a href="execucao_fiscal_modulo_leilao.html">3. Tela de Gerenciador de Leilão</a></h3>
+          <ul>
+            <li>Ferramente destinada ao servidor e que reúne todas as informações relacionadas ao leilão previsto ou designado.</li>
+            <li>O Servidor “cria” um novo leilão no sistema para que os os bens constritos possam ser vinculados a ele.</li>
+            <li>Permite visualização geral das pendências e da situação dos bens vinculados ao leilão criado.</li>
+            <li>Permite expedição em massa de documentos como mandados, ofícios, cartas.</li>
+            <li>Possibilita visualização rápida do resultado dos leilões.</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <h3><a href="TODO.html"></a>4. Tela do Leiloeiro</h3>
+          <ul>
+            <li>Ferramente destinada ao leiloeiro servindo como canal de comunicação entre ele e a Vara.</li>
+            <li>Contém uma aba de visualização de todos os bens que deverão ser levados a leilão.</li>
+            <li>Contém duas abas destinadas para informação dos resultados do 1º e 2º leilões, respectivamente.</li>
+            <li>Permite inclusão de ônus nos bens, tais como dívidas de condomínio e de IPTU.</li>
+            <li>Possibilita emissão de atas de leilão negativo ou positivo e juntada no e-Proc.</li>
+            <li>Possibilita expedição dos autos de arrematação.</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <h3>5. Possibilidade de controle de prazo de ofícios, cartas e de oposição de embargos à execução.</h3>
+          <ul>
+            
+            <li>Permite que o servidor digite termo inicial do prazo (seja passado, seja futuro).</li>
+            <li>Permite que o servidor gere um prazo contra entes/órgãos que não são partes, apenas para controle interno.</li>
+            <li>Evita que o controle desses prazos seja manual e que a verificação seja feita diariamente.</li>
+            <li>Evita retrabalho e erro na contagem dos prazos. </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4">
+          <h3>6. Possibilidade de agendamento de suspensão e sobrestamento</h3>
+          <ul>
+            <li>Após o decurso do prazo de um ano de suspensão pelo art. 40 da Lei 6.830/80 sem qualquer movimentação, o e-Proc automaticamente lança o evento de sobrestamento e troca o localizador.</li>
+            <li>Após o decurso do prazo de cinco anos de sobrestamento sem movimentações, o e-Proc automaticamente intima o exequente para dizer se houve hipótese de suspensão ou de interrupção do prazo prescrição mediante o preenchimento de petição no formato de formulário.</li>
+            <li>Após a manifestação do exequente, havendo causa interruptiva ou suspensiva do prazo prescricional, o e-Proc lança conclusão para despacho. Caso contrário, o e-Proc lança a conclusão para sentença. </li>
+        </div>
       </div>
 
       <hr>
