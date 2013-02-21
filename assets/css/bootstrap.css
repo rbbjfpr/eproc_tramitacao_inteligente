@@ -6103,3 +6103,141 @@ ul.icons li [class*=" icon-"] {
 .icon-github-alt:before           { content: "\f113"; }
 .icon-folder-close-alt:before     { content: "\f114"; }
 .icon-folder-open-alt:before      { content: "\f115"; }
+
+/* Estilos especiais do RAIO X*/
+      .aviso_leilao {
+        background: #ffaf4b; /* Old browsers */
+        background: -moz-linear-gradient(top, #ffaf4b 0%, #ff920a 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffaf4b), color-stop(100%,#ff920a)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ffaf4b 0%,#ff920a 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ffaf4b 0%,#ff920a 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #ffaf4b 0%,#ff920a 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #ffaf4b 0%,#ff920a 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=0 ); /* IE6-9 */
+        border-radius: 5px 0 0 5px;
+        color: #FFFFFF;
+        font-size: 24px;
+        padding: 14px 20px;
+        position: absolute;
+        right: 0;
+        text-shadow: 1px 1px gray;
+        top: 81px;
+        width: 410px;
+      }
+
+      .custom_form label {
+        display: inline-block;
+      }
+      .custom_form .event_number {
+        margin: 0; 
+        width: 30px
+      }
+
+      .custom_form input {
+        height: 17px;
+      }
+
+      .custom_form legend {
+        margin-bottom: 13px;
+        padding-top: 16px;
+      }
+
+      .custom_form .conjuge {
+        border: medium none;
+        margin-top: -19px;
+        padding-top: 8px;
+        margin-bottom: 10px;
+      }
+
+      hr.custom {
+        margin: -5px 0 20px;
+      }
+
+      .hist_end {
+        white-space: nowrap;
+      }
+
+      .hist_end_table {
+        padding-top: 30px;
+      }
+
+      .executado i {
+        font-size: 30px;
+        display: block;
+      }
+
+      .executado {
+        text-align: center !important;
+      }
+
+      article {
+        margin: 30px 0;
+      }
+
+      .embargos_resultado label {
+        font-size: 11px;
+      }
+
+      .aviso_leilao .datas {
+          border-left: 1px solid white;
+          font-size: 15px;
+          height: 120px;
+          min-height: 100%;
+          padding-left: 10px;
+          padding-top: 31px;
+          position: absolute;
+          right: 22px;
+          text-shadow: none;
+          top: -29px;
+          width: 140px;
+      }
+
+      .price {
+        white-space: nowrap;
+      }
+
+      .mostrar_mais {
+        font-weight: normal;
+        font-size: 85%;
+      }
+
+      .muted-block  {
+        display: block;
+
+      }
+
+      .pendencias_counter {
+        position: absolute !important;
+        border-radius: 20px 20px 20px 20px !important;
+        top: -10px !important;
+        right: -7px;
+        opacity: 0.95;
+      }
+
+      .detalhar {
+        position: relative;
+      }
+
+      .pendencias_table {
+        background-color: #fff;
+      }
+
+      .pendencia_faltante {
+        background-color: rgba(235, 114, 114, 0.66);
+      }
+
+      .pendencia_ok {
+        background-color: rgba(140, 214, 137, 0.68)
+      }
+
+      .pendencia_aguardando {
+        background-color: rgba(228, 235, 114, 0.66)
+      }
+
+      .label-negativo {
+        background-color: #EA1212
+      }
+
+      .label-suspenso {
+        background-color: #BEB82B
+      }

@@ -23,8 +23,12 @@
         text-align: left;
       }
 
-      .status_bem {
+      .status_bem li {
         line-height: 25px
+      }
+
+      .status_bem li .tooltip-inner {
+        line-height: 20px
       }
 
     </style>
@@ -115,7 +119,7 @@
       <div class="row">
         <div class="span12 pagination-centered"><h2>Previdenciário</h2><hr></div>
         <div class="span4">
-          <a href="analise_inicial.html"><h3>1. Análise de Inicial</h3></a>
+          <a href="analise_inicial.html" rel="tooltip" data-title="Clique para abrir a tela de análise de inicial"><h3>1. Análise de Inicial</h3></a>
           <ul>
             <li>Ferramenta de auxílio de análise de inicial. </li>
             <li>Permite customização dos requisitos para o cada tipo de processo. </li>
@@ -126,7 +130,7 @@
           </ul>
         </div>
         <div class="span4">
-          <a href="requisicao_perito_simples.html"><h3>2. Requisição do perito</h3></a>
+          <a href="requisicao_perito_simples.html" rel="tooltip" data-title="Clique para abrir a tela de requisição do perito"><h3>2. Requisição do perito</h3></a>
           <ul>
             <li>6 eventos gerados em uma tela única, com poucos cliques.</li>
             <li>Fácil seleção do perito.</li>
@@ -138,7 +142,7 @@
           </ul>
        </div>
         <div class="span4">
-          <a href="resposta_perito.html"><h3>3. Resposta do perito</h3></a>
+          <a href="resposta_perito.html" rel="tooltip" data-title="Clique para abrir a tela de resposta do perito"><h3>3. Resposta do perito</h3></a>
           <ul>
             <li>O perito responde o laudo dentro do próprio e-Proc</li>
             <li>Evita o perito responder os quesitos errados</li>
@@ -160,7 +164,7 @@
 
         </div>
         <div class="span4">
-          <a href="editor.html"><h3>5. Editor de minuta inteligente</h3></a>
+          <a href="editor.html" rel="tooltip" data-title="Clique para abrir a tela do editor de minuta inteligente"><h3>5. Editor de minuta inteligente</h3></a>
           <ul>
             <li>Sugestão inicial de minuta adequada ao caso</li>
             <li>Assistente de redação de relatório</li>
@@ -183,16 +187,17 @@
         <div class="span4">
           <h3>Gerenciador de bens</h3>
           <ul>
-            <li>Cada bem incluído se atribui um status, dentre os quais:</li>
-            <ul>
-              <li class="status_bem"><span class="label label-important">Triagem</span></li>
-              <li class="status_bem"><span class="label">Rejeitado</span></li>
-              <li class="status_bem"><span class="label label-success">Pré-listagem</span></li>
-              <li class="status_bem"><span class="label label-warning">Designado</span></li>
+            <li>Cada bem incluído no processo possui um status. <br><i class="icon-question-sign"></i> Passe o mouse para saber mais.</li>
+            <ul class="status_bem">
+              <li><span class="label label-important" rel="tooltip" data-title="Status do bem que acabou de ser inserido. Ainda não pode ser levado a leilão, de acordo com o critério do servidor, porque há pendências importantes como: conversão do arresto em penhora, intimação da penhora de todos os co-proprietários e cônjuges, etc" data-placement="right">Triagem</span></li>
+              <li><span class="label" rel="tooltip" data-title="Bem que não foi constrito (ou teve a constrição levantada) por qualquer motivo (ex. bem de família, bem já arrematado em outro processo)." data-placement="right">Rejeitado</span></li>
+              <li><span class="label label-suspenso" rel="tooltip" data-title="Quando a possibilidade do bem ir à leilão está suspenso (ex: pendência de embargos com efeito suspensivo)" data-placement="right">Suspenso</span></li>
+              <li><span class="label label-success" rel="tooltip" data-title="Bem que pode ser levado a leilão. Permite controlar quais bens estão aptos para a próxima hasta." data-placement="right">Pré-listagem</span></li>
+              <li><span class="label label-warning" rel="tooltip" data-title="Bem que está com leilão designado. Ao selecionar esta opção o servidor deve escolher o leilão dentre aqueles já criados no gerenciador de leilão. Com a seleção desta opção, há várias decorrências, vide documentação. Após atribuição deste status, o bem só pode receber um dos status seguintes:" data-placement="right">Designado</span></li>
                 <ul>
-                  <li class="status_bem"><span class="label label-inverse">Leilão cancelado</span></li>
-                  <li class="status_bem"><span class="label label-info">Arrematado</span></li>
-                  <li class="status_bem"><span class="label label-important" style="background-color: #EA1212">Leilão negativo</span></li>
+                  <li><span class="label label-inverse" rel="tooltip" data-title="Bem saiu do leilão por algum motivo." data-placement="right">Leilão cancelado</span></li>
+                  <li><span class="label label-info" rel="tooltip" data-title="Houve licitante para o bem. Quem seleciona esta opção é o leiloeiro, na tela do leiloeiro." data-placement="right">Arrematado</span></li>
+                  <li><span class="label label-important" rel="tooltip" data-title="Não houve licitantes para o bem. Quem escolhe esta opção também é o leiloeiro" data-placement="right">Leilão negativo</span></li>
                 </ul>
             </ul>
           </ul>
