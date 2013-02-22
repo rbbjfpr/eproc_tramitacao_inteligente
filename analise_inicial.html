@@ -544,9 +544,6 @@
           $('[rel=chosen]').chosen({search_contains:"true"});
           $('[rel=editable]').editable();
           $('#data_pericia').editable();
-          $('.carousel').carousel({
-          interval: 0
-          });
           $('#teste10').on('hidden', function() {
             $('#idade').html('29 anos');
           });
@@ -765,6 +762,7 @@ $('#dias').on('change', function(e)
 {
   gerarDocumentoAto();
 });
+$('.carousel').carousel({interval: false});
 </script>
   </body>
 </html>
