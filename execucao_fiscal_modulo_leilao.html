@@ -154,6 +154,14 @@
         padding: 18px !important;
       }
 
+      .resultado_leilao_valores {
+        font-size: 40px;
+        text-align: center;
+        padding-top: 100px;
+        color: green;
+        line-height: 1.2em;
+      }
+
 
     </style>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -1100,6 +1108,82 @@
 
         </div> <!-- Span 12 -->
       </div> <!-- Row -->
+      <div class="row">
+        <div class="span12">
+          <h2>Resultado do leilão</h2>
+          <hr class="custom">
+        </div>
+        <div class="span6">
+          
+          <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+          <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['Status', 'Bens'],
+                ['Arrematado', 40],
+                ['Leilão Negativo', 45],
+                ['Cancelado',  10]
+              ]);
+
+              var options = {
+                colors:['#3366CC','#DC3912','#333333'],
+                chartArea:{width:"80%",height:"80%"},
+                is3D: true,
+              };
+
+              var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+          </script>
+
+          <div id="chart_div" style="width: 100%px; height: 500px;"></div>
+        </div>
+        <div class="span6 resultado_leilao_valores">
+          <div class="well">
+            <p><i class="icon-money"></i> Valores arrecadados</p>
+            <p><span style="font-size: 20px">R$</span> 1.530.000,00</p>
+          </div>
+        </div>
+        <div class="span12">
+          <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            function drawVisualization() {
+                    // Some raw data (not necessarily accurate)
+                    var data = google.visualization.arrayToDataTable([
+                      ['Mês', 'Dívida', 'Arrecadação'],
+                      ['Janeiro',  3998438937,      0],
+                      ['Fevereiro',  3998538381,      0],
+                      ['Março',  3998743048,       0],
+                      ['Abril',  3998931048,      1850000],
+                      ['Maio',  3999076417,      0],
+                      ['Junho',  3999186289,      0],
+                      ['Julho',  3999267210,      0],
+                      ['Agosto',  3999367446,      0],
+                      ['Setembro',  3999600847,      0],
+                      ['Outubro',  3999901032,      0],
+                      ['Novembro',  4000000935,      1537000],
+                      ['Dezembro',  4000050124,      0],
+                    ]);
+
+                    var options = {
+                      title : 'Dívida executada na Vara x Arrecadação',
+                      hAxis: {title: "Meses"},
+                      series:{0:{type: 'line',color: 'red', targetAxisIndex:0}, 1:{type: 'bars',color: 'green', targetAxisIndex:1}}, vAxes:{0:{title:'Dívida',type: "line",textStyle:{color: 'red'}}, 1:{title:'Arrecadação',textStyle:{color: 'blue'}}},
+                    };
+
+                    var chart = new google.visualization.ComboChart(document.getElementById('line_chart'));
+                    chart.draw(data, options);
+                  }
+                  google.setOnLoadCallback(drawVisualization);
+
+
+              </script>
+          <div id="line_chart" style="width: 100%; height: 500px; margin-top: -60px"></div>
+        </div>
+      </div>
+
 
 
     </div> <!-- /container -->

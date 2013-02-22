@@ -253,7 +253,8 @@
             <h2 class="pagination-centered">Cumprimento de mandado</h2>
           </div>
           <form class="form-vertical">
-            <p>Em cumprimento ao mandado anexo, <b>CERTIFICO</b> que <b><span class="label label-important">CITEI</span></b>:</p>
+            <h3>Citação</h3>
+            <hr>
             <div class="well">
               <legend>Executado 1</legend>
               <p><span class="text-error"><i class="icon-building"></i>  <strong>CURTUME XYZ LIMITADA</strong></span>, CNPJ 77.643.179/0001-20</p>
@@ -337,11 +338,13 @@
               <hr class="soften">
               </div>
               <button class="btn btn-small pull-right"><i class="icon-plus"></i> Adicionar endereço</button>
-              
-              <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
-              <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
-              <p><label>Leitura:</label> <select class="span2"><option>Realizada</option><option>Não realizada</option></select></p>
-              <p><label>Contrafé:</label> <select class="span2"><option>Aceita</option><option>Rejeitada</option></select></p>
+              <p><label>Citação:</label> <select class="span2" autocomplete="off"><option onclick="$('#citou_ou_nao').show('slow')">Realizada</option><option selected onclick="$('#citou_ou_nao').hide('slow')">Não realizada</option></select></p>
+              <div id="citou_ou_nao" style="display: none">
+                <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                <p><label>Leitura:</label> <select class="span2"><option>Realizada</option><option>Não realizada</option></select></p>
+                <p><label>Contrafé:</label> <select class="span2"><option>Aceita</option><option>Rejeitada</option></select></p>
+              </div>
             </div>
 
           </form>
@@ -390,9 +393,21 @@
                   <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto</p>
                   <p><label class="checkbox"><input type="checkbox" autocomplete="off">Penhora</p>
                   <p><legend>Intimação da penhora</legend></p>
-                  <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Executado <small>CURTUME XYZ LTDA</small></p>
-                  <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Sócio <small>FELIPE RAUL BORGES BENALI</small></p>
-                  <p><label class="checkbox text-success"><input type="checkbox" checked="checked" autocomplete="off">Cônjuge <small>IZILDA BENALI</small></p>
+                  <p><label class="checkbox" id="label_intimou_executado_1"><input type="checkbox" autocomplete="off" onclick="$('#label_intimou_executado_1').addClass('text-success');$('#intimou_executado_1').show('slow');">Executado <small>CURTUME XYZ LTDA</small></p>
+                  <div id="intimou_executado_1" style="display: none">
+                    <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                    <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                  </div>
+                  <p><label class="checkbox" id="label_intimou_executado_2"><input type="checkbox" autocomplete="off" onclick="$('#label_intimou_executado_2').addClass('text-success');$('#intimou_executado_2').show('slow');">Sócio <small>FELIPE RAUL BORGES BENALI</small></p>
+                  <div id="intimou_executado_2" style="display: none">
+                    <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                    <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                  </div>
+                  <p><label class="checkbox" id="label_intimou_executado_3"><input type="checkbox" autocomplete="off" onclick="$('#label_intimou_executado_3').addClass('text-success');$('#intimou_executado_3').show('slow');">Cônjuge <small>IZILDA BENALI</small></p>
+                  <div id="intimou_executado_3" style="display: none">
+                    <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                    <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                  </div>
                   <p><legend>Avaliações</legend></p>
                   <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
                   <p><legend>Depositário</legend></p>

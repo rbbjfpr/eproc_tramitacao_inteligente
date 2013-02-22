@@ -150,11 +150,11 @@ $.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
 // Botão de ocultar pendÊncias já realizadas
     $('#ocultar_pendencias').on('click', function() {
       if ($(this).data('hidden') == 'NO') {
-        $('.pendencia_ok').hide();
+        $('.pendencia_ok').hide("slow");
         $(this).data('hidden', 'YES');
         $(this).html('Mostrar pendências realizadas');
       } else {
-        $('.pendencia_ok').show();
+        $('.pendencia_ok').show("slow");
         $(this).data('hidden', 'NO');
         $(this).html('Ocultar pendências realizadas');
       }
