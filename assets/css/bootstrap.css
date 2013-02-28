@@ -6245,3 +6245,7 @@ ul.icons li [class*=" icon-"] {
       .label-suspenso {
         background-color: #BEB82B
       }
+
+      .nomargin {
+        margin: 0;
+      }
