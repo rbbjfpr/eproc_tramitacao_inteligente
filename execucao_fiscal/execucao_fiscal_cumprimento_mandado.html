@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Execução fiscal - Cumprimento de mandado | Projeto de Tramitação Inteligente do e-Proc V2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-editable.css">
+    <!-- editor de textos -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
+    <style type="text/css">
+      body {
+        padding-top: 70px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+      /* Sidenav for Docs
+      -------------------------------------------------- */
+
+      .bs-docs-sidenav {
+        margin: 30px 0 0;
+        padding: 0;
+        background-color: #fff;
+        -webkit-border-radius: 6px;
+           -moz-border-radius: 6px;
+                border-radius: 6px;
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+           -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+                box-shadow: 0 1px 4px rgba(0,0,0,.065);
+      }
+      .bs-docs-sidenav > li > a {
+        display: block;
+        width: 190px \9;
+        margin: 0 0 -1px;
+        padding: 8px 14px;
+        border: 1px solid #e5e5e5;
+      }
+      .bs-docs-sidenav > li:first-child > a {
+        -webkit-border-radius: 6px 6px 0 0;
+           -moz-border-radius: 6px 6px 0 0;
+                border-radius: 6px 6px 0 0;
+      }
+      .bs-docs-sidenav > li:last-child > a {
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+      }
+      .bs-docs-sidenav > .active > a {
+        position: relative;
+        z-index: 2;
+        padding: 9px 15px;
+        border: 0;
+        text-shadow: 0 1px 0 rgba(0,0,0,.15);
+        -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+           -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+                box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+      }
+      /* Chevrons */
+      .bs-docs-sidenav .icon-chevron-right {
+        float: right;
+        margin-top: 2px;
+        margin-right: -6px;
+        opacity: .25;
+      }
+      .bs-docs-sidenav > li > a:hover {
+        background-color: #f5f5f5;
+      }
+      .bs-docs-sidenav a:hover .icon-chevron-right {
+        opacity: .5;
+      }
+      .bs-docs-sidenav .active .icon-chevron-right,
+      .bs-docs-sidenav .active a:hover .icon-chevron-right {
+        background-image: url(../img/glyphicons-halflings-white.png);
+        opacity: 1;
+      }
+      .bs-docs-sidenav.affix {
+        top: 40px;
+        margin-top: 30px !important;
+      }
+      .bs-docs-sidenav.affix-bottom {
+        position: absolute;
+        top: auto;
+        bottom: 270px;
+      }
+      /* Fim do sidenav */
+
+      .nav-tabs input {margin-top: -4px}
+
+      /* Estilos especiais do Panorama*/
+      
+      .custom_form label {
+        display: inline-block;
+      }
+      .custom_form .event_number {
+        margin: 0; 
+        width: 30px
+      }
+
+      .custom_form input {
+        height: 17px;
+      }
+
+      .custom_form legend {
+        margin-bottom: 13px;
+        padding-top: 16px;
+      }
+
+      hr {
+        margin: -5px 0 20px;
+      }
+
+      article {
+        margin: 30px 0;
+      }
+
+      .nav-tabs a {
+        font-size: 21px;
+        padding: 18px !important;
+      }
+
+      .form-vertical label {
+        display: inline-block;
+      }
+
+      .address_status {
+        width: 150px;
+      }
+
+      .address_select {float: left;}
+
+      .address_text {
+        margin-left: 170px;
+      }
+
+
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="100">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Cumprimento de Mandado</a>
+          <ul class="nav pull-right">
+            <li><a href="#"> </a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">Navegação <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Tela de apresentação</a></li>
+                <li class="divider"></li>
+                
+                <li><a href="execucao_fiscal_cumprimento_mandado.html"><span class="label label-warning">Ex. Fiscal</span> Cumprimento de mandado</a></li>
+                <li><a href="execucao_fiscal_raio_x.html"><span class="label label-warning">Ex. Fiscal</span> Panorama</a></li>
+                <li><a href="execucao_fiscal_modulo_leilao.html"><span class="label label-warning">Ex. Fiscal</span> Gerenciador de Leilões</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <table class="table table-bordered table-condensed">
+            <tr>
+              <td>Autos</td>
+              <td>50002785520104047003</td>
+            </tr>
+            <tr>
+              <td>Data da autuação:</td>
+              <td>10/10/2010</td>
+            </tr>
+            <tr>
+              <td>Juízo:</td>
+              <td>JUÍZO TITULAR DA VF EXEC.FISCAIS DE MARINGÁ <span class="muted">(Anderson Furlan)</span></td>
+            </tr>
+            <tr>
+              <td>Exequente:</td>
+              <td>União Federal <span class="muted">(Fazenda Nacional)</span></td>
+            </tr>
+            <tr>
+              <td>Valor atualizado da dívida:</td>
+              <td>
+                <span rel="tooltip" data-original-title="Valor atualizado automaticamente pelo sistema">R$ 110.354,33 em 02/2013</span> <button class="btn btn-mini" data-toggle="collapse" data-target="#historico_valor_divida">Detalhar</button>
+                <div class="collapse" id="historico_valor_divida">
+                <p style="margin-top: 20px"><a href="#">Autos 50002785520104047003</a> <span class="muted">(este processo)</span></p>
+                  <ul>
+                    <li>R$ 92.343,20 em 07/2012 (ev. 52)</li>
+                  </ul>
+                <p style="margin-top: 20px"><a href="#">Autos 50002159520104047003</a> <span class="muted">(apenso)</span></p>
+                  <ul>
+                    <li>R$ 9.343,20 em 07/2012 (ev. 10)</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <div class="page-header">
+            <h2 class="pagination-centered">Cumprimento de mandado</h2>
+          </div>
+          <form class="form-vertical">
+            <h3>Citação</h3>
+            <hr>
+            <div class="well">
+              <legend>Executado 1</legend>
+              <p><span class="text-error"><i class="icon-building"></i>  <strong>CURTUME XYZ LIMITADA</strong></span>, CNPJ 77.643.179/0001-20</p>
+              <p><label>Representante legal: </label> <input type="text" class="span5" value="Felipe Raul Borges Benali"></p>
+              <p><label>Identificação:</label> <input type="text" value="054.965.564-63"></p>
+              <legend>Endereços</legend>
+              <div class="address clearfix">
+                <div class="address_select">
+                  <select autocomplete="off" class="address_status">
+                    <option></option>
+                    <option>CONFIRMADO</option>
+                    <option>Não verificado</option>
+                    <option>Mudou-se / não encontrado</option>
+                  </select>
+                </div>
+                <div class="address_text">
+                  <p><b>Estrada Carlos Borges, nº 2.711, Centro, CEP 87010-410, Maringá/PR</b> <button class="btn btn-small pull-right" onClick="return false" data-toggle="collapse" data-target="#mapa_1"><i class="icon-map-marker"></i> Mostrar mapa</button></p>
+                  <p><label class="label label-success">Confirmado</label> em 10/10/2008 <span class="pull-right" style="clear: both"><i class="icon-info-sign" style="font-size: 120%" rel="tooltip" data-original-title="Pegar a saída atrás do Clube Olímpico, seguir 1 km e virar a direita" data-placement="left"></i> <small><a href="#lembrete_1" onclick="return false" data-toggle="modal">editar lembrete</a></small></span></p>
+                  <div id="lembrete_1" class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3>Lembrete do endereço</h3>
+                    </div>
+                    <div class="modal-body">
+                      <form class="">
+                        <fieldset>
+                          
+                          <p><b>Estrada Carlos Borges, nº 2.711, Centro, CEP 87010-410, Maringá/PR</b></p>
+                          <p>Lembrete:</p>
+                          <textarea class="input-block-level">Pegar a saída atrás do Clube Olímpico, seguir 1 km e virar a direita</textarea>
+                        </fieldset>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#" class="btn" data-dismiss="modal">Cancelar</a>
+                      <a href="#" class="btn btn-primary">Salvar</a>
+                    </div>
+                  </div>
+                </div>
+              <hr class="soften">
+              </div>
+
+              <div class="collapse" id="mapa_1" style="margin-bottom: 30px">
+                <div class="pull-left" style="width: 300px; height: 300px">
+                  <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-23.431237,-51.936033&amp;num=1&amp;t=m&amp;ie=UTF8&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q=-23.431237,-51.936033&amp;num=1&amp;t=m&amp;ie=UTF8&amp;z=14&amp;source=embed" class="muted">Exibir mapa ampliado</a></small>
+                </div>
+                <div class="pull-left" style="margin-left: 30px; width: 300px">
+                  <iframe width="562" height="314" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-23.431237,-51.936033&amp;num=1&amp;t=m&amp;ie=UTF8&amp;layer=c&amp;cbll=-23.432213,-51.935642&amp;panoid=K3skPUKjt6hacb0-JfEPuw&amp;cbp=13,237.86,,0,5.78&amp;source=embed&amp;ll=-23.439289,-51.935635&amp;spn=0.024727,0.048237&amp;z=14&amp;output=svembed"></iframe><br /><small><a href="https://maps.google.com/maps?q=-23.431237,-51.936033&amp;num=1&amp;t=m&amp;ie=UTF8&amp;layer=c&amp;cbll=-23.432213,-51.935642&amp;panoid=K3skPUKjt6hacb0-JfEPuw&amp;cbp=13,237.86,,0,5.78&amp;source=embed&amp;ll=-23.439289,-51.935635&amp;spn=0.024727,0.048237&amp;z=14" class="muted">Exibir mapa ampliado</a></small>
+                </div>
+              </div>
+
+              <div class="address clearfix">
+                <div class="address_select">
+                  <select autocomplete="off" class="address_status">
+                    <option></option>
+                    <option>CONFIRMADO</option>
+                    <option>Não verificado</option>
+                    <option>Mudou-se / não encontrado</option>
+                  </select>
+                </div>
+                <div class="address_text">
+                  <p><b>Rua Martin Afonso, nº 300, Zona 2, Maringá/PR</b>  <button class="btn btn-small pull-right" onClick="return false" data-toggle="collapse" data-target="#mapa_1"><i class="icon-map-marker"></i> Mostrar mapa</button></p>
+                  <p><label class="label label-muted">Não verificado</label> <span class="pull-right"><small><a href="#lembrete_1" onclick="return false" data-toggle="modal">inserir lembrete</a></small></span></p>
+                </div>
+              <hr class="soften">
+              </div>
+
+              <div class="address clearfix">
+                <div class="address_select">
+                  <select autocomplete="off" class="address_status">
+                    <option></option>
+                    <option>CONFIRMADO</option>
+                    <option>Não verificado</option>
+                    <option>Mudou-se / não encontrado</option>
+                  </select>
+                </div>
+                <div class="address_text">
+                  <p><b>Av. Brasil, nº 600, Zona 2, Maringá/PR</b>  <button class="btn btn-small pull-right" onClick="return false" data-toggle="collapse" data-target="#mapa_1"><i class="icon-map-marker"></i> Mostrar mapa</button></p>
+                  <p><label class="label label-important">Mudou-se</label> em 10/10/2007  <span class="pull-right"><small><a href="#lembrete_1" onclick="return false" data-toggle="modal">inserir lembrete</a></small></span></p>
+                </div>
+              <hr class="soften">
+              </div>
+              <button class="btn btn-small pull-right"><i class="icon-plus"></i> Adicionar endereço</button>
+              <p><label>Citação:</label> <select class="span2" autocomplete="off"><option onclick="$('#citou_ou_nao').show('slow')">Realizada</option><option selected onclick="$('#citou_ou_nao').hide('slow')">Não realizada</option></select></p>
+              <div id="citou_ou_nao" style="display: none">
+                <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                <p><label>Leitura:</label> <select class="span2"><option>Realizada</option><option>Não realizada</option></select></p>
+                <p><label>Contrafé:</label> <select class="span2"><option>Aceita</option><option>Rejeitada</option></select></p>
+              </div>
+            </div>
+
+          </form>
+          <h2>Pagamento ou nomeação de bens</h2>
+          <hr>
+          <p class="text-error">- Não houve pagamento no prazo legal</p>
+          <p class="text-error">- Não houve nomeação de bens no prazo legal</p>
+          <h2>Bens</h2>
+          <hr>
+          <div class="btn-toolbar" style="margin-bottom: 30px">
+            <button class="btn" data-toggle="collapse" data-target='#adicionar_imovel'><i class="icon-home"></i> Adicionar bem imóvel</button>
+            <button class="btn a_desenvolver" data-mensagem="Favor utilizar o botão adicionar bem imóvel."><i class="icon-truck"></i> Adicionar veículo</button>
+            <button class="btn a_desenvolver" data-mensagem="Favor utilizar o botão adicionar bem imóvel."><i class="icon-money"></i> Adicionar crédito</button>
+            <button class="btn a_desenvolver" data-mensagem="Favor utilizar o botão adicionar bem imóvel."><i class="icon-spinner"></i> Adicionar bem móvel</button>
+          </div>
+          <!-- Adicionar bem imóvel -->
+          <div id="adicionar_imovel" class="collapse">
+            <div class="well" style="margin-top: 10px">
+              <form class="custom_form form-inline">
+                <fieldset>
+                  <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
+                  <h2 style="margin-bottom: 13px">Adicionar bem imóvel</h2>
+                  <div class="clearfix"></div>
+                  <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small"> do CRI <input type="text" autocomplete="off" class="input-xlarge"></p>
+                  <label>Endereço do imóvel</label>
+                  <textarea style="height: 50px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                  <label>Descrição do imóvel</label>
+                  <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                  <label>Área</label>
+                  <p><input type="text"></p>
+                  <label>Abrangência da penhora</label>
+                  <p><input type="text" class="span1"> %</p>
+                  <p><legend>Proprietários</legend></p>
+                  <button class="btn btn-small pull-right"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button>
+                  <p>1) CURTUME XYZ LTDA </button></p>
+                  <p>2) FELIPE RAUL BORGES BENALI </button></p>
+                  <blockquote class="conjuge">
+                    <p><small>Izilda Benali (cônjuge)</small></p>
+                  </blockquote>
+                  <label>Nome</label>
+                  <p><input type="text" class="span5"></p>
+                  <label>CPF</label>
+                  <p><input type="text"></p>
+                  <button class="btn btn-small"><i class="icon-plus"></i> Adicionar proprietário</button>
+                  <p><legend>Constrições realizadas</legend></p>
+                  <p><label class="checkbox"><input type="checkbox" autocomplete="off">Arresto</p>
+                  <p><label class="checkbox"><input type="checkbox" autocomplete="off">Penhora</p>
+                  <p><legend>Intimação da penhora</legend></p>
+                  <p><label class="checkbox" id="label_intimou_executado_1"><input type="checkbox" autocomplete="off" onclick="$('#label_intimou_executado_1').addClass('text-success');$('#intimou_executado_1').show('slow');">Executado <small>CURTUME XYZ LTDA</small></p>
+                  <div id="intimou_executado_1" style="display: none">
+                    <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                    <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                  </div>
+                  <p><label class="checkbox" id="label_intimou_executado_2"><input type="checkbox" autocomplete="off" onclick="$('#label_intimou_executado_2').addClass('text-success');$('#intimou_executado_2').show('slow');">Sócio <small>FELIPE RAUL BORGES BENALI</small></p>
+                  <div id="intimou_executado_2" style="display: none">
+                    <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                    <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                  </div>
+                  <p><label class="checkbox" id="label_intimou_executado_3"><input type="checkbox" autocomplete="off" onclick="$('#label_intimou_executado_3').addClass('text-success');$('#intimou_executado_3').show('slow');">Cônjuge <small>IZILDA BENALI</small></p>
+                  <div id="intimou_executado_3" style="display: none">
+                    <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                    <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                  </div>
+                  <p><legend>Avaliações</legend></p>
+                  <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                  <p><legend>Depositário</legend></p>
+                  <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
+                  <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
+                  <p>Endereço: <input type="text" class="span6" value="Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400"></p>
+                  <p><legend>Ônus</legend></p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Tipo</th>
+                        <th>Registro</th>
+                        <th>Observação</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Hipoteca</td>
+                        <td>R-4</td>
+                        <td>Banco Itaú, 1ª Hipoteca</td>
+                      </tr>
+                      <tr>
+                        <td>Penhora trabalhista</td>
+                        <td>R-5</td>
+                        <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                  <p><legend>Reservas</legend></p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Tipo</th>
+                        <th>Observação</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Meação do cônjuge</td>
+                        <td>Vide matrícula</td>
+                      </tr>
+                      <tr>
+                        <td>Crédito trabalhista</td>
+                        <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><button class="btn btn-small"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
+                  <p><legend>Anotações</legend></p>
+                  <textarea class="input-block-level" style="margin-bottom: 20px"></textarea>
+                </fieldset>
+                <legend>Avaliação</legend>
+                <label>Fixação dos parâmetros valorativos:</label>
+                <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                <label>Média de mercado:</label>
+                <p><input type="text"></p>
+                <p><label><i class="icon-calendar"></i> Data</label> <input type="date" class="input-small"></p>
+                <p><label><i class="icon-time"></i> Horário</label> <input type="text" class="input-mini"></p>
+                <label>Ocupante do imóvel</label>
+                <p><input type="text"></p>
+                <label>Benfeitorias não registradas</label>
+                <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                <label>Características constatadas</label>
+                <textarea style="height: 100px; width: 45%; margin-bottom: 10px; display: block"></textarea>
+                <label>Avaliação</label>
+                R$ <input type="text">
+                <div class="btn-toolbar">
+                  <button class="btn"><i class="icon-print"></i> Imprimir auto de penhora</button>
+                  <div class="btn-group">
+                    <button class="btn"><i class="icon-upload"></i> Anexar matrícula do imóvel</button>
+                    <button class="btn"><i class="icon-upload"></i> Anexar imagem das assinaturas</button>
+                    <button class="btn"><i class="icon-camera"></i> Anexar fotos</button>
+                  </div>
+                  <button type="submit" class="btn btn-primary"><i class="icon-ok"></i> Adicionar bem</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+          <!-- <form>
+            <div class="well">
+              <legend class="pagination-centered">Pesquisa patrimonial</legend>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 100px">Fonte</th>
+                    <th style="width: 120px">Resultado</th>
+                    <th>Constrição realizada ?</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="text-error">1º CRI</span></td>
+                    <td><select style="width: 100px"><option>Negativo</option><option>Positivo</option></select></td>
+                    <td><textarea class="input-block-level" disabled></textarea></td>
+                  </tr>
+                  <tr>
+                    <td><span class="text-success">2º CRI</span></td>
+                    <td><select style="width: 100px"><option>Positivo</option><option>Negativo</option></select></td>
+                    <td><textarea class="input-block-level">Cinco veículos, conforme informação anexa.</textarea></td>
+                  </tr>
+                  <tr>
+                    <td><span class="text-error">3º CRI</span></td>
+                    <td><select style="width: 100px"><option>Negativo</option><option>Positivo</option></select></td>
+                    <td><textarea class="input-block-level" disabled></textarea></td>
+                  </tr>
+                  <tr>
+                    <td><span class="text-error">DETRAN</span></td>
+                    <td><select style="width: 100px"><option>Negativo</option><option>Positivo</option></select></td>
+                    <td><textarea class="input-block-level" disabled></textarea></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" value="SIAPRO" autocomplete="off"></td>
+                    <td><select style="width: 100px"><option>Positivo</option><option>Negativo</option></select></td>
+                    <td><textarea class="input-block-level">Crédito nos autos ....</textarea></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form> -->
+
+          <form>
+            <div class="well">
+              <legend><i class="icon-pencil"></i> Certidão</legend>
+              <textarea class="input-block-level" style="height: 100px"></textarea>
+            </div>
+          </form>
+          <div class="btn-toolbar">
+            <button class="btn">Salvar</button>
+            <button class="btn btn-primary">Entregar mandado cumprido no e-Proc &rarr;</button>
+          </div>
+
+
+      <!--     <form>
+            <legend>Origem dos dados</legend>
+            <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
+            <legend>Proprietário 1</legend>
+            <label>Nome</label>
+            <p><input type="text" class="input-block-level"></p>
+            <label>CPF</label>
+            <p><input type="text"></p>
+
+            <button class="btn btn-success btn-small pull-right"><i class="icon-plus"></i> Adicionar proprietário</button>
+            <div class="clearfix"></div>
+
+          </form> -->
+
+
+          
+
+
+
+
+        </div> <!-- Span 12 -->
+      </div> <!-- Row -->
+
+
+    </div> <!-- /container -->
+
+
+    <!-- Modal -->
+    <div id="a_desenvolver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">A desenvolver</h3>
+      </div>
+      <div class="modal-body">
+        <p>Esta tela / funcionalidade não foi desenvolvida no protótipo.</p>
+        <p id="mensagem_extra"> </p>
+      </div>  
+        <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/chosen.jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/bootstrap-affix.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="../assets/js/bootstrap-editable.js"></script>
+        <script type="text/javascript">
+          $('[rel=chosen]').chosen({search_contains:"true"});
+          $('[rel=popover]').popover({ html : true });
+          $('[rel=editable]').editable();
+          $('.carousel').carousel({
+          interval: 0
+          });
+          $('#teste10').on('hidden', function() {
+            $('#idade').html('29 anos');
+          });
+
+        </script>
+    <script src="../assets/ckeditor/ckeditor.js"></script>
+    <script>
+    
+    // (Felipe) Marca o botão de ilegível como btn-danger caso active
+    // $('.btn-mini').on('click', function() {
+    //   if ($(this).hasClass('btn-danger')) {
+    //     $(this).removeClass('btn-danger');
+    //   } else {
+    //     $(this).addClass('btn-danger');
+    //   }
+    // });
+
+    // (Felipe) Marca o botão de ilegível como btn-danger caso active
+    $('#marcar_todos').on('click', function() {
+      if ( $(this).hasClass('marcado') ) {
+        $('.analise_checkbox').prop('checked', false);
+        $(this).removeClass('marcado');
+        $(this).html('Marcar todos');
+      } else {
+        
+        $('.analise_checkbox').prop('checked', true);
+        $(this).addClass('marcado');
+        $(this).html('Desmarcar todos');
+      };
+      
+    });
+
+
+</script>
+  </body>
+</html>

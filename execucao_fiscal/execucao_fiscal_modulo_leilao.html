@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Execução fiscal - Gerenciador de Leilões | Projeto de Tramitação Inteligente do e-Proc V2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/chosen.css"> <!-- CHOSEN, dropdown -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-editable.css">
+    <!-- editor de textos -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
+    <style type="text/css">
+      body {
+        padding-top: 70px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+      /* Sidenav for Docs
+      -------------------------------------------------- */
+
+      .bs-docs-sidenav {
+        margin: 30px 0 0;
+        padding: 0;
+        background-color: #fff;
+        -webkit-border-radius: 6px;
+           -moz-border-radius: 6px;
+                border-radius: 6px;
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+           -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+                box-shadow: 0 1px 4px rgba(0,0,0,.065);
+      }
+      .bs-docs-sidenav > li > a {
+        display: block;
+        width: 190px \9;
+        margin: 0 0 -1px;
+        padding: 8px 14px;
+        border: 1px solid #e5e5e5;
+      }
+      .bs-docs-sidenav > li:first-child > a {
+        -webkit-border-radius: 6px 6px 0 0;
+           -moz-border-radius: 6px 6px 0 0;
+                border-radius: 6px 6px 0 0;
+      }
+      .bs-docs-sidenav > li:last-child > a {
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+      }
+      .bs-docs-sidenav > .active > a {
+        position: relative;
+        z-index: 2;
+        padding: 9px 15px;
+        border: 0;
+        text-shadow: 0 1px 0 rgba(0,0,0,.15);
+        -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+           -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+                box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+      }
+      /* Chevrons */
+      .bs-docs-sidenav .icon-chevron-right {
+        float: right;
+        margin-top: 2px;
+        margin-right: -6px;
+        opacity: .25;
+      }
+      .bs-docs-sidenav > li > a:hover {
+        background-color: #f5f5f5;
+      }
+      .bs-docs-sidenav a:hover .icon-chevron-right {
+        opacity: .5;
+      }
+      .bs-docs-sidenav .active .icon-chevron-right,
+      .bs-docs-sidenav .active a:hover .icon-chevron-right {
+        background-image: url(../img/glyphicons-halflings-white.png);
+        opacity: 1;
+      }
+      .bs-docs-sidenav.affix {
+        top: 40px;
+        margin-top: 30px !important;
+      }
+      .bs-docs-sidenav.affix-bottom {
+        position: absolute;
+        top: auto;
+        bottom: 270px;
+      }
+      /* Fim do sidenav */
+
+      .nav-tabs input {margin-top: -4px}
+
+      /* Estilos especiais do Panorama*/
+      
+      .custom_form label {
+        display: inline-block;
+      }
+      .custom_form .event_number {
+        margin: 0; 
+        width: 30px
+      }
+
+      .custom_form input {
+        height: 17px;
+      }
+
+      .custom_form legend {
+        margin-bottom: 13px;
+        padding-top: 16px;
+      }
+
+      hr {
+        margin: -5px 0 20px;
+      }
+
+      article {
+        margin: 30px 0;
+      }
+
+      .nav-tabs a {
+        font-size: 21px;
+        padding: 18px !important;
+      }
+
+      .resultado_leilao_valores {
+        font-size: 40px;
+        text-align: center;
+        padding-top: 100px;
+        color: green;
+        line-height: 1.2em;
+      }
+
+
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="100">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Execução Fiscal - Gerenciador de Leilões</a>
+          <ul class="nav pull-right">
+            <li><a href="#"> </a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">Navegação <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Tela de apresentação</a></li>
+                <li class="divider"></li>
+                
+                <li><a href="execucao_fiscal_cumprimento_mandado.html"><span class="label label-warning">Ex. Fiscal</span> Cumprimento de mandado</a></li>
+                <li><a href="execucao_fiscal_raio_x.html"><span class="label label-warning">Ex. Fiscal</span> Panorama</a></li>
+                <li><a href="execucao_fiscal_modulo_leilao.html"><span class="label label-warning">Ex. Fiscal</span> Gerenciador de Leilões</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h2>Gerenciador de Leilões</h2>
+          <h3><a href="#novo_leilao" role="button" class="btn btn-success pull-right" data-toggle="modal"><i class="icon-plus"></i> Criar novo leilão</a></h3>
+          <div id="novo_leilao" class="modal fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3>Novo Leilão</h3>
+            </div>
+            <div class="modal-body">
+              <form class="">
+                <fieldset>
+                  <legend>Nome do Leilão</small></legend>
+                  <p>Apenas para fins de controle interno</p>
+                  <input type="text" placeholder="Ex: Leilão de Abril">
+                  <legend>Primeiro leilão</legend>
+                  <div class="controls controls-row">
+                    <label><i class="icon-calendar"></i> Data</label>
+                    <input type="date" class="input-small">
+                    <label><i class="icon-time"></i> Horário</label>
+                    <input type="text" class="input-mini">
+                  </div>
+                  <legend>Segundo leilão</legend>
+                  <div class="alert alert-info">Entre 10 a 20 dias seguintes ao primeiro leilão</div> 
+                  <label><i class="icon-calendar"></i> Data</label>
+                  <input type="date" class="input-small">
+                  <label><i class="icon-time"></i> Horário</label>
+                  <input type="text" class="input-mini">
+                  <legend>Leiloeiro</legend>
+                  <select>
+                    <option>Werno Klockner Junior</option>
+                    <option>Fernando Martins Serrano</option>
+                  </select>
+                  <legend>Endereço</legend>
+                  <textarea class="span4"></textarea>
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal">Cancelar</a>
+              <a href="#" class="btn btn-primary">Criar novo leilão</a>
+            </div>
+          </div>
+          <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-legal"></i> Leilão de Abril</a></li>
+              <li><a href="#tab2" data-toggle="tab"><i class="icon-legal"></i> Leilão de Novembro</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>1º Leilão</th>
+                      <th>2º Leilão</th>
+                      <th>Local</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01/04/2013<br><small class="muted"><i class="icon-time"></i> 14:00</small></td>
+                      <td>20/04/2013<br><small class="muted"><i class="icon-time"></i> 14:00</small></td>
+                      <td>
+                        Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400
+                      </td>
+                      <td>
+                        <button class="btn btn-small pull-right"><i class="icon-pencil"></i> Editar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h2>Processos & Bens</h2>
+                <small class="muted">Mostra apenas bens com situação <i>designado</i>, <i>apto</i> ou <i>cancelado</i></small>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Autos</th>
+                      <th>Bens</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="#">50002785520104047003</a></td>
+                      <td>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th width="30px">Tipo</th>
+                              <th>Descrição</th>
+                              <th>Avaliação</th>
+                              <th>Situação</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                Lote de terras nº 10-A, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
+                                <div id="detalhe_bem_1" class="collapse"> 
+                                  <div class="well" style="margin-top: 10px">
+                                    <form class="custom_form form-inline">
+                                      <fieldset>
+                                        <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
+                                        <legend style="padding-top: 0">Origem dos dados</legend>
+                                        <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234567"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
+                                        <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
+                                        <legend>Proprietários</legend>
+                                        <p>1) CURTUME XYZ LTDA </button></p>
+                                        <p>2) FELIPE RAUL BORGES BENALI </button></p>
+                                        <blockquote class="conjuge">
+                                          <p><small>Izilda Benali (cônjuge)</small></p>
+                                        </blockquote>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
+                                        <legend>Avaliações</legend>
+                                        <div class="alert alert-success" style="margin-bottom: 5px">
+                                          Última avaliação há menos de 12 meses
+                                        </div>
+                                        <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
+                                        <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
+                                        <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                                        <legend>Depositário</legend>
+                                        <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
+                                        <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
+                                        <p>Endereço: <input type="text" class="span6" value="Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400"></p>
+                                        <legend>Ônus</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Registro</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Hipoteca</td>
+                                              <td>R-4</td>
+                                              <td>Banco Itaú, 1ª Hipoteca</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Penhora trabalhista</td>
+                                              <td>R-5</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <legend>Reservas</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Meação do cônjuge</td>
+                                              <td>Vide matrícula</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Crédito trabalhista</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
+                                        <legend>Anotações</legend>
+                                        <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
+                                        <table class="table pendencias_table table-bordered table-condensed table-hover">
+                                          <thead>
+                                            <tr>
+                                              <th width="40px"></th>
+                                              <th>Pendência</th>
+                                              <th>Realizado ?</th>
+                                              <th width="15px"></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Penhora</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Avaliação há menos de 12 meses</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Cientificação - Banco Itaú</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_aguardando">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>mandado expedido (ev. 8)</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Expedição do edital do Leilão</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Publicação do edital do leilão</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="4" style="padding: 5px 0 5px 10px">
+                                                <div class="btn-toolbar">
+                                                  <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                                                  <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                                                  <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                                                  <div class="btn-group dropup">
+                                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <legend>Situação</legend>
+                                        <select style="margin-bottom: 10px" class="input-block-level" autocomplete="off">
+                                          <option>Triagem</option>
+                                          <option>Rejeitado</option>
+                                          <option>Pré-listagem: "Leilão de Abril"</option>
+                                          <option>Pré-listagem: "Leilão de Novembro"</option>
+                                          <option selected>Designado leilão: "Leilão de Abril"</option>
+                                          <option>Designado leilão: "Leilão de Novembro"</option>
+                                          <option>Leilão cancelado</option>
+                                          <option>Arrematado</option>
+                                          <option>Leilão negativo</option>
+                                        </select>
+                                      </fieldset>
+                                      <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#detalhe_bem_1">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </td>
+                              <td><div rel="popover" data-trigger="hover" data-placement="top" data-title="Histórico" data-content="<p>R$ 80.000,00 em 10/2010 (ev. 10)</p><p>R$ 70.000,00 em 01/2010 (ev. 5)</p><p>R$ 60.000,00 em 01/2009 (ev. 2)</p>"><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></div></td>
+                              <td><span class="label label-warning">Leilão designado</span><br><small class="muted">Leilão de Abril</small></td>
+                              <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_1">Detalhar <span class="label label-important pendencias_counter">8</span></button></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                Lote de terras nº 10-B, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
+                                <div id="detalhe_bem_2" class="collapse"> 
+                                  <div class="well" style="margin-top: 10px">
+                                    <form class="custom_form form-inline">
+                                      <fieldset>
+                                        <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
+                                        <legend style="padding-top: 0">Origem dos dados</legend>
+                                        <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="1234568"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
+                                        <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
+                                        <legend>Proprietários</legend>
+                                        <p>1) CURTUME XYZ LTDA </button></p>
+                                        <p>2) FELIPE RAUL BORGES BENALI </button></p>
+                                        <blockquote class="conjuge">
+                                          <p><small>Izilda Benali (cônjuge)</small></p>
+                                        </blockquote>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
+                                        <legend>Avaliações</legend>
+                                        <div class="alert alert-error" style="margin-bottom: 5px">
+                                          <strong>Atenção:</strong> A última avaliação foi feita há mais de 12 meses
+                                        </div>
+                                        <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
+                                        <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
+                                        <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                                        <legend>Depositário</legend>
+                                        <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
+                                        <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
+                                        <p>Endereço: <input type="text" class="span6" value="Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400"></p>
+                                        <legend>Ônus</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Registro</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Hipoteca</td>
+                                              <td>R-4</td>
+                                              <td>Banco Itaú, 1ª Hipoteca</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Penhora trabalhista</td>
+                                              <td>R-5</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <legend>Reservas</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Meação do cônjuge</td>
+                                              <td>Vide matrícula</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Crédito trabalhista</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
+                                        <legend>Anotações</legend>
+                                        <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
+                                        <table class="table pendencias_table table-bordered table-condensed table-hover">
+                                          <thead>
+                                            <tr>
+                                              <th width="40px"></th>
+                                              <th>Pendência</th>
+                                              <th>Realizado ?</th>
+                                              <th width="15px"></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Penhora</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Avaliação há menos de 12 meses</td>
+                                              <td><b>não</b></td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="4" style="padding: 5px 0 5px 10px">
+                                                <div class="btn-toolbar">
+                                                  <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                                                  <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                                                  <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                                                  <div class="btn-group dropup">
+                                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <legend>Situação</legend>
+                                        <select style="margin-bottom: 10px" class="input-block-level" autocomplete="off">
+                                          <option>Triagem</option>
+                                          <option>Rejeitado</option>
+                                          <option>Pré-listagem: "Leilão de Abril"</option>
+                                          <option>Pré-listagem: "Leilão de Novembro"</option>
+                                          <option selected>Designado leilão: "Leilão de Abril"</option>
+                                          <option>Designado leilão: "Leilão de Novembro"</option>
+                                          <option>Leilão cancelado</option>
+                                          <option>Arrematado</option>
+                                          <option>Leilão negativo</option>
+                                        </select>
+                                      </fieldset>
+                                      <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#detalhe_bem_1">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </td>
+                              <td><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></td>
+                              <td><span class="label label-success">Pré-listagem</span></td>
+                              <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_2">Detalhar <span class="label label-important pendencias_counter">2</span></button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">50002785520104047003</a></td>
+                      <td>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th width="30px">Tipo</th>
+                              <th style="width: 642px">Descrição</th>
+                              <th>Avaliação</th>
+                              <th>Situação</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                Lote de terras nº 105-D, em Paranavaí/PR
+                              </td>
+                              <td><div rel="popover" data-trigger="hover" data-placement="top" data-title="Histórico" data-content="<p>R$ 80.000,00 em 10/2010 (ev. 10)</p><p>R$ 70.000,00 em 01/2010 (ev. 5)</p><p>R$ 60.000,00 em 01/2009 (ev. 2)</p>"><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></div></td>
+                              <td><span class="label label-warning">Leilão designado</span><br><small class="muted">Leilão de Abril</small></td>
+                              <td><button class="btn btn-mini detalhar a_desenvolver" data-mensagem="Favor detalhar os 2 primeiros bens, lote 10-A e lote 10-B">Detalhar <span class="label label-important pendencias_counter">2</span></button></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                Apartamento no edifício 3 marias, Maringá/PR
+                              </td>
+                              <td><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></td>
+                              <td><span class="label label-warning">Leilão designado</span><br><small class="muted">Leilão de Abril</small></td>
+                              <td><button class="btn btn-mini detalhar a_desenvolver" data-mensagem="Favor detalhar os 2 primeiros bens, lote 10-A e lote 10-B">Detalhar <span class="label label-important pendencias_counter">0</span></button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">50002785520104047003</a></td>
+                      <td>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th width="30px">Tipo</th>
+                              <th>Descrição</th>
+                              <th>Avaliação</th>
+                              <th>Situação</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                Lote de terras nº 100-D, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 54 alqueires paulistas
+                              </td>
+                              <td><div rel="popover" data-trigger="hover" data-placement="top" data-title="Histórico" data-content="<p>R$ 80.000,00 em 10/2010 (ev. 10)</p><p>R$ 70.000,00 em 01/2010 (ev. 5)</p><p>R$ 60.000,00 em 01/2009 (ev. 2)</p>"><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></div></td>
+                              <td><span class="label label-warning">Leilão designado</span><br><small class="muted">Leilão de Abril</small></td>
+                              <td><button class="btn btn-mini detalhar a_desenvolver" data-mensagem="Favor detalhar os 2 primeiros bens, lote 10-A e lote 10-B">Detalhar <span class="label label-important pendencias_counter">8</span></button></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <i class="icon-home" rel="tooltip" data-original-title="Imóvel" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                Lote de terras nº 100-E, da Gleba Maria, Patrimônio Pinguim, em Água do São Jorge/PR, com área de 11 alqueires paulistas
+                                <div id="detalhe_bem_que_foi_arrematado" class="collapse"> 
+                                  <div class="well" style="margin-top: 10px">
+                                    <form class="custom_form form-inline">
+                                      <fieldset>
+                                        <!-- <input type="text" class="span6" value="CURTUME XYZ LTDA"> -->
+                                        <legend style="padding-top: 0">Origem dos dados</legend>
+                                        <p>Matrícula nº <input type="text" autocomplete="off" style="" class="input-small" value="549849136"> do CRI <input type="text" autocomplete="off" value="1º Registro de Imóveis de Maringá" style="" class="input-xlarge"></p>
+                                        <p>Matrícula mais recente no ev. <input type="text" class="event_number" value="98"></p>
+                                        <legend>Proprietários</legend>
+                                        <p>1) CURTUME XYZ LTDA </button></p>
+                                        <p>2) FELIPE RAUL BORGES BENALI </button></p>
+                                        <blockquote class="conjuge">
+                                          <p><small>Izilda Benali (cônjuge)</small></p>
+                                        </blockquote>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar proprietários / cônjuges</button></p>
+                                        <legend>Avaliações</legend>
+                                        <div class="alert alert-success" style="margin-bottom: 5px">
+                                          Última avaliação há menos de 12 meses
+                                        </div>
+                                        <p>R$ 80.000,00 em 10/2010 (ev. 10)</p>
+                                        <p>R$ 70.000,00 em 01/2010 (ev. 5)</p>
+                                        <p>R$ 60.000,00 em 01/2009 (ev. 2)</p>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar avaliação</button></p>
+                                        <legend>Depositário</legend>
+                                        <p>Nome: <input type="text" class="span6" value="Werno Klockner"></p>
+                                        <p>CPF: <input type="text" value="123.456.568-0" style="width: 100px"></p>
+                                        <p>Endereço: <input type="text" class="span6" value="Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400"></p>
+                                        <legend>Ônus</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Registro</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Hipoteca</td>
+                                              <td>R-4</td>
+                                              <td>Banco Itaú, 1ª Hipoteca</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Penhora trabalhista</td>
+                                              <td>R-5</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar ônus</button></p>
+                                        <legend>Reservas</legend>
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Tipo</th>
+                                              <th>Observação</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>Meação do cônjuge</td>
+                                              <td>Vide matrícula</td>
+                                            </tr>
+                                            <tr>
+                                              <td>Crédito trabalhista</td>
+                                              <td>Autos nº 50002785520104047003 da 1ª VT de Maringá</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <p><button class="btn btn-small a_desenvolver"><i class="icon-pencil"></i> Editar / adicionar reservas</button></p>
+                                        <legend>Anotações</legend>
+                                        <textarea class="input-block-level" style="margin-bottom: 20px; height: 100px" autocomplete="off"></textarea>
+                                        <table class="table pendencias_table table-bordered table-condensed table-hover">
+                                          <thead>
+                                            <tr>
+                                              <th width="40px"></th>
+                                              <th>Pendência</th>
+                                              <th>Realizado ?</th>
+                                              <th width="15px"></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Penhora</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Avaliação há menos de 12 meses</td>
+                                              <td>ev. 5</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Cientificação - Banco Itaú</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                                              <td>ev. 8</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Expedição do edital do Leilão</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Publicação do edital do leilão</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_ok">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Publicação do edital do leilão</td>
+                                              <td>ev. 30</td>
+                                              <td><input type="checkbox" autocomplete="off"></td>
+                                            </tr>
+                                            <tr class="pendencia_faltante">
+                                              <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td>Assinatura do auto de arrematação</td>
+                                              <td colspan="2"><button class="btn btn-mini pull-right" data-toggle="modal" data-target="#editor_arrematacao">Ver auto</button></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="5" style="padding: 5px 0 5px 10px">
+                                                <div class="btn-toolbar">
+                                                  <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                                                  <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                                                  <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                                                  <div class="btn-group dropup">
+                                                    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                                      <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <legend>Situação</legend>
+                                        <select style="margin-bottom: 10px" class="input-block-level" autocomplete="off">
+                                          <option>Triagem</option>
+                                          <option>Rejeitado</option>
+                                          <option>Pré-listagem: "Leilão de Abril"</option>
+                                          <option>Pré-listagem: "Leilão de Novembro"</option>
+                                          <option selected>Designado leilão: "Leilão de Abril"</option>
+                                          <option>Designado leilão: "Leilão de Novembro"</option>
+                                          <option>Leilão cancelado</option>
+                                          <option>Arrematado</option>
+                                          <option>Leilão negativo</option>
+                                        </select>
+                                      </fieldset>
+                                      <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#detalhe_bem_1">Salvar alterações</button> <button type="submit" class="btn" data-toggle="collapse" data-target="#detalhe_bem_1">Fechar</button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </td>
+                              <td><span class="price">R$ 80.000,00</span> <small class="muted muted-block">em 10/2010</small></td>
+                              <td><span class="label label-info">Arrematado</span></td>
+                              <td><button class="btn btn-mini detalhar" data-toggle="collapse" data-target="#detalhe_bem_que_foi_arrematado">Detalhar <span class="label label-important pendencias_counter">1</span></button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <article>
+                  <h2>Pendências para o leilão</h2>
+                  <hr class="custom">
+                  <p><button id="ocultar_pendencias" class="btn btn-mini" data-hidden="NO">Ocultar pendências já realizadas</button></p>
+                  <table class="table pendencias_table table-bordered table-condensed table-hover">
+                    <thead>
+                      <tr>
+                        <th width="40px"></th>
+                        <th>Processo</th>
+                        <th>Bem</th>
+                        <th>Pendência</th>
+                        <th>Realizado ?</th>
+                        <th width="15px"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                        <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Penhora</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Penhora</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da Penhora - Executado CURTUME XYZ LIMITADA</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da Penhora - Executado FELIPE RAUL BORES BENALI</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da penhora - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Avaliação há menos de 12 meses</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_ok">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Avaliação há menos de 12 meses</td>
+                        <td>ev. 5</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Cientificação - Banco Itaú</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Cientificação - Banco Itaú</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Cientificação - 1ª Vara Trabalhista de Maringá</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_aguardando">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                        <td>mandado expedido (ev. 8)</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_aguardando">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da designação do leilão - Executado CURTUME XYZ LIMITADA</td>
+                        <td>mandado expedido (ev. 8)</td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da designação do leilão - Executado FELIPE RAUL BORES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Intimação da designação do leilão - Cônjuge IZILDA MARIA BORGES BENALI</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Expedição do edital do Leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Expedição do edital do Leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-A</td>
+                        <td>Publicação do edital do leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr class="pendencia_faltante">
+                        <td><button class="btn btn-mini a_desenvolver">editar</button></td>
+                                              <td><a href="#">50002785520104047003</a></td>
+                        <td><i class="icon-home"></i> Lote de terras 10-B</td>
+                        <td>Publicação do edital do leilão</td>
+                        <td><b>não</b></td>
+                        <td><input type="checkbox" autocomplete="off"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="6" style="padding: 5px 0 5px 10px">
+                          <div class="btn-toolbar">
+                            <button class="btn btn-small a_desenvolver"><i class="icon-plus"></i> Incluir pendência</button> 
+                            <button class="btn btn-small btn-success a_desenvolver"><i class="icon-check"></i> Marcar como realizada</button> 
+                            <button class="btn btn-small btn-danger a_desenvolver"><i class="icon-minus-sign"></i> Marcar como pendente</button> 
+                            <div class="btn-group dropup">
+                              <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-signin"></i> Gerar edital/mandado/etc</a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#" class="a_desenvolver">Gerar <b>edital</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>mandado</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>ofício</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>carta precatória</b> em bloco</a></li>
+                                <li><a href="#" class="a_desenvolver">Gerar <b>carta de intimação</b> em bloco</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </article>
+
+
+
+
+
+
+
+
+              </div> <!-- Fim do TAB 1 (leilao 1) -->
+
+              <div class="tab-pane" id="tab2">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>1º Leilão</th>
+                      <th>2º Leilão</th>
+                      <th>Local</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>05/11/2013<br><small class="muted"><i class="icon-time"></i> 14:00</small></td>
+                      <td>19/11/2013<br><small class="muted"><i class="icon-time"></i> 14:00</small></td>
+                      <td>
+                        Rua Martin Afonso, 200, Zona 2, Maringá - PR, CEP 87010-400
+                      </td>
+                      <td>
+                        <button class="btn btn-small pull-right"><i class="icon-pencil"></i> Editar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h2>Processos & Bens</h2>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Autos</th>
+                      <th>Bens</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="#">50002785520104047003</a></td>
+                      <td>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th width="30px">Tipo</th>
+                              <th>Descrição</th>
+                              <th>Avaliação</th>
+                              <th>Situação</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <i class="icon-truck" rel="tooltip" data-original-title="Veículo" data-placement="left" style="font-size: 30px"></i>
+                              </td>
+                              <td>
+                                <div data-original-title="Enter notes" data-toggle="manual" rel="editable" data-type="wysihtml5" data-pk="1" id="note" class="editable" tabindex="-1">VW GOL, placa ABB-1534, renavam 52.362572-3, chassi 9BGXXLP4LD17985, ano/modelo 2005/2006</div>
+                              </td>
+                              <td><span class="price">R$ 15.000,00</span> <small class="muted muted-block">em 09/2012</small></td>
+                              <td><span class="label label-success">Pré-listagem</span><br><small>Leilão de Novembro</small></td>
+                              <td><button class="btn btn-mini detalhar a_desenvolver" data-mensagem="Favor detalhar os 2 primeiros bens (Lote 10-a e Lote 10-b) no Leilão de Abril">Detalhar <span class="label label-success pendencias_counter">0</span></button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          
+          <!-- <form class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">Email</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" placeholder="Email">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword">Password</label>
+              <div class="controls">
+                <input type="password" id="inputPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <label class="checkbox">
+                  <input type="checkbox"> Remember me
+                </label>
+                <button type="submit" class="btn">Sign in</button>
+              </div>
+            </div>
+          </form> -->
+
+
+
+
+
+        </div> <!-- Span 12 -->
+      </div> <!-- Row -->
+      <div class="row">
+        <div class="span12">
+          <h2>Resultado do leilão</h2>
+          <hr class="custom">
+        </div>
+        <div class="span6">
+          
+          <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+          <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['Status', 'Bens'],
+                ['Arrematado', 40],
+                ['Leilão Negativo', 45],
+                ['Cancelado',  10]
+              ]);
+
+              var options = {
+                colors:['#3366CC','#DC3912','#333333'],
+                chartArea:{width:"80%",height:"80%"},
+                is3D: true,
+              };
+
+              var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+              chart.draw(data, options);
+            }
+          </script>
+
+          <div id="chart_div" style="width: 100%px; height: 500px;"></div>
+        </div>
+        <div class="span6 resultado_leilao_valores">
+          <div class="well">
+            <p><i class="icon-money"></i> Valores arrecadados</p>
+            <p><span style="font-size: 20px">R$</span> 1.530.000,00</p>
+          </div>
+        </div>
+        <div class="span12">
+          <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            function drawVisualization() {
+                    // Some raw data (not necessarily accurate)
+                    var data = google.visualization.arrayToDataTable([
+                      ['Mês', 'Dívida', 'Arrecadação'],
+                      ['Janeiro',  3998438937,      0],
+                      ['Fevereiro',  3998538381,      0],
+                      ['Março',  3998743048,       0],
+                      ['Abril',  3998931048,      1850000],
+                      ['Maio',  3999076417,      0],
+                      ['Junho',  3999186289,      0],
+                      ['Julho',  3999267210,      0],
+                      ['Agosto',  3999367446,      0],
+                      ['Setembro',  3999600847,      0],
+                      ['Outubro',  3999901032,      0],
+                      ['Novembro',  4000000935,      1537000],
+                      ['Dezembro',  4000050124,      0],
+                    ]);
+
+                    var options = {
+                      title : 'Dívida executada na Vara x Arrecadação',
+                      hAxis: {title: "Meses"},
+                      series:{0:{type: 'line',color: 'red', targetAxisIndex:0}, 1:{type: 'bars',color: 'green', targetAxisIndex:1}}, vAxes:{0:{title:'Dívida',type: "line",textStyle:{color: 'red'}}, 1:{title:'Arrecadação',textStyle:{color: 'blue'}}},
+                    };
+
+                    var chart = new google.visualization.ComboChart(document.getElementById('line_chart'));
+                    chart.draw(data, options);
+                  }
+                  google.setOnLoadCallback(drawVisualization);
+
+
+              </script>
+          <div id="line_chart" style="width: 100%; height: 500px; margin-top: -60px"></div>
+        </div>
+      </div>
+
+
+
+    </div> <!-- /container -->
+
+
+    <!-- Modal -->
+    <div id="a_desenvolver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">A desenvolver</h3>
+      </div>
+      <div class="modal-body">
+        <p>Esta tela / funcionalidade não foi desenvolvida no protótipo.</p>
+        <p id="mensagem_extra"> </p>
+      </div>  
+        <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+    <!-- Modal do auto de arremtação -->
+    <div id="editor_arrematacao" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="width: 750px; left: 44%">
+      <div class="modal-body" style="height: 450px">
+        <style type="text/css">
+          .modal-body .cke_contents {
+          height: 350px !important;
+          }
+          body { counter-reset: lista1; }
+          .header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; text-indent: 0; line-height: 1.5em }
+          .dados { font-family: Times; font-size: 13pt; font-weight: bold;  text-indent: 0}
+          .title { font-family: Times; font-size: 14pt; font-weight: bold; text-indent: 0 }
+          .text { font-family: Times; font-size: 13pt; }
+          .signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; text-indent: 0}
+          .lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; text-indent: 0 }
+          .lista1:before { content: counter(lista1) ") "; counter-increment: lista1; text-indent: 0}
+          .lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; text-indent: 0}
+          .lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold;text-indent: 0 }
+          </style>
+          <p class="header" align="center"><img data-cke-saved-src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República" height="86" width="85"><br>PODER JUDICIÁRIO<br>&nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br>SEÇÃO JUDICIÁRIA DO PARANÁ<br>Subseção Judiciária de Maringá<br>1ª Vara do Juizado Especial Federal</p><p class="title" align="center">AUTO DE ARREMATAÇÃO</p>
+          <p>Juiz Federal: ANDERSON FURLAN FREIRE DA SILVA</p>
+          <p>Autos n.º 5009197-96.2011.404.7003 (Execução Fiscal)</p>
+          <p>Parte Exequente: UNIÃO - FAZENDA NACIONAL</p>
+          <p>Parte Executada: CURTUME XYZ LTDA.</p>
+          <p></p>
+          <p>Dados da hasta pública</p>
+          <p>Data: 15 de abril de 2013</p>
+          <p>Horário: Início às 14 horas</p>
+          <p>Local: Rua Martin Afonso, 200, Zona 2, Maringá, PR, CEP 87010-400</p>
+          <p></p>
+          <p>Especificações da alienação</p>
+          <p>Leiloeiro: Werno Klocner Junior</p>
+          <p>Arrematante: Maria da Silva, portadora da Cédula de Identidade RG n.º 1.145.728.9/PR, inscrita no CPF sob n.º 000.458.789-55, casada com João da Silva, sob o regime de comunhão parcial de bens, residentes na Rua Vitor Lopez, 123, fone (44) 3222-1111, em Maringá, PR.</p>
+          <p>Bem(ns) arrematado(s): Automóvel GM/Monza SL/E, ano de fabricação / modelo 1984/1985, cor azul, a álcool, placa BRM-5874, Renavam 36.368249-0</p>
+          <p>Avaliação: R$ 4.500,00 (quatro mil e quinhentos reais)</p>
+          <p>Maior lanço: R$ 2.500,00 (dois mil e quinhentos reais)</p>
+          <p>Custas: R$ 12,50 (doze reais e cinquenta centavos)</p>
+          <p>Comissão: R$ 125,00 (cento e vinte e cinco reais)</p>
+          <p>Forma de pagamento: à vista</p>
+          <p></p>
+          <p>Ficam cientes todos os interessados que o presente auto foi lavrado nesta data, sendo subscrito pelo leiloeiro e pelo arrematante. Para fins do art. 693 do CPC, será firmado pelo Excelentíssimo Sr. Dr. Juiz Federal 24 (vinte e quatro) horas após a realização do leilão, quando terá início o decurso dos prazos legais.</p>
+          <p>E para que atinja os devidos fins de direito, foi lavrado o presente auto de arrematação, que vai devidamente assinado pelo MM. Juiz Federal, pelo Arrematante e pelo Leiloeiro. </p>
+      </div>  
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Fechar</button>
+        <button class="btn btn-success">Enviar para assinatura <i class="icon-arrow-right"></i></button>
+      </div>
+    </div>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/chosen.jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/bootstrap-affix.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="../assets/js/bootstrap-editable.js"></script>
+        <script type="text/javascript">
+          $('[rel=chosen]').chosen({search_contains:"true"});
+          $('[rel=popover]').popover({ html : true });
+          $('[rel=editable]').editable();
+          $('.carousel').carousel({
+          interval: 0
+          });
+          $('#teste10').on('hidden', function() {
+            $('#idade').html('29 anos');
+          });
+
+        </script>
+    <script src="../assets/ckeditor/ckeditor.js"></script>
+    <script src="../assets/js/keymaster.min.js"></script>
+    <script>
+    
+    // (Felipe) Marca o botão de ilegível como btn-danger caso active
+    // $('.btn-mini').on('click', function() {
+    //   if ($(this).hasClass('btn-danger')) {
+    //     $(this).removeClass('btn-danger');
+    //   } else {
+    //     $(this).addClass('btn-danger');
+    //   }
+    // });
+
+    // (Felipe) Marca o botão de ilegível como btn-danger caso active
+    $('#marcar_todos').on('click', function() {
+      if ( $(this).hasClass('marcado') ) {
+        $('.analise_checkbox').prop('checked', false);
+        $(this).removeClass('marcado');
+        $(this).html('Marcar todos');
+      } else {
+        
+        $('.analise_checkbox').prop('checked', true);
+        $(this).addClass('marcado');
+        $(this).html('Desmarcar todos');
+      };
+      
+    });
+
+// $('#documento').on('change', function(e)
+// {
+//   var val = e.target.value;
+//   if (/^\d+$/.test(val)) {
+//     val = Number(val);
+//   } else {
+//     val = 2;
+//   }
+//   $('.carousel').carousel(val);
+// });
+// $('.carousel').on('slid', analisaDocumentoSelecionado);
+// function analisaDocumentoSelecionado(e)
+// {
+//   var currentImg = $('.carousel .active img');
+//   if (currentImg.length == 1) {
+//     currentImg = currentImg[0];
+//     $('#documento option').each(function(o, option) {
+//       if (new RegExp(currentImg.id).test(option.textContent)) {
+//         $('#documento')[0].value = option.value;
+//       }
+//     });
+//   } else {
+//     $('#documento')[0].value = 2;
+//   }
+// }
+// analisaDocumentoSelecionado();
+
+// $('#texto_ajg').html(sessionStorage.getItem('justicaGratuita'));
+// $('#justicaGratuita input[name=optionsRadios]').on('change', verificaAlteracaoJusticaGratuita);
+// function verificaAlteracaoJusticaGratuita(e)
+// {
+//   var valor = false;
+//   $('#justicaGratuita input[name=optionsRadios]').each(function(i, input)
+//   {
+//     if (input.checked) {
+//       valor = $(input).attr('data-texto');
+//     }
+//   });
+
+
+//   sessionStorage.setItem('justicaGratuita', valor);
+// }
+// key('ctrl+left', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('prev'); });
+// key('ctrl+right', function() { if ($('#atalhosTeclado')[0].checked) $('.carousel').carousel('next'); });
+// $(window).on('beforeunload', function(e)
+// {
+//   sessionStorage.setItem('justicaGratuita', CKEDITOR.instances.texto_ajg.getData());
+// });
+// $('#requisitos input[type=checkbox]').on('change', verificaRequisitos);
+// function verificaRequisitos(e)
+// {
+//   var naoMarcados = 0;
+//   $('#requisitos input[type=checkbox]').each(function(i, chk)
+//   {
+//     var botao = $(chk).parent().parent().find('button')[0];
+//     if (chk.checked) {
+//       botao.disabled = false;
+//     } else {
+//       naoMarcados++;
+//       $(botao).removeClass('active');
+//       botao.disabled = true;
+//     }
+//   });
+//   var gerarAto = $('#gerarAto');
+//   if (naoMarcados == 0) {
+//     gerarAto.removeClass('btn-danger');
+//     gerarAto.addClass('btn-success');
+//     gerarAto.html('Analisar Inicial <i class="icon-arrow-right"/>');
+//   } else {
+//     gerarAto.removeClass('btn-success');
+//     gerarAto.addClass('btn-danger');
+//     gerarAto.html('Gerar ato de emenda <i class="icon-arrow-right"/>');
+//   }
+// }
+// verificaRequisitos();
+// $('#gerarAto').on('click', gerarDocumentoAto);
+// function gerarDocumentoAto(e)
+// {
+//   var valores = {};
+//   var ajg = CKEDITOR.instances.texto_ajg.getData().replace(/<\/?p>/g, ' ');
+//   if (! /^ *$/.test(ajg)) {
+//     valores.ajg = ajg;
+//   }
+//   var requisitos = $('#requisitos p'), requisitosAusentes = 0;
+//   $.each(['procuracao', 'rg', 'residencia', 'renuncia', 'ctps', 'indeferimento', 'medicos', 'planilha'], function(r, requisito) {
+//     valores[requisito] = Requisito.fromParagrafo(requisitos[r]);
+//     if (valores[requisito].presente == false || valores[requisito].ilegivel == true) {
+//       requisitosAusentes++;
+//     }
+//   });
+//   var sTexto = '<html lang="pt-BR" dir="ltr">\n';
+//   sTexto += '  <head>\n';
+//   sTexto += '  <style type="text/css">\n';
+//   sTexto += 'body { counter-reset: lista1; }\n';
+//   sTexto += '.header { font-family: Calibri, Helvetica, sans-serif; font-size: 9pt; text-indent: 0; line-height: 1.5em }\n';
+//   sTexto += '.dados { font-family: Times; font-size: 13pt; font-weight: bold;  text-indent: 0}\n';
+//   sTexto += '.title { font-family: Times; font-size: 14pt; font-weight: bold; text-indent: 0 }\n';
+//   sTexto += '.text { font-family: Times; font-size: 13pt; }\n';
+//   sTexto += '.signature { font-family: Times; font-size: 12pt; font-weight: bold; font-style: italic; text-indent: 0}\n';
+//   sTexto += '.lista1 { font-family: Times; font-size: 13pt; font-weight: bold; text-decoration: underline; counter-reset: lista2; margin-left: 1cm; text-indent: 0 }\n';
+//   sTexto += '.lista1:before { content: counter(lista1) ") "; counter-increment: lista1; text-indent: 0}\n';
+//   sTexto += '.lista2 { font-family: Times; font-size: 13pt; margin-left: 2cm; text-indent: 0}\n';
+//   sTexto += '.lista2:before { content: counter(lista2, lower-latin) ". "; counter-increment: lista2; font-weight: bold;text-indent: 0 }\n';
+//   sTexto += '  </style>\n';
+//   sTexto += '  </head>\n';
+//   sTexto += '  <body bgcolor="white">\n';
+//   sTexto += '  <p class="header" align="center"><img width="85" height="86" src="http://eproc.jfpr.jus.br/eprocV2/imagens/brasao_pb.jpg" alt="Brasão da República"><br/>';
+//   sTexto += 'PODER JUDICIÁRIO<br/>';
+//   sTexto += '&nbsp;<strong>JUSTIÇA FEDERAL</strong>&nbsp;<br/>';
+//   sTexto += 'SEÇÃO JUDICIÁRIA DO PARANÁ<br/>';
+//   sTexto += 'Subseção Judiciária de Maringá<br/>';
+//   sTexto += '1ª Vara do Juizado Especial Federal</p>\n';
+//   sTexto += '  <p class="title" align="center">CERTIDÃO</p>\n';
+//   sTexto += '  <p class="text" align="justify">Nos termos da Portaria 03/2006 deste Juizado, efetuei a análise prévia da petição inicial e dos documentos encartados.</p>\n';
+//   if ('ajg' in valores) {
+//     sTexto += '  <p class="text" align="justify">' + valores.ajg + '</p>\n';
+//   }
+//   sTexto += '  <p class="text" align="justify">A fim de verificar eventual prevenção, litispendência ou coisa julgada, certifico que procedi à consulta do sistema e-Proc e SIAPRO (físico), <strong>não</strong> tendo encontrado processos anteriormente ajuizados entre as mesmas partes no âmbito da Seção Judiciária do Paraná.</p>\n';
+//   if (requisitosAusentes == 0) {
+//     sTexto += '  <p class="text" align="justify">Por fim, certifico que os autos encontram-se aptos para a designação de perícia médica.</p>\n';
+//     $('#prazo').hide();
+//     $('#localizador').show();
+//     $('#intimar').removeClass('btn-danger').addClass('btn-success');
+//     $('#intimar').html('Gerar movimentação <i class="icon-arrow-right"/>');
+//   } else {
+//     $('#prazo').show();
+//     $('#localizador').hide();
+//     $('#intimar').removeClass('btn-success').addClass('btn-danger');
+//     $('#intimar').html('Intimar p/ emenda <i class="icon-arrow-right"/>');
+//     sTexto += '  <p class="title" align="center">ATO DE SECRETARIA</p>\n';
+//     sTexto += '  <p class="text" align="justify">Por oportuno, encaminho estes autos para <strong>INTIMAÇÃO</strong> da parte autora para que, no prazo de <strong>' + $('#dias').val() + ' dias</strong>, junte aos autos os documentos abaixo relacionados e/ou esclareça/retifique o que lhe for solicitado, <strong><u>sob pena de extinção do processo</u></strong>:</p>\n';
+//     sTexto += '  <p class="lista1" align="justify">Apresentar:</p>\n';
+//     sTexto += valores.procuracao.toTexto('Instrumento procuratório com os poderes para o foro judicial', ', <b>tendo em vista que aquele juntado aos autos está <u>ilegível</u></b>', ';');
+//     sTexto += valores.rg.toTexto('Cópias dos documentos pessoais da parte autora (RG e CPF)', ', <b>tendo em vista que aquelas juntadas aos autos estão ilegíveis</b>', ';');
+//     sTexto += valores.residencia.toTexto('Comprovante de residência atualizado (emitido há no máximo um ano, como contas de água, luz ou telefone) e em nome da parte autora', ' (o comprovante juntado está no nome de pessoa estranha aos autos)', ', para fins de verificação da competência territorial, a qual é absoluta no âmbito dos Juizados Federais (art. 3º, §3º da Lei 10.259/01). Na hipótese de apresentação de comprovante em nome de terceiro, deve a parte comprovar qual o vínculo com o titular, apresentando documentos, por exemplo: certidão de nascimento, casamento, contrato de locação, ou ainda, sendo o caso, declaração do companheiro(a) ou do titular do comprovante. Informamos ainda que conforme entendimento do Juízo o comprovante atual de endereço é necessário para verificação da competência territorial, eis que, nos termos do art. 87 do CPC, <em>“determina-se a competência no momento em que a ação é proposta. São irrelevantes as modificações do estado de fato ou de direito ocorridas posteriormente, salvo quando suprimirem o órgão judiciário ou alterarem a competência em razão da matéria ou da hierarquia”</em>;');
+//     sTexto += valores.renuncia.toTexto('Termo de renúncia, com a menção expressa à <em>“renúncia das parcelas vencidas, que <u>somadas as 12 parcelas vincendas</u>, excederem a 60 salários mínimos”</em>, assinado devidamente pelo(a) autor(a), conforme art. 260 do CPC e Determinação expressa n.º 01/2007 deste Juizado', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
+//     sTexto += valores.ctps.toTexto('Cópia INTEGRAL da CTPS ou das guias de contribuições (acompanhadas do comprovante de pagamento) com o fito de comprovar a qualidade de segurado e carência, quando for o caso', ', tendo em vista que aquela juntada aos autos está ilegível', ';');
+//     sTexto += valores.indeferimento.toTexto('Cópia do indeferimento administrativo', ', tendo em vista que aquela juntada aos autos está ilegível', ';');
+//     sTexto += valores.medicos.toTexto('Documentos médicos que possam comprovar a alegação da enfermidade da autora, tais como: laudos, atestados, exames, prontuários, fichas de atendimento médico ou internação, guias de encaminhamento médico, perícias', ', tendo em vista que aqueles juntados aos autos estão ilegíveis', ';');
+//     sTexto += valores.planilha.toTexto('Demonstrativo pormenorizado e atualizado do valor da causa (planilha), para verificação da competência para julgamento pelo JEF, computando-se além das parcelas vencidas as doze vincendas (art. 260 do CPC), retificando o valor já atribuído, caso necessário', ', tendo em vista que aquele juntado aos autos está ilegível', ';');
+//   }
+//   sTexto += '  <p class="text" align="justify">&nbsp;</p>\n';
+//   sTexto += '  <p class="signature" align="center">Felipe Benali<br>documento assinado eletronicamente</p>\n';
+//   sTexto += '</body>\n';
+//   sTexto += '</html>\n';
+//   CKEDITOR.instances.editor_texto_final.setData(sTexto);
+// }
+// function Requisito(presente, ilegivel)
+// {
+//   this.presente = presente;
+//   this.ilegivel = ilegivel;
+// }
+// Requisito.prototype = {
+//   presente: false,
+//   ilegivel: false,
+//   toTexto: function(inicioSeAusenteOuIlegivel, textoSeIlegivel, fimSeAusenteOuIlegivel)
+//   {
+//     var texto = '';
+//     if (! this.presente || this.ilegivel) {
+//       texto += '  <p class="lista2" align="justify">';
+//       texto += inicioSeAusenteOuIlegivel;
+//       if (this.ilegivel) {
+//         texto += textoSeIlegivel;
+//       }
+//       texto += fimSeAusenteOuIlegivel;
+//       texto += '</p>\n';
+//     }
+//     return texto;
+//   }
+// };
+// Requisito.fromParagrafo = function(p)
+// {
+//   var requisito = new Requisito(false, false);
+//   if ($(p).find('input')[0].checked) {
+//     requisito.presente = true;
+//   }
+//   if ($(p).find('button').hasClass('active')) {
+//     requisito.ilegivel = true;
+//   }
+//   return requisito;
+// };
+// $('#dias').on('change', function(e)
+// {
+//   gerarDocumentoAto();
+// });
+</script>
+  </body>
+</html>
