@@ -14,6 +14,9 @@
     <!-- editor de textos -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-wysihtml5-0.0.2.css"></link>
     <style type="text/css">
+      .icon-question-sign {
+        color: #888;
+      }
       body {
         padding-top: 70px;
         padding-bottom: 40px;
@@ -176,7 +179,7 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">Análise de petição inicial- Benefício por Incapacidade</a>
-          <!-- <ul class="nav pull-right">
+          <ul class="nav pull-right">
             <li><a href="#"> </a></li>
             <li class="divider-vertical"></li>
             <li class="dropdown">
@@ -190,14 +193,14 @@
                 <li><a href="editor.html"><span class="label label-info">Previdenciário</span> Editor de Minuta Inteligente</a></li>
                 <li class="divider"></li>
                 <li><a href="execucao_fiscal_cumprimento_mandado.html"><span class="label label-warning">Ex. Fiscal</span> Cumprimento de mandado</a></li>
-                <li><a href="execucao_fiscal_raio_x.html"><span class="label label-warning">Ex. Fiscal</span> Raio X</a></li>
+                <li><a href="execucao_fiscal_raio_x.html"><span class="label label-warning">Ex. Fiscal</span> Panorama</a></li>
                 <li><a href="execucao_fiscal_modulo_leilao.html"><span class="label label-warning">Ex. Fiscal</span> Gerenciador de Leilões</a></li>
                 <li class="divider"></li>
                 <li><a href="selecione_localizador.html"><span class="label label-success">Usabilidade</span> Seleção de localizador</a></li>
 <li><a href="usabilidade_movimentacoes_favoritas.html"><span class="label label-success">Usabilidade</span> Movimentações favoritas</a></li>
               </ul>
             </li>
-          </ul> -->
+          </ul>
         </div>
       </div>
     </div>
@@ -213,12 +216,14 @@
                   <button class="btn" data-toggle="modal" data-target="#modal_acidente_de_trabalho"><span class="text-error">É acidente de trabalho</span></button>
                   <button class="btn" onClick="$('#competenciaDeNossaSubsecao').show('slow'); return false;"><span class="text-success">Não é acidente de trabalho</span></button>
                 </div>
+                <button class="btn" onClick="return false"><i class="icon-question-sign"></i> Ajuda</button>
               </div>
               <div id="competenciaDeNossaSubsecao">
                 <div class="btn-group" data-toggle="buttons-radio" >
                   <button class="btn" onclick="alert('Favor redistribuir o processo para a Subseção competente'); return false;"><span class="text-error">Não é competência de nossa Subseção</span></button>
                   <button class="btn" onclick="$('#mostraQuandoCompetenciaOk').show('slow'); return false;"><span class="text-success">É competência de nossa Subseção</span></button>
                 </div>
+                <button class="btn" onClick="return false"><i class="icon-question-sign"></i> Ajuda</button>
                 <a class="btn" href="http://www5.jfpr.jus.br/institucional/jurisdicao/jurisdicao_pesqcidade.php" target="_blank">Pesquisar</a>
               </div>
             </form>
@@ -232,6 +237,7 @@
                   <button class="btn" onclick="$('#haProcessosAnteriores').show('slow'); return false;"><span class="text-error">Há processos anteriores entre as mesmas partes</span></button>
                   <button class="btn" id="naoHaProcessosAnteriores" onclick="$('#mostraQuandoPreliminaresOk').show('slow'); $('#haProcessosAnteriores').hide('slow');return false;"><span class="text-success">Não há processos anteriores entre as mesmas partes</button>
                 </div>
+                <button class="btn" onClick="return false"><i class="icon-question-sign"></i> Ajuda</button>
               </div>
               <div id="haProcessosAnteriores">
                 <p>Favor digitar o número / assunto dos processos Previdenciários anteriores:</p>
@@ -240,6 +246,7 @@
                   <button class="btn" onclick="$('#temMesmoObjeto').show('slow'); return false;"><span class="text-error">Tem o mesmo pedido</span></button>
                   <button class="btn" id="naoTemOMesmoPedido" onclick="$('#mostraQuandoPreliminaresOk').show('slow'); $('#naoTemOMesmoObjeto').show('slow'); return false;"><span class="text-success">Não tem o mesmo pedido</button>
                 </div>
+                <button class="btn" onClick="return false"><i class="icon-question-sign"></i> Ajuda</button>
                 <div id="naoTemOMesmoObjeto" style="display: none; margin-top: 10px">
                   <div class="alert alert-success">
                     Continue a análise normalmente, será incluído automaticamente um texto no ato final esclarecendo que os processos acima não configuram coisa julgada, litispendência ou prevenção.
@@ -251,6 +258,7 @@
                   <button class="btn" onclick="alert('Favor redistribuir o processo.'); return false;"><span class="text-error">Necessita redistribuição</span></button>
                   <button class="btn" onclick="$('#analisaCoisaJulgada').show('slow'); $('.pendenciaJuntarDocumentosAnteriores').show('slow'); return false;"><span class="text-success">Não necessita de redistribuição</button>
                 </div>
+                <button class="btn" onClick="return false"><i class="icon-question-sign"></i> Ajuda</button>
                 <button class="btn" data-toggle="modal" data-target="#modal_ajuda_redistribuicao"><i class="icon-question-sign"></i> Ajuda</button>
               </div>
               <div id="analisaCoisaJulgada">
