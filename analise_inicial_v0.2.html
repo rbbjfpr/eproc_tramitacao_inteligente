@@ -349,18 +349,18 @@
               </form>
             </div>
 
-            <form class="form-inline" id="form_memo">
+            <form class="form-inline hidden" id="form_memo">
               <div class="well">
-                <p style="margin: 0">Quem está analisando esta inicial: <br><input type="text" class="input-block-level required" value="" name="quem_analisou_inicial" id="quem_analisou"></p>
+                <p style="margin: 0">Quem está analisando esta inicial: <br><input type="text" class="input-block-level required" value="Felipe Benali" name="quem_analisou_inicial" id="quem_analisou"></p>
               </div>
 
               <div class="well">
                 <!-- <p>Concessão ou restabelecimento: <select><option></option><option>Concessão</option><option>Restabelecimento</option></select></p> -->
-                <p><b>Número do Processo</b>: <input type="text" autocomplete="off" name="numero" id="memo_processo" class="required"></p>
-                <p><b>Nome do autor</b>: <input type="text" autocomplete="off" name="nome" id="memo_autor" class="required"></p>
-                <p><b>Especialidade da perícia</b>: <input type="text" autocomplete="off" id="memo_especialidade" class="required"></p>
-                <p><b>APS de</b>: <input type="text" id="memo_aps" autocomplete="off" name="aps" class="required"></p>
-                <p><b>Número do Benefício</b>: <input type="text" autocomplete="off" id="memo_nb" name="nb" class="required"></p>
+                <p><b>Número do Processo</b>: <input type="text" autocomplete="off" name="numero" id="memo_processo" class="required" value="12345"></p>
+                <p><b>Nome do autor</b>: <input type="text" autocomplete="off" name="nome" id="memo_autor" class="required" value="Fulano de Tal"></p>
+                <p><b>Especialidade da perícia</b>: <input type="text" autocomplete="off" id="memo_especialidade" class="required" value="ortopedia"></p>
+                <p><b>APS de</b>: <input type="text" id="memo_aps" autocomplete="off" name="aps" class="required" value="Maringá"></p>
+                <p><b>Número do Benefício</b>: <input type="text" autocomplete="off" id="memo_nb" name="nb" class="required" value ="500455323"></p>
                 <p>Outras anotações do memo (opcional):</p>
                 <textarea class="input-block-level" style="height: 100px" id="memo_outros"></textarea>
               </div>
@@ -383,8 +383,9 @@
             <textarea id="editor_texto_final" rows="6" class="btn-block ckeditor"></textarea>
             
             <!--  <button class="btn btn-primary btn-large" id="copiar_ato" data-clipboard-target="#cke_2_contents">Copiar ato</button> -->
-            <h3 style="margin-top: 12px" id="scrollToHere">Texto do memo:</h3>
-            <textarea style="height: 100px; width: 331px;" id="texto_do_memo"></textarea>
+            <div id="scrollToHere"></div>
+            <h3 style="margin-top: 12px" id="scrollToHere" class="hidden">Texto do memo:</h3>
+            <textarea style="height: 100px; width: 331px;" id="texto_do_memo" class="hidden"></textarea>
             <div class="caixaDoLembrete" style="display: none">
               <h3 style="margin-top: 12px">Texto do lembrete:</h3>
               <textarea style="height: 100px; width: 331px;"></textarea>
@@ -431,8 +432,8 @@
                 <p class="pendenciaJuntarDocumentosAnteriores" style="display: none">
                   <label class="checkbox" ><input type="checkbox" autocomplete="off"> Juntar documentos do processo anterior (INICIAL, LAUDO, SENTENÇA e VOTO) </label>
                 </p>
-                <p>Salvar na pasta da rede o arquivo para marcação de perícia com o seguinte nome:</p>
-                <input type="text" class="input-block-level" id="nome_do_arquivo">
+                <p class="hidden">Salvar na pasta da rede o arquivo para marcação de perícia com o seguinte nome:</p>
+                <input type="text" class="input-block-level hidden" id="nome_do_arquivo">
               </form>
             </div>
           </div> <!-- Editor final -->
