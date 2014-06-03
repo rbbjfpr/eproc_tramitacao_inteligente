@@ -81,7 +81,8 @@
 			var match = /^templates\.(\d+)\.(title|html)$/.exec(n);
 			if (match) {
 				var numero, campo;
-				[, numero, campo] = match;
+				numero = match[1];
+				campo = match[2];
 				if (! (numero in templates)) {
 					templates[numero] = {};
 				}
